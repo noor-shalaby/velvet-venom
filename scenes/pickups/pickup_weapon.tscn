@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg16074l4ym1u"]
+
+[ext_resource type="PackedScene" uid="uid://cncwp0rjs6cve" path="res://scenes/pickups/pickup.tscn" id="1_hmlpx"]
+[ext_resource type="Script" uid="uid://btj5ode7rxrly" path="res://scripts/pickups/pickup_weapon.gd" id="2_q10w8"]
+
+[node name="PickupWeapon" instance=ExtResource("1_hmlpx")]
+script = ExtResource("2_q10w8")
+weapon = "machinegun"
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(1.2, 1.2)
+
+[node name="CollisionShape" parent="." index="1"]
+scale = Vector2(1.2, 1.2)

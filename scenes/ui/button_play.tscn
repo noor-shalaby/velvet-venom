@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw5pevb5eulst"]
+
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="1_1re8u"]
+[ext_resource type="Script" uid="uid://iqj2etqmf0ya" path="res://scripts/ui/button_play.gd" id="2_lbh0p"]
+
+[node name="PlayButton" instance=ExtResource("1_1re8u")]
+text = "Play"
+script = ExtResource("2_lbh0p")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

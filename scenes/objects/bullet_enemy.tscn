@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb2jamqa27vhl"]
+
+[ext_resource type="PackedScene" uid="uid://durccheqs6y0n" path="res://scenes/objects/bullet.tscn" id="1_v81wq"]
+
+[node name="BulletEnemy" instance=ExtResource("1_v81wq")]
+
+[node name="Hitbox" parent="." index="1"]
+collision_layer = 64
+collision_mask = 5

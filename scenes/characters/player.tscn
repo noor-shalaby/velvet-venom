@@ -1,0 +1,182 @@
+[gd_scene load_steps=20 format=3 uid="uid://crghlnx0jovtx"]
+
+[ext_resource type="Script" uid="uid://b2j188c5v2h38" path="res://scripts/characters/player.gd" id="1_fjrip"]
+[ext_resource type="Texture2D" uid="uid://b4dhh1mgajgm6" path="res://assets/characters/hitman1/hitman1_gun.png" id="1_lowyb"]
+[ext_resource type="Texture2D" uid="uid://bm7xrq7ursf2b" path="res://assets/characters/hitman1/hitman1_hold.png" id="2_gmfve"]
+[ext_resource type="Texture2D" uid="uid://bqmin5y7ss8l2" path="res://assets/characters/hitman1/hitman1_silencer.png" id="2_pg28d"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="3_2l4js"]
+[ext_resource type="Texture2D" uid="uid://3yhrw8snmnoi" path="res://assets/characters/hitman1/hitman1_machinegun.png" id="3_ehvfd"]
+[ext_resource type="Texture2D" uid="uid://bo6bk8ektp78l" path="res://assets/characters/hitman1/hitman1_gun_reload.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://dk8nxn3gf03de" path="res://assets/characters/hitman1/hitman1_machinegun_reload.png" id="4_bktlc"]
+[ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="6_21lrq"]
+[ext_resource type="Texture2D" uid="uid://bpxyyyoj0lvg" path="res://assets/characters/hitman1/hitman1_shotgun.png" id="7_smehm"]
+[ext_resource type="Texture2D" uid="uid://b7a6aubc4gb5l" path="res://assets/characters/hitman1/hitman1_shotgun_reload.png" id="8_ur7pv"]
+
+[sub_resource type="Curve" id="Curve_y4r1p"]
+_data = [Vector2(0, 0.496188), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7vyk4"]
+curve = SubResource("Curve_y4r1p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4r1p"]
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_7vyk4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2l4js"]
+resource_local_to_scene = true
+shader = ExtResource("3_2l4js")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmfve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lowyb")
+}],
+"loop": false,
+"name": &"gun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y4r1p")
+}],
+"loop": false,
+"name": &"gun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pg28d")
+}],
+"loop": false,
+"name": &"gun_silencer",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gmfve")
+}],
+"loop": false,
+"name": &"hold",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ehvfd")
+}],
+"loop": false,
+"name": &"machinegun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bktlc")
+}],
+"loop": false,
+"name": &"machinegun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_smehm")
+}],
+"loop": false,
+"name": &"shotgun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ur7pv")
+}],
+"loop": false,
+"name": &"shotgun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_21lrq")
+}],
+"loop": false,
+"name": &"stand",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
+radius = 13.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
+radius = 13.0
+height = 46.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l4js"]
+radius = 13.0
+height = 46.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 81
+motion_mode = 1
+script = ExtResource("1_fjrip")
+
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+position = Vector2(10, 0)
+emitting = false
+amount = 4
+texture = ExtResource("6_21lrq")
+lifetime = 0.16
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y4r1p")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2l4js")
+position = Vector2(10, 0)
+sprite_frames = SubResource("SpriteFrames_gmfve")
+animation = &"gun"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fjrip")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(2, 0)
+collision_layer = 4
+collision_mask = 64
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_fjrip")
+debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(34, 9.5)
+gizmo_extents = 8.0
+
+[node name="BloodSucker" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 256
+
+[node name="CollisionShape" type="CollisionShape2D" parent="BloodSucker"]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_2l4js")
+
+[node name="FireDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashDuration" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_exited" from="BloodSucker" to="." method="_on_blood_sucker_area_exited"]
+[connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

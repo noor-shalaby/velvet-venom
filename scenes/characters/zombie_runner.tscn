@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnd3h2kcjhckq"]
+
+[ext_resource type="PackedScene" uid="uid://c8klnxe2lr3ma" path="res://scenes/characters/zombie_norm.tscn" id="1_pglkk"]
+[ext_resource type="Script" uid="uid://2awv6dpbvewt" path="res://scripts/characters/zombie_runner.gd" id="2_e4rk7"]
+[ext_resource type="Texture2D" uid="uid://c62pvtxkwma4a" path="res://assets/characters/zombie/zombie1.png" id="3_e4rk7"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="4_cdpk5"]
+
+[sub_resource type="Curve" id="Curve_e4rk7"]
+_data = [Vector2(0, 0.496188), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d2wvv"]
+curve = SubResource("Curve_e4rk7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cdpk5"]
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_d2wvv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdpk5"]
+resource_local_to_scene = true
+shader = ExtResource("4_cdpk5")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[node name="ZombieRunner" instance=ExtResource("1_pglkk")]
+script = ExtResource("2_e4rk7")
+turning_speed = 0.6
+patrol_speed = 120.0
+chase_speed = 600.0
+damage = 30
+attack_speed = 3.0
+knockback_force = 9600
+max_hp = 50.0
+
+[node name="DashParticles" type="GPUParticles2D" parent="." index="0"]
+position = Vector2(3, 0)
+emitting = false
+amount = 4
+texture = ExtResource("3_e4rk7")
+lifetime = 0.16
+process_material = SubResource("ParticleProcessMaterial_cdpk5")
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_cdpk5")

@@ -1,0 +1,77 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://yysv60ig3y48"]
+
+[ext_resource type="Texture2D" uid="uid://bh2wultu3ns8m" path="res://assets/characters/zombie_gunner/zombie1_gun.png" id="1_olwfr"]
+[ext_resource type="Texture2D" uid="uid://d1yb6bvf7w70d" path="res://assets/characters/zombie_gunner/zombie1_hold.png" id="2_bmcj0"]
+[ext_resource type="Texture2D" uid="uid://dvm3mwnx324b0" path="res://assets/characters/zombie_gunner/zombie1_gun_reload.png" id="2_pks02"]
+[ext_resource type="Texture2D" uid="uid://buq1kg8tw4u8k" path="res://assets/characters/zombie_gunner/zombie1_machinegun.png" id="3_xd5la"]
+[ext_resource type="Texture2D" uid="uid://r1ra86238as7" path="res://assets/characters/zombie_gunner/zombie1_machinegun_reload.png" id="4_pks02"]
+[ext_resource type="Texture2D" uid="uid://bx0m8inshikna" path="res://assets/characters/zombie_gunner/zombie1_stand.png" id="5_r4f3n"]
+[ext_resource type="Texture2D" uid="uid://nool4u238ft" path="res://assets/characters/zombie_gunner/zombie1_shotgun.png" id="5_xd5la"]
+[ext_resource type="Texture2D" uid="uid://cs00v34se0pm3" path="res://assets/characters/zombie_gunner/zombie1_shotgun_reload.png" id="6_pks02"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_olwfr")
+}],
+"loop": false,
+"name": &"gun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pks02")
+}],
+"loop": false,
+"name": &"gun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bmcj0")
+}],
+"loop": false,
+"name": &"hold",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xd5la")
+}],
+"loop": false,
+"name": &"machinegun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pks02")
+}],
+"loop": false,
+"name": &"machinegun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xd5la")
+}],
+"loop": false,
+"name": &"shotgun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pks02")
+}],
+"loop": false,
+"name": &"shotgun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_r4f3n")
+}],
+"loop": false,
+"name": &"stand",
+"speed": 0.0
+}]

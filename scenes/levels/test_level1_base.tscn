@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6rg2mcrxwc8e"]
+
+[ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_gd7ii"]
+[ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player.tscn" id="2_s4v1q"]
+[ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_wc6hh"]
+[ext_resource type="PackedScene" uid="uid://c8klnxe2lr3ma" path="res://scenes/characters/zombie_norm.tscn" id="3_gd7ii"]
+[ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tile_map.tscn" id="3_wc6hh"]
+[ext_resource type="PackedScene" uid="uid://dnd3h2kcjhckq" path="res://scenes/characters/zombie_runner.tscn" id="4_mwkxh"]
+[ext_resource type="PackedScene" uid="uid://boqei7v8w8q57" path="res://scenes/characters/zombie_brawler.tscn" id="5_s4v1q"]
+[ext_resource type="PackedScene" uid="uid://bg16074l4ym1u" path="res://scenes/pickups/pickup_weapon.tscn" id="7_ncwps"]
+
+[sub_resource type="Environment" id="Environment_s4v1q"]
+background_mode = 3
+tonemap_mode = 1
+glow_blend_mode = 0
+glow_hdr_threshold = 1.33
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lnu2h"]
+vertices = PackedVector2Array(1584, 240, 1456, 240, 1456, 16, 1584, 16, 1584, 848, 368, 848, 1328, 624, 1392, 624, 528, 624, 368, 784, 368, 720, 368, 624, 464, 624, 464, 560, 368, 560, 368, 16, 592, 16, 592, 432, 656, 432, 656, 16, 1392, 16, 1392, 304, 1584, 304, 1584, 368, 1392, 368, 1392, 432, 1584, 432, 1584, 560, 1392, 560, 1328, 560, 656, 496, 1584, 624, 656, 560, 592, 496, 528, 560, 592, 560, 304, 720, 304, 784, 304, 912, 16, 912, 16, 16, 304, 16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 6, 5, 9), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(18, 21, 24), PackedInt32Array(18, 24, 25), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(18, 25, 28, 29, 30), PackedInt32Array(7, 31, 4), PackedInt32Array(28, 7, 6, 29), PackedInt32Array(29, 32, 30), PackedInt32Array(17, 18, 30, 33), PackedInt32Array(13, 17, 33, 34), PackedInt32Array(33, 35, 34), PackedInt32Array(12, 13, 34, 8), PackedInt32Array(12, 8, 9, 10), PackedInt32Array(36, 10, 9, 37), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(36, 37, 40), PackedInt32Array(41, 36, 40)])
+parsed_collision_mask = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"nav"
+agent_radius = 16.0
+
+[node name="Game" type="Node2D"]
+
+[node name="HUD" parent="." node_paths=PackedStringArray("host") instance=ExtResource("1_gd7ii")]
+visible = false
+host = NodePath("../Player")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_wc6hh")]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s4v1q")
+
+[node name="TileMap" parent="." instance=ExtResource("3_wc6hh")]
+
+[node name="NavRegion" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_lnu2h")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(800, 450)
+zoom = Vector2(1.2, 1.2)
+
+[node name="Player" parent="." instance=ExtResource("2_s4v1q")]
+position = Vector2(233, 413)
+
+[node name="Zombies" type="Node2D" parent="."]
+
+[node name="Zombie" parent="Zombies" instance=ExtResource("3_gd7ii")]
+position = Vector2(1157, 515)
+
+[node name="Zombie2" parent="Zombies" instance=ExtResource("3_gd7ii")]
+position = Vector2(753, 776)
+
+[node name="Zombie3" parent="Zombies" instance=ExtResource("3_gd7ii")]
+position = Vector2(1020, 730)
+
+[node name="Zombie4" parent="Zombies" instance=ExtResource("3_gd7ii")]
+position = Vector2(1337, 698)
+
+[node name="Zombie5" parent="Zombies" instance=ExtResource("3_gd7ii")]
+position = Vector2(848, 823)
+
+[node name="ZombieRunner" parent="Zombies" instance=ExtResource("4_mwkxh")]
+position = Vector2(480, 403)
+
+[node name="ZombieRunner2" parent="Zombies" instance=ExtResource("4_mwkxh")]
+position = Vector2(577, 767)
+
+[node name="ZombieBrawler" parent="Zombies" instance=ExtResource("5_s4v1q")]
+position = Vector2(971, 162)
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="PickupWeapon" parent="Pickups" instance=ExtResource("7_ncwps")]
+position = Vector2(239, 209)
+
+[node name="PickupWeapon2" parent="Pickups" instance=ExtResource("7_ncwps")]
+position = Vector2(239, 162)
+weapon = "shotgun"
+
+[editable path="TileMap"]

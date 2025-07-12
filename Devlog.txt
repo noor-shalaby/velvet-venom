@@ -1,0 +1,112 @@
+Day 7 - FRI 27/6/2025
+
+- added blood splatter effect to Player
+- added one more sprite texture for the zombie to randomly choose from
+- added blood explosion particles death effect to Player
+- improved and simplified code
+- added blood pool death effect
+- HIGHLIGHT: developed the zombies to patrol when they don't have a target instead of just standing still
+
+
+Day 8 - SAT 28/6/2025
+
+- animated the blood pool so it slowly scales up a little after appearing
+- added multishot, spread and wall puncture as properties to all weapons
+- added a VisibleOnScreenEnabler2D node to the zombie to improve performance
+
+
+Day 9 - SUN 29/6/2025
+
+- developed the zombies to share their target with nearby zombies
+- added a small blood stain that the blood splatter leaves behind
+- developed the dash to dash in the direction of the mouse cursor if there is no input direction instead of just standing still
+- added a white blink effect on hit
+- added reload animations
+
+
+Day 10 - MON 30/6/2025
+
+- added a ghost trail particle effect to the dash
+
+
+Day 11 - TUE 1/7/2025
+
+- HIGHLIGHT: made a basic Gunner Zombie
+
+
+Day 12 - WED 2/7/2025
+
+- made the zombies turn and rotate via lerp()
+- added a variable called precision for the Gunner Zombies to determine how fast they should turn while shooting at the Player
+
+
+Day 13 - THU 3/7/2025
+
+- fixed a bug where the Gunner Zombie sometimes attempted to shoot at the Player while the weapon is actually stuck to a wall
+- developed the Gunner Zombie to switch to melee mode when the Player is close enough and the zombie is reloading
+- rewrote the dash code to have a duration and speed instead of being an instantaneous addition to the velocity vector
+- added i-frames to the dash
+- made the reload animations for the Gunner Zombie
+
+
+Day 14 - FRI 4/7/2025
+
+- made a new type of zombie: Runner Zombie, which is basically a Zombie Norm but with more speed, attack speed, damage and knockback force but with a lil less hp and emits ghost trail particles when on the chase
+- made the Gunner Zombie a lil slower than the Zombie Norm, which made more sense
+- fixed a bug where you can reload even with a full mag
+- fixed a bug where you can restart the reload while already in the middle of reloading
+- improved the Player's code a little
+
+
+Day 15 - SAT 5/7/2025
+
+- coded all the blood vfx to scale according to the host's scale
+- made a new type of zombie: Brawler Zombie, which is basically a Zombie Norm that's a lil bigger with more damage and knockback force and a lot more hp, but a lil slower. it attacks by punching instead of biting and it's not affected by knockback
+- added the ability to interrupt a reload and start shooting unless the mag is empty
+- redid the blink hit effect with a shader instead of playing with self modulate using an animation player
+
+
+Day 16 - SUN 6/7/2025
+
+- used a Reinhard WorldEnvironment
+
+
+Day 17 - MON 7/7/2025
+
+- made a basic HUD with a basic HP Bar
+- added live equipped weapon texture and mag to the HUD
+- added a very basic Pickup System and Pickup Weapons
+- made a basic Pause Menu with a Resume Button and a Quit Button
+
+
+Day 18 - TUE 8/7/2025
+
+- made a basic Main Menu
+- made a Play and a Quit Buttons in their own separate inherited scenes
+- saved the TileMap into its own scene, making future edits much easier
+- fixed a bug where blood drew on top of pickups, by adjusting the Z Index of some scenes
+
+
+Day 19 - WED 9/7/2025
+
+- created a more proper prototype level
+- created a basic camera system
+- added a lil lifesteal to all the Zombies' melee attacks equal to their damage. no vfx for it at all yet though
+- duct-taped an error where the game would crash when you attempt to switch weapon using the scroll wheel and the index iterator landed on a null weapon in the held_weapons array
+- fixed a bug where if you get away from an enemy to the point that it exits the viewport, it would pause. by freeing the VisibleOnScreenEnabler2D node on entering the screen
+- created a timer for the Zombie Gunner to give it a lil time before opening fire on entering the screen and prevented it from shooting while off-screen
+
+
+Day 20 - THU 10/7/2025
+
+- fixed the duct-taped scroll switch weapon bug
+- added a small drag to the camera in the direction of the mouse
+- created a Restart Button
+- created a basic Death Screen
+
+
+Day 21 - FRI 11/7/2025
+
+- added a Restart and a Main Menu Buttons to the Pause Menu
+- HIGHLIGHT: added the basic mechanic of Blood Sucking to the Player
+- debugged the heck outta this new mechanic

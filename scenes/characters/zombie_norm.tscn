@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8klnxe2lr3ma"]
+
+[ext_resource type="Texture2D" uid="uid://c62pvtxkwma4a" path="res://assets/characters/zombie/zombie1.png" id="1_1vlb3"]
+[ext_resource type="Script" uid="uid://ddvdf78pxkovx" path="res://scripts/characters/zombie_norm.gd" id="1_httt1"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="2_i0jrm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0jrm"]
+resource_local_to_scene = true
+shader = ExtResource("2_i0jrm")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vlb3"]
+radius = 13.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_httt1"]
+radius = 13.0
+height = 46.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xepks"]
+radius = 7.0
+height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_httt1"]
+radius = 760.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xepks"]
+radius = 128.0
+
+[node name="ZombieNorm" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 16
+collision_mask = 27
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_httt1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i0jrm")
+position = Vector2(3, 0)
+texture = ExtResource("1_1vlb3")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1vlb3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(2, 0)
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_httt1")
+debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+position = Vector2(15, 0)
+collision_layer = 64
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="AttackHitbox"]
+shape = SubResource("CapsuleShape2D_xepks")
+debug_color = Color(0.823529, 0.196078, 0.196078, 0.419608)
+
+[node name="AttackDelay" type="Timer" parent="."]
+one_shot = true
+
+[node name="VisionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="VisionArea"]
+shape = SubResource("CircleShape2D_httt1")
+debug_color = Color(0.509804, 0.509804, 0.196078, 0.419608)
+
+[node name="CommArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 16
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CommArea"]
+shape = SubResource("CircleShape2D_xepks")
+debug_color = Color(0.509804, 0.509804, 0.196078, 0.419608)
+
+[node name="CommEye" type="RayCast2D" parent="."]
+enabled = false
+target_position = Vector2(128, 0)
+collision_mask = 16
+
+[node name="EyeGroup" type="Node2D" parent="."]
+
+[node name="EyeLeft" type="RayCast2D" parent="EyeGroup"]
+position = Vector2(15, -11)
+enabled = false
+target_position = Vector2(760, 0)
+collision_mask = 3
+
+[node name="EyeMid" type="RayCast2D" parent="EyeGroup"]
+position = Vector2(15, 0)
+enabled = false
+target_position = Vector2(760, 0)
+collision_mask = 3
+
+[node name="EyeRight" type="RayCast2D" parent="EyeGroup"]
+position = Vector2(15, 11)
+enabled = false
+target_position = Vector2(760, 0)
+collision_mask = 3
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 25.0
+target_desired_distance = 50.0
+path_max_distance = 150.0
+
+[node name="NavTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3.5, -4.76837e-07)
+scale = Vector2(1.75, 2.1)
+
+[node name="VisibleOnScreenEnabler" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(3.5, 0)
+scale = Vector2(1.75, 2.15)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_area_entered"]
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]
+[connection signal="body_entered" from="CommArea" to="." method="_on_comm_area_body_entered"]
+[connection signal="timeout" from="NavTimer" to="." method="_on_nav_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]

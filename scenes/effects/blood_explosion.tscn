@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs6dxwtk5651p"]
+
+[ext_resource type="Script" uid="uid://dh0cy3r533kme" path="res://scripts/effects/particle_effect.gd" id="1_5ehxj"]
+
+[sub_resource type="Curve" id="Curve_7qcpu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BloodExplosion" type="CPUParticles2D"]
+z_index = -1
+emitting = false
+amount = 128
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.76
+randomness = 0.2
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_7qcpu")
+color = Color(0.823529, 0.0980392, 0, 1)
+script = ExtResource("1_5ehxj")

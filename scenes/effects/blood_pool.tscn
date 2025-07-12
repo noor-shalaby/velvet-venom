@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1twhq540r50"]
+
+[ext_resource type="Texture2D" uid="uid://y63c3ihmg88h" path="res://assets/effects/blood.png" id="1_3klkb"]
+[ext_resource type="Script" uid="uid://bvra2ljupuvrb" path="res://scripts/effects/blood_pool.gd" id="2_tagwb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3klkb"]
+radius = 34.0
+
+[node name="BloodPool" type="Area2D"]
+z_index = -2
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("2_tagwb")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3klkb")
+offset = Vector2(-10, -8)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3klkb")
