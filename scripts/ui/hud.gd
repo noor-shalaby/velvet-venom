@@ -17,8 +17,11 @@ var weapon_textures = {
 
 func _ready():
 	host.connect("hp_changed", update_hp)
-	host.connect("weapon_changed", update_weapon)
-	host.connect("mag_changed", update_mag)
+	
+	if host is PlayerNorm:
+		host.connect("weapon_changed", update_weapon)
+		host.connect("mag_changed", update_mag)
+	
 	show()
 
 

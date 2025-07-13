@@ -1,16 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://crghlnx0jovtx"]
+[gd_scene load_steps=19 format=3 uid="uid://crghlnx0jovtx"]
 
-[ext_resource type="Script" uid="uid://b2j188c5v2h38" path="res://scripts/characters/player.gd" id="1_fjrip"]
-[ext_resource type="Texture2D" uid="uid://b4dhh1mgajgm6" path="res://assets/characters/hitman1/hitman1_gun.png" id="1_lowyb"]
-[ext_resource type="Texture2D" uid="uid://bm7xrq7ursf2b" path="res://assets/characters/hitman1/hitman1_hold.png" id="2_gmfve"]
-[ext_resource type="Texture2D" uid="uid://bqmin5y7ss8l2" path="res://assets/characters/hitman1/hitman1_silencer.png" id="2_pg28d"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="3_2l4js"]
-[ext_resource type="Texture2D" uid="uid://3yhrw8snmnoi" path="res://assets/characters/hitman1/hitman1_machinegun.png" id="3_ehvfd"]
-[ext_resource type="Texture2D" uid="uid://bo6bk8ektp78l" path="res://assets/characters/hitman1/hitman1_gun_reload.png" id="3_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://dk8nxn3gf03de" path="res://assets/characters/hitman1/hitman1_machinegun_reload.png" id="4_bktlc"]
-[ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="6_21lrq"]
-[ext_resource type="Texture2D" uid="uid://bpxyyyoj0lvg" path="res://assets/characters/hitman1/hitman1_shotgun.png" id="7_smehm"]
-[ext_resource type="Texture2D" uid="uid://b7a6aubc4gb5l" path="res://assets/characters/hitman1/hitman1_shotgun_reload.png" id="8_ur7pv"]
+[ext_resource type="Script" uid="uid://rfkwfl0mgko7" path="res://scripts/characters/player_norm.gd" id="1_0antw"]
+[ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="2_08wv4"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="3_0p6hb"]
+[ext_resource type="Texture2D" uid="uid://b4dhh1mgajgm6" path="res://assets/characters/hitman1/hitman1_gun.png" id="4_3y1yt"]
+[ext_resource type="Texture2D" uid="uid://bo6bk8ektp78l" path="res://assets/characters/hitman1/hitman1_gun_reload.png" id="5_ai4ts"]
+[ext_resource type="Texture2D" uid="uid://bqmin5y7ss8l2" path="res://assets/characters/hitman1/hitman1_silencer.png" id="6_2o0a1"]
+[ext_resource type="Texture2D" uid="uid://bm7xrq7ursf2b" path="res://assets/characters/hitman1/hitman1_hold.png" id="7_cm2ys"]
+[ext_resource type="Texture2D" uid="uid://3yhrw8snmnoi" path="res://assets/characters/hitman1/hitman1_machinegun.png" id="8_t1bxu"]
+[ext_resource type="Texture2D" uid="uid://dk8nxn3gf03de" path="res://assets/characters/hitman1/hitman1_machinegun_reload.png" id="9_0lgpr"]
+[ext_resource type="Texture2D" uid="uid://bpxyyyoj0lvg" path="res://assets/characters/hitman1/hitman1_shotgun.png" id="10_e2dg2"]
+[ext_resource type="Texture2D" uid="uid://b7a6aubc4gb5l" path="res://assets/characters/hitman1/hitman1_shotgun_reload.png" id="11_cqces"]
 
 [sub_resource type="Curve" id="Curve_y4r1p"]
 _data = [Vector2(0, 0.496188), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -25,7 +25,7 @@ alpha_curve = SubResource("CurveTexture_7vyk4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2l4js"]
 resource_local_to_scene = true
-shader = ExtResource("3_2l4js")
+shader = ExtResource("3_0p6hb")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
 
@@ -33,7 +33,7 @@ shader_parameter/blink_intensity = 0.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_lowyb")
+"texture": ExtResource("4_3y1yt")
 }],
 "loop": false,
 "name": &"gun",
@@ -41,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_y4r1p")
+"texture": ExtResource("5_ai4ts")
 }],
 "loop": false,
 "name": &"gun_reload",
@@ -49,7 +49,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pg28d")
+"texture": ExtResource("6_2o0a1")
 }],
 "loop": false,
 "name": &"gun_silencer",
@@ -57,7 +57,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gmfve")
+"texture": ExtResource("7_cm2ys")
 }],
 "loop": false,
 "name": &"hold",
@@ -65,7 +65,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ehvfd")
+"texture": ExtResource("8_t1bxu")
 }],
 "loop": false,
 "name": &"machinegun",
@@ -73,7 +73,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_bktlc")
+"texture": ExtResource("9_0lgpr")
 }],
 "loop": false,
 "name": &"machinegun_reload",
@@ -81,7 +81,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_smehm")
+"texture": ExtResource("10_e2dg2")
 }],
 "loop": false,
 "name": &"shotgun",
@@ -89,7 +89,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_ur7pv")
+"texture": ExtResource("11_cqces")
 }],
 "loop": false,
 "name": &"shotgun_reload",
@@ -97,7 +97,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_21lrq")
+"texture": ExtResource("2_08wv4")
 }],
 "loop": false,
 "name": &"stand",
@@ -111,21 +111,17 @@ radius = 13.0
 radius = 13.0
 height = 46.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l4js"]
-radius = 13.0
-height = 46.0
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 81
 motion_mode = 1
-script = ExtResource("1_fjrip")
+script = ExtResource("1_0antw")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 position = Vector2(10, 0)
 emitting = false
 amount = 4
-texture = ExtResource("6_21lrq")
+texture = ExtResource("2_08wv4")
 lifetime = 0.16
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_y4r1p")
@@ -153,14 +149,6 @@ debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
 position = Vector2(34, 9.5)
 gizmo_extents = 8.0
 
-[node name="BloodSucker" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 256
-
-[node name="CollisionShape" type="CollisionShape2D" parent="BloodSucker"]
-position = Vector2(2, 0)
-shape = SubResource("CapsuleShape2D_2l4js")
-
 [node name="FireDelay" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
@@ -175,7 +163,6 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
-[connection signal="area_exited" from="BloodSucker" to="." method="_on_blood_sucker_area_exited"]
 [connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]

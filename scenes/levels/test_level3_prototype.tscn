@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_7ccfl"]
 [ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tile_map.tscn" id="3_to8ug"]
 [ext_resource type="PackedScene" uid="uid://b0hf5ugi8olt6" path="res://scenes/levels/camera.tscn" id="4_uho5g"]
-[ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player.tscn" id="4_vi130"]
 [ext_resource type="PackedScene" uid="uid://c8klnxe2lr3ma" path="res://scenes/characters/zombie_norm.tscn" id="7_to8ug"]
 [ext_resource type="PackedScene" uid="uid://bg16074l4ym1u" path="res://scenes/pickups/pickup_weapon.tscn" id="8_nsah4"]
 [ext_resource type="PackedScene" uid="uid://boqei7v8w8q57" path="res://scenes/characters/zombie_brawler.tscn" id="8_vi130"]
 [ext_resource type="PackedScene" uid="uid://dnd3h2kcjhckq" path="res://scenes/characters/zombie_runner.tscn" id="9_u1smm"]
 [ext_resource type="PackedScene" uid="uid://cknw1aokvic0m" path="res://scenes/characters/zombie_gunner.tscn" id="10_tjf3b"]
+[ext_resource type="PackedScene" uid="uid://byvpqdc4io075" path="res://scenes/characters/player_vamp.tscn" id="10_to8ug"]
 
 [sub_resource type="Environment" id="Environment_s4v1q"]
 background_mode = 3
@@ -60,9 +60,6 @@ limit_top = -2016
 limit_right = 1600
 limit_bottom = 928
 host = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("4_vi130")]
-position = Vector2(100, 796)
 
 [node name="Zombies" type="Node2D" parent="."]
 
@@ -164,5 +161,8 @@ position = Vector2(188, 511)
 [node name="PickupWeapon2" parent="Pickups" instance=ExtResource("8_nsah4")]
 position = Vector2(188, 464)
 weapon = "shotgun"
+
+[node name="Player" parent="." instance=ExtResource("10_to8ug")]
+position = Vector2(124, 808)
 
 [editable path="TileMap"]

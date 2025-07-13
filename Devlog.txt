@@ -110,3 +110,15 @@ Day 21 - FRI 11/7/2025
 - added a Restart and a Main Menu Buttons to the Pause Menu
 - HIGHLIGHT: added the basic mechanic of Blood Sucking to the Player
 - debugged the heck outta this new mechanic
+
+
+Day 22 - SAT 12/7/2025
+
+- split the player into human and vampire classes which inherit from a base Player class
+- created Bloodshot which is basically a Bullet made outta blood for the PlayerVamp class to use
+- finished the PlayerVamp shooting logic with a machinegun-like primary fire mode and a shotgun-like alternative fire mode
+
+
+Day 23 - SUN 13/7/2025
+
+-

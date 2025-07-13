@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://doctmcuyp1rm6"]
 
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_aqqae"]
-[ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player.tscn" id="2_aqqae"]
+[ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player_norm.tscn" id="2_aqqae"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_r6kcv"]
 [ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tile_map.tscn" id="3_aqqae"]
 [ext_resource type="PackedScene" uid="uid://cknw1aokvic0m" path="res://scenes/characters/zombie_gunner.tscn" id="4_vjrko"]

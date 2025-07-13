@@ -17,8 +17,11 @@ func _ready():
 
 
 func _on_body_entered(body: Node2D):
-	super(body)
-	
-	if body is Player:
+	if body is PlayerNorm:
 		body.held_weapons[body.weapons[weapon]["index"]] = body.weapons[weapon]
 		body.held_weapon = body.held_weapons[body.weapons[weapon]["index"]]
+		
+		var tween: Tween = get_tree().create_tween().set_parallel(true)
+		tween.tween_property(self, "scale", Vector2.ZERO, animation_speed)
+		tween.tween_property(self, "modulate:a", 0.0, animation_speed)
+		tween.connect("finished", queue_free)

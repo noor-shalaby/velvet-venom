@@ -1,0 +1,86 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://chlhhtt5c7ouf"]
+
+[ext_resource type="Texture2D" uid="uid://b4dhh1mgajgm6" path="res://assets/characters/hitman1/hitman1_gun.png" id="1_lw16k"]
+[ext_resource type="Texture2D" uid="uid://bo6bk8ektp78l" path="res://assets/characters/hitman1/hitman1_gun_reload.png" id="2_l83hp"]
+[ext_resource type="Texture2D" uid="uid://bqmin5y7ss8l2" path="res://assets/characters/hitman1/hitman1_silencer.png" id="3_mbvbo"]
+[ext_resource type="Texture2D" uid="uid://bm7xrq7ursf2b" path="res://assets/characters/hitman1/hitman1_hold.png" id="4_o8f46"]
+[ext_resource type="Texture2D" uid="uid://3yhrw8snmnoi" path="res://assets/characters/hitman1/hitman1_machinegun.png" id="5_qucav"]
+[ext_resource type="Texture2D" uid="uid://dk8nxn3gf03de" path="res://assets/characters/hitman1/hitman1_machinegun_reload.png" id="6_abe1f"]
+[ext_resource type="Texture2D" uid="uid://bpxyyyoj0lvg" path="res://assets/characters/hitman1/hitman1_shotgun.png" id="7_to4d0"]
+[ext_resource type="Texture2D" uid="uid://b7a6aubc4gb5l" path="res://assets/characters/hitman1/hitman1_shotgun_reload.png" id="8_yoq83"]
+[ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="9_pqufv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lw16k")
+}],
+"loop": false,
+"name": &"gun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l83hp")
+}],
+"loop": false,
+"name": &"gun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mbvbo")
+}],
+"loop": false,
+"name": &"gun_silencer",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o8f46")
+}],
+"loop": false,
+"name": &"hold",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qucav")
+}],
+"loop": false,
+"name": &"machinegun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_abe1f")
+}],
+"loop": false,
+"name": &"machinegun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_to4d0")
+}],
+"loop": false,
+"name": &"shotgun",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_yoq83")
+}],
+"loop": false,
+"name": &"shotgun_reload",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pqufv")
+}],
+"loop": false,
+"name": &"stand",
+"speed": 0.0
+}]
