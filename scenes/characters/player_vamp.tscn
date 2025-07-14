@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://cql3bkcybbjuo" path="res://scripts/characters/player_vamp.gd" id="1_65k6d"]
 [ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="2_ti7kl"]
 [ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="3_q5ydn"]
-[ext_resource type="Texture2D" uid="uid://b2xvdm7rc7np5" path="res://assets/characters/hitman1/hitman1_arm_right.png" id="4_65k6d"]
+[ext_resource type="Texture2D" uid="uid://dctyxa7x5eumm" path="res://assets/characters/hitman1/hitman1_left_arm.png" id="4_65k6d"]
+[ext_resource type="Texture2D" uid="uid://dslsoowltex5y" path="res://assets/characters/hitman1/hitman1_right_arm.png" id="5_xh4w1"]
 
 [sub_resource type="Curve" id="Curve_y4r1p"]
 _data = [Vector2(0, 0.496188), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -21,25 +22,6 @@ resource_local_to_scene = true
 shader = ExtResource("3_q5ydn")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xh4w1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_65k6d")
-}],
-"loop": false,
-"name": &"fire",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ti7kl")
-}],
-"loop": false,
-"name": &"stand",
-"speed": 0.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 radius = 13.0
@@ -59,7 +41,7 @@ motion_mode = 1
 script = ExtResource("1_65k6d")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
-modulate = Color(1, 0, 0, 1)
+modulate = Color(1, 0, 0, 0.490196)
 position = Vector2(10, 0)
 emitting = false
 texture = ExtResource("2_ti7kl")
@@ -67,12 +49,22 @@ lifetime = 0.16
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_y4r1p")
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_2l4js")
 position = Vector2(10, 0)
-sprite_frames = SubResource("SpriteFrames_xh4w1")
-animation = &"stand"
-autoplay = "stand"
+texture = ExtResource("2_ti7kl")
+
+[node name="ArmLeft" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_2l4js")
+position = Vector2(10, 0)
+texture = ExtResource("4_65k6d")
+
+[node name="ArmRight" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_2l4js")
+position = Vector2(10, 0)
+texture = ExtResource("5_xh4w1")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fjrip")

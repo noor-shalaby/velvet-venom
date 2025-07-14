@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var dash_cooldown := 0.2
 
 @export_category("Stats")
-@export var hp_max := 100.0
+@export var hp_max := 100
 var hp := hp_max:
 	set = set_hp
 func set_hp(new_hp):
@@ -46,7 +46,7 @@ var death_screen_scene = preload("uid://bomjpnrcspvgr")
 
 @onready var tree: SceneTree = get_tree()
 @onready var game: Node2D = $/root/Game
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var sprite = $Sprite
 @onready var hitbox: Area2D = $Hitbox
 @onready var muzzle: Marker2D = $Muzzle
 @onready var fire_delay: Timer = $FireDelay
@@ -124,7 +124,7 @@ func blink():
 	tween.tween_method(set_blink_shader_intensity, 1.32, 0.0, 0.2)
 
 func set_blink_shader_intensity(new_value):
-	animated_sprite.material.set_shader_parameter("blink_intensity", new_value)
+	sprite.material.set_shader_parameter("blink_intensity", new_value)
 
 
 func _on_fire_delay_timeout():

@@ -8,6 +8,7 @@ Day 7 - FRI 27/6/2025
 - HIGHLIGHT: developed the zombies to patrol when they don't have a target instead of just standing still
 
 
+
 Day 8 - SAT 28/6/2025
 
 - animated the blood pool so it slowly scales up a little after appearing
@@ -56,6 +57,7 @@ Day 14 - FRI 4/7/2025
 - fixed a bug where you can reload even with a full mag
 - fixed a bug where you can restart the reload while already in the middle of reloading
 - improved the Player's code a little
+
 
 
 Day 15 - SAT 5/7/2025
@@ -112,13 +114,24 @@ Day 21 - FRI 11/7/2025
 - debugged the heck outta this new mechanic
 
 
+
 Day 22 - SAT 12/7/2025
 
-- split the player into human and vampire classes which inherit from a base Player class
+- split the player into human and vampire subclasses which inherit from a Player superclass
 - created Bloodshot which is basically a Bullet made outta blood for the PlayerVamp class to use
 - finished the PlayerVamp shooting logic with a machinegun-like primary fire mode and a shotgun-like alternative fire mode
+- shaded the dash particles with a lil red for the PlayerVamp
 
 
 Day 23 - SUN 13/7/2025
 
--
+- coded the PlayerVamp's right arm to show when shooting and the left arm to show when sucking or using any future abilities
+- coded the HUD's WeaponPanel to hide if the Player is a PlayerVamp
+
+
+Day 24 - MON 14/7/2025
+
+- made the PlayerVamp's ammo (blood) limited
+- added the ability to suck blood pools for blood instead of hp, using the reload input action
+- created a ProgressBar for the blood right under the HPBar
+- added a new gun-like fire type for the PlayerVamp for when you run outta blood

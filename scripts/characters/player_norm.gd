@@ -3,50 +3,50 @@ extends Player
 
 
 var gun = {
-		"name": "gun",
-		"index": 0,
-		"dmg": 20,
-		"fire_rate": 3.0,
-		"multishot": 1,
-		"spread": 20.0,
-		"recoil": 24.0,
-		"knockback_force": 4000,
-		"puncture": 0,
-		"wall_puncture": 0,
-		"mag_max": 8,
-		"mag": 8,
-		"reload_time": 1.16
-		}
+	"name": "gun",
+	"index": 0,
+	"dmg": 20,
+	"fire_rate": 3.0,
+	"multishot": 1,
+	"spread": 20.0,
+	"recoil": 24.0,
+	"knockback_force": 4000,
+	"puncture": 0,
+	"wall_puncture": 0,
+	"mag_max": 8,
+	"mag": 8,
+	"reload_time": 1.16
+}
 var machinegun = {
-		"name": "machinegun",
-		"index": 1,
-		"dmg": 24,
-		"fire_rate": 16.0,
-		"multishot": 1,
-		"spread": 30.0,
-		"recoil": 16.0,
-		"knockback_force": 5000,
-		"puncture": 0,
-		"wall_puncture": 0,
-		"mag_max": 32,
-		"mag": 32,
-		"reload_time": 1.64
-		}
+	"name": "machinegun",
+	"index": 1,
+	"dmg": 24,
+	"fire_rate": 16.0,
+	"multishot": 1,
+	"spread": 30.0,
+	"recoil": 16.0,
+	"knockback_force": 5000,
+	"puncture": 0,
+	"wall_puncture": 0,
+	"mag_max": 32,
+	"mag": 32,
+	"reload_time": 1.64
+}
 var shotgun = {
-		"name": "shotgun",
-		"index": 2,
-		"dmg": 40,
-		"fire_rate": 2.0,
-		"multishot": 8,
-		"spread": 40.0,
-		"recoil": 128.0,
-		"knockback_force": 10000,
-		"puncture": 1,
-		"wall_puncture": 0,
-		"mag_max": 4,
-		"mag": 4,
-		"reload_time": 2.64
-		}
+	"name": "shotgun",
+	"index": 2,
+	"dmg": 40,
+	"fire_rate": 2.0,
+	"multishot": 8,
+	"spread": 40.0,
+	"recoil": 128.0,
+	"knockback_force": 10000,
+	"puncture": 1,
+	"wall_puncture": 0,
+	"mag_max": 4,
+	"mag": 4,
+	"reload_time": 2.64
+}
 
 var weapons = {
 	"gun": gun,
@@ -66,7 +66,7 @@ func set_held_weapon(new_held_weapon):
 	held_weapon = new_held_weapon
 	emit_signal("weapon_changed", held_weapon["name"])
 	emit_signal("mag_changed", held_weapon["mag"])
-	animated_sprite.play(held_weapon["name"])
+	sprite.play(held_weapon["name"])
 	reload_timer.stop()
 	if held_weapon["mag"] == 0:
 		reload()
@@ -107,7 +107,7 @@ func _physics_process(delta):
 		fire_delay.start(1.0/held_weapon["fire_rate"])
 		
 		reload_timer.stop()
-		animated_sprite.play(held_weapon["name"])
+		sprite.play(held_weapon["name"])
 		
 		held_weapon["mag"] -= 1
 		emit_signal("mag_changed", held_weapon["mag"])
@@ -167,12 +167,12 @@ func _unhandled_input(event: InputEvent):
 
 func reload():
 	reload_timer.start(held_weapon["reload_time"])
-	animated_sprite.play(held_weapon["name"] + "_reload")
+	sprite.play(held_weapon["name"] + "_reload")
 
 
 func _on_reload_timer_timeout():
 	held_weapon["mag"] = held_weapon["mag_max"]
-	animated_sprite.play(held_weapon["name"])
+	sprite.play(held_weapon["name"])
 	emit_signal("mag_changed", held_weapon["mag"])
 
 

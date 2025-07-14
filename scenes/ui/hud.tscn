@@ -51,19 +51,40 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="HPBox" type="HBoxContainer" parent="Margin/HPPanel/HPMargin"]
+[node name="VBox" type="VBoxContainer" parent="Margin/HPPanel/HPMargin"]
+layout_mode = 2
+
+[node name="HPBox" type="HBoxContainer" parent="Margin/HPPanel/HPMargin/VBox"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="HPLabel" type="Label" parent="Margin/HPPanel/HPMargin/HPBox"]
+[node name="HPLabel" type="Label" parent="Margin/HPPanel/HPMargin/VBox/HPBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "HP"
 
-[node name="HPBar" type="ProgressBar" parent="Margin/HPPanel/HPMargin/HPBox"]
+[node name="HPBar" type="ProgressBar" parent="Margin/HPPanel/HPMargin/VBox/HPBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_wh2we")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0mwgc")
+value = 64.0
+show_percentage = false
+
+[node name="BloodBox" type="HBoxContainer" parent="Margin/HPPanel/HPMargin/VBox"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Control" type="Control" parent="Margin/HPPanel/HPMargin/VBox/BloodBox"]
+custom_minimum_size = Vector2(33, 0)
+layout_mode = 2
+
+[node name="BloodBar" type="ProgressBar" parent="Margin/HPPanel/HPMargin/VBox/BloodBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

@@ -126,7 +126,7 @@ lifetime = 0.16
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_y4r1p")
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2l4js")
 position = Vector2(10, 0)
 sprite_frames = SubResource("SpriteFrames_gmfve")
