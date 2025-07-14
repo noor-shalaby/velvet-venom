@@ -4,7 +4,6 @@ extends CanvasLayer
 @export var host: CharacterBody2D
 
 
-@onready var tree: SceneTree = get_tree()
 @onready var hp_bar: ProgressBar = $Margin/HPPanel/HPMargin/VBox/HPBox/HPBar
 @onready var blood_box: HBoxContainer = $Margin/HPPanel/HPMargin/VBox/BloodBox
 @onready var blood_bar: ProgressBar = $Margin/HPPanel/HPMargin/VBox/BloodBox/BloodBar
@@ -33,7 +32,7 @@ func _ready():
 
 
 func update_hp(new_value, max_value):
-	var tween = tree.create_tween()
+	var tween = create_tween()
 	tween.tween_property(hp_bar, "value", (float(new_value) / float(max_value)) * 100, 0.1)
 
 func update_weapon(new_weapon_name):
@@ -43,5 +42,5 @@ func update_mag(new_value):
 	mag_label.text = str(new_value)
 
 func update_blood(new_value, max_value):
-	var tween = tree.create_tween()
+	var tween = create_tween()
 	tween.tween_property(blood_bar, "value", (float(new_value) / float(max_value)) * 100, 0.1)

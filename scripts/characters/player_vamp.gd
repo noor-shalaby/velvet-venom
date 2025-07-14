@@ -42,7 +42,7 @@ func set_hp(new_hp):
 
 
 @export var blood_max: int = 128
-var blood := blood_max:
+@export var blood := 96:
 	set = set_blood
 func set_blood(new_value):
 	blood = clamp(new_value, 0, blood_max)
@@ -128,8 +128,7 @@ func _physics_process(delta):
 			start_sucking(blood_pool, "blood")
 		else:
 			blood_pool = blood_sucker.get_overlapping_areas().pop_front()
-	
-	if Input.is_action_pressed("suck") and hp < hp_max and not is_sucking:
+	elif Input.is_action_pressed("suck") and hp < hp_max and not is_sucking:
 		blood_pool = blood_sucker.get_overlapping_areas().pop_front()
 		if blood_pool:
 			start_sucking(blood_pool)

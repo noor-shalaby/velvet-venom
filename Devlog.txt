@@ -135,3 +135,4 @@ Day 24 - MON 14/7/2025
 - added the ability to suck blood pools for blood instead of hp, using the reload input action
 - created a ProgressBar for the blood right under the HPBar
 - added a new gun-like fire type for the PlayerVamp for when you run outta blood
+- simplified the code by creating tweens right away instead of getting the tree first

@@ -44,7 +44,6 @@ var blood_pool_scene = preload("uid://1twhq540r50")
 var death_screen_scene = preload("uid://bomjpnrcspvgr")
 
 
-@onready var tree: SceneTree = get_tree()
 @onready var game: Node2D = $/root/Game
 @onready var sprite = $Sprite
 @onready var hitbox: Area2D = $Hitbox
@@ -120,7 +119,7 @@ func die():
 
 
 func blink():
-	var tween := tree.create_tween()
+	var tween := create_tween()
 	tween.tween_method(set_blink_shader_intensity, 1.32, 0.0, 0.2)
 
 func set_blink_shader_intensity(new_value):
