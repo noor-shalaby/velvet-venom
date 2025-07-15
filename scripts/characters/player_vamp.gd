@@ -39,6 +39,8 @@ func set_hp(new_hp):
 	
 	if new_hp >= hp_max:
 		stop_sucking()
+		if blood < blood_max and not is_sucking:
+			start_sucking(blood_pool, "blood")
 
 
 @export var blood_max: int = 128
@@ -50,6 +52,8 @@ func set_blood(new_value):
 	
 	if new_value >= blood_max:
 		stop_sucking()
+		if hp < hp_max and not is_sucking:
+			start_sucking(blood_pool)
 signal blood_changed
 
 var blood_tween: Tween
@@ -145,6 +149,8 @@ func _unhandled_input(event: InputEvent):
 
 
 func start_sucking(_blood_pool: Area2D, resource := "hp"):
+	stop_sucking()
+	
 	arm_left.show()
 	
 	is_sucking = true
@@ -155,9 +161,9 @@ func start_sucking(_blood_pool: Area2D, resource := "hp"):
 	blood_tween.tween_property(_blood_pool.sprite, "global_scale", Vector2.ZERO, _blood_pool.sprite.global_scale.x * 2.0)
 	match resource:
 		"hp":
-			blood_tween.tween_property(self, "hp", hp + _blood_pool.scale.x * 50, _blood_pool.sprite.global_scale.x * 2.0)
+			blood_tween.tween_property(self, "hp", hp + _blood_pool.sprite.global_scale.x * 50, _blood_pool.sprite.global_scale.x * 2.0)
 		"blood":
-			blood_tween.tween_property(self, "blood", blood + _blood_pool.scale.x * 64, _blood_pool.sprite.global_scale.x * 2.0)
+			blood_tween.tween_property(self, "blood", blood + _blood_pool.sprite.global_scale.x * 64, _blood_pool.sprite.global_scale.x * 2.0)
 	blood_tween.finished.connect(_blood_pool.queue_free)
 
 func stop_sucking():

@@ -136,3 +136,9 @@ Day 24 - MON 14/7/2025
 - created a ProgressBar for the blood right under the HPBar
 - added a new gun-like fire type for the PlayerVamp for when you run outta blood
 - simplified the code by creating tweens right away instead of getting the tree first
+
+
+Day 25 - TUE 15/7/2025
+
+- fixed a bug where each time you released the suck button and held it again for the same blood pool, you would suck more resource out of it
+- developed the PlayerVamp to suck the other attribute when you're sucking one and it fully fills
