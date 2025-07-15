@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cknw1aokvic0m"]
 
 [ext_resource type="Script" uid="uid://c6rkuy7boafnm" path="res://scripts/characters/zombie_gunner.gd" id="1_uri5w"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="2_tpj27"]
-[ext_resource type="SpriteFrames" uid="uid://yysv60ig3y48" path="res://resources/zombie_gunner1.tres" id="2_v7mxi"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="2_tpj27"]
+[ext_resource type="SpriteFrames" uid="uid://yysv60ig3y48" path="res://resources/spritesheets/zombie_gunner1.tres" id="2_v7mxi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tpj27"]
 resource_local_to_scene = true

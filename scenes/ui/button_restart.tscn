@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdy5ljxeo4ne1"]
+
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="1_vqf2m"]
+[ext_resource type="Script" uid="uid://d2in5me036hql" path="res://scripts/ui/button_restart.gd" id="2_3klbk"]
+
+[node name="RestartButton" instance=ExtResource("1_vqf2m")]
+text = "Restart"
+script = ExtResource("2_3klbk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

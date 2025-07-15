@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cql3bkcybbjuo" path="res://scripts/characters/player_vamp.gd" id="1_65k6d"]
 [ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="2_ti7kl"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="3_q5ydn"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="3_q5ydn"]
 [ext_resource type="Texture2D" uid="uid://dctyxa7x5eumm" path="res://assets/characters/hitman1/hitman1_left_arm.png" id="4_65k6d"]
 [ext_resource type="Texture2D" uid="uid://dslsoowltex5y" path="res://assets/characters/hitman1/hitman1_right_arm.png" id="5_xh4w1"]
 

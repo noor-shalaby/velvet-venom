@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://boqei7v8w8q57"]
 
-[ext_resource type="SpriteFrames" uid="uid://0d3d8osuw42l" path="res://resources/zombie_brawler1.tres" id="2_527j7"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="2_c3dow"]
+[ext_resource type="SpriteFrames" uid="uid://0d3d8osuw42l" path="res://resources/spritesheets/zombie_brawler1.tres" id="2_527j7"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="2_c3dow"]
 [ext_resource type="Script" uid="uid://dbnguoap2aqls" path="res://scripts/characters/zombie_brawler.gd" id="2_f1vlm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_527j7"]

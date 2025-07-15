@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rfkwfl0mgko7" path="res://scripts/characters/player_norm.gd" id="1_0antw"]
 [ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="2_08wv4"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/blink.gdshader" id="3_0p6hb"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="3_0p6hb"]
 [ext_resource type="Texture2D" uid="uid://b4dhh1mgajgm6" path="res://assets/characters/hitman1/hitman1_gun.png" id="4_3y1yt"]
 [ext_resource type="Texture2D" uid="uid://bo6bk8ektp78l" path="res://assets/characters/hitman1/hitman1_gun_reload.png" id="5_ai4ts"]
 [ext_resource type="Texture2D" uid="uid://bqmin5y7ss8l2" path="res://assets/characters/hitman1/hitman1_silencer.png" id="6_2o0a1"]

@@ -142,3 +142,5 @@ Day 25 - TUE 15/7/2025
 
 - fixed a bug where each time you released the suck button and held it again for the same blood pool, you would suck more resource out of it
 - developed the PlayerVamp to suck the other attribute when you're sucking one and it fully fills
+- created 2 subfolders in the recources folder: spritesheets and shaders
+- renamed the restart_button scene and script files to button_restart and moved the script from the scenes folder to the scripts folder for consistency folders
