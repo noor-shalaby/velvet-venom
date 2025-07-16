@@ -126,13 +126,13 @@ func _physics_process(delta):
 	if Input.is_action_just_released("fire") or Input.is_action_just_released("fire_alt"):
 		arm_right.hide()
 	
-	if Input.is_action_pressed("reload") and blood < blood_max and not is_sucking:
+	if Input.is_action_pressed("reload") and (blood < blood_max or hp < hp_max) and not is_sucking:
 		blood_pool = blood_sucker.get_overlapping_areas().pop_front()
 		if blood_pool:
 			start_sucking(blood_pool, "blood")
 		else:
 			blood_pool = blood_sucker.get_overlapping_areas().pop_front()
-	elif Input.is_action_pressed("suck") and hp < hp_max and not is_sucking:
+	elif Input.is_action_pressed("suck") and (hp < hp_max or blood < blood_max) and not is_sucking:
 		blood_pool = blood_sucker.get_overlapping_areas().pop_front()
 		if blood_pool:
 			start_sucking(blood_pool)
@@ -159,6 +159,10 @@ func start_sucking(_blood_pool: Area2D, resource := "hp"):
 	blood_tween = create_tween().set_parallel(true)
 	active_blood_tweens.append(blood_tween)
 	blood_tween.tween_property(_blood_pool.sprite, "global_scale", Vector2.ZERO, _blood_pool.sprite.global_scale.x * 2.0)
+	if resource == "hp" and hp >= hp_max:
+		resource = "blood"
+	elif resource == "blood" and blood >= blood_max:
+		resource == "hp"
 	match resource:
 		"hp":
 			blood_tween.tween_property(self, "hp", hp + _blood_pool.sprite.global_scale.x * 50, _blood_pool.sprite.global_scale.x * 2.0)

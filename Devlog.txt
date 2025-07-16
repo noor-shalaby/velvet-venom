@@ -145,3 +145,8 @@ Day 25 - TUE 15/7/2025
 - created 2 subfolders in the recources folder: spritesheets and shaders
 - renamed the restart_button scene and script files to button_restart and moved the script from the scenes folder to the scripts folder for consistency folders
 - improved the pickup and the pickup_weapon code by creating a picked_up() func that handles the animation of the Pickup diappearing and queue_freeing. also created the tween right away instead of getting the SceneTree first
+
+
+Day 26 - WED 16/7/2025
+
+- developed the PlayerVamp to suck the other resource right away when attempting to suck a full one
