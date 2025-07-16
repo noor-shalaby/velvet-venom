@@ -119,8 +119,7 @@ func die():
 
 
 func blink():
-	var tween := create_tween()
-	tween.tween_method(set_blink_shader_intensity, 1.32, 0.0, 0.2)
+	create_tween().tween_method(set_blink_shader_intensity, 1.32, 0.0, 0.2)
 
 func set_blink_shader_intensity(new_value):
 	sprite.material.set_shader_parameter("blink_intensity", new_value)

@@ -150,4 +150,5 @@ Day 25 - TUE 15/7/2025
 Day 26 - WED 16/7/2025
 
 - developed the PlayerVamp to suck the other resource right away when attempting to suck a full one
-- simplified some code a bit by not storing tweens in variables if these tweens are only gonna be used in one line
+- simplified some code a bit by not storing tweens in variables if these tweens are only gonna be used once in one line
+- developed the PlayerVamp to glow red when sucking blood

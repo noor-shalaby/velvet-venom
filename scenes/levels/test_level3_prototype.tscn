@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bhywd8ptw76nk"]
+[gd_scene load_steps=15 format=4 uid="uid://bhywd8ptw76nk"]
 
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_0sfwk"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_7ccfl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnd3h2kcjhckq" path="res://scenes/characters/zombie_runner.tscn" id="9_u1smm"]
 [ext_resource type="PackedScene" uid="uid://cknw1aokvic0m" path="res://scenes/characters/zombie_gunner.tscn" id="10_tjf3b"]
 [ext_resource type="PackedScene" uid="uid://byvpqdc4io075" path="res://scenes/characters/player_vamp.tscn" id="10_to8ug"]
+[ext_resource type="Shader" uid="uid://clol157o6cvty" path="res://resources/shaders/blink_outline.gdshader" id="11_vi130"]
 
 [sub_resource type="Environment" id="Environment_s4v1q"]
 background_mode = 3
@@ -24,6 +25,15 @@ parsed_collision_mask = 1
 source_geometry_mode = 1
 source_geometry_group_name = &"nav"
 agent_radius = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vi130"]
+resource_local_to_scene = true
+shader = ExtResource("11_vi130")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+shader_parameter/outline_on = false
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [node name="Game" type="Node2D"]
 metadata/_edit_vertical_guides_ = [0.0, 1600.0]
@@ -163,6 +173,7 @@ position = Vector2(188, 464)
 weapon = "shotgun"
 
 [node name="Player" parent="." instance=ExtResource("10_to8ug")]
+material = SubResource("ShaderMaterial_vi130")
 position = Vector2(124, 808)
 
 [editable path="TileMap"]

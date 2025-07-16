@@ -66,6 +66,7 @@ var bloodshot_scene = preload("uid://b4l7nhavg53cx")
 var blood_splash_scene = preload("uid://c5g8ji3vl07fb")
 
 
+@onready var tree: SceneTree = get_tree()
 @onready var arm_left: Sprite2D = $ArmLeft
 @onready var arm_right: Sprite2D = $ArmRight
 @onready var blood_sucker: Area2D = $BloodSucker
@@ -182,7 +183,30 @@ func stop_sucking():
 	active_blood_tweens.clear()
 
 
+func outline_on():
+	sprite.material.set_shader_parameter("outline_on", true)
+	create_tween().tween_method(set_outline_shader_intensity, sprite.material.get_shader_parameter("line_thickness"), 1.64, 0.2)
+
+func outline_off():
+	var tween: Tween = create_tween()
+	tween.tween_method(set_outline_shader_intensity, sprite.material.get_shader_parameter("line_thickness"), 0.0, 0.2)
+	await tween.finished
+	sprite.material.set_shader_parameter("outline_on", false)
+
+func set_outline_shader_intensity(new_value):
+	sprite.material.set_shader_parameter("line_thickness", new_value)
+
+
 func _on_blood_sucker_area_exited(area: Area2D):
 	if area == blood_pool:
 		blood_pool = null
 		stop_sucking()
+
+
+func _on_arm_left_draw():
+	outline_on()
+
+func _on_arm_left_hidden():
+	await tree.create_timer(0.1).timeout
+	if not is_sucking:
+		outline_off()
