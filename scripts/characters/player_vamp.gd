@@ -150,19 +150,21 @@ func _unhandled_input(event: InputEvent):
 
 func start_sucking(_blood_pool: Area2D, resource := "hp"):
 	stop_sucking()
-	
-	arm_left.show()
-	
-	is_sucking = true
 	if is_instance_valid(blood_tween):
 		blood_tween.kill()
+	
+	arm_left.show()
+	is_sucking = true
+	
 	blood_tween = create_tween().set_parallel(true)
 	active_blood_tweens.append(blood_tween)
 	blood_tween.tween_property(_blood_pool.sprite, "global_scale", Vector2.ZERO, _blood_pool.sprite.global_scale.x * 2.0)
+	
 	if resource == "hp" and hp >= hp_max:
 		resource = "blood"
 	elif resource == "blood" and blood >= blood_max:
 		resource == "hp"
+	
 	match resource:
 		"hp":
 			blood_tween.tween_property(self, "hp", hp + _blood_pool.sprite.global_scale.x * 50, _blood_pool.sprite.global_scale.x * 2.0)
@@ -172,8 +174,8 @@ func start_sucking(_blood_pool: Area2D, resource := "hp"):
 
 func stop_sucking():
 	arm_left.hide()
-	
 	is_sucking = false
+	
 	for tween in active_blood_tweens:
 		if is_instance_valid(tween):
 			tween.kill()
