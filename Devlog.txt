@@ -152,3 +152,12 @@ Day 26 - WED 16/7/2025
 - developed the PlayerVamp to suck the other resource right away when attempting to suck a full one
 - simplified some code a bit by not storing tweens in variables if these tweens are only gonna be used once in one line
 - developed the PlayerVamp to glow red when sucking blood
+
+
+Day 27 - THU 17/7/2025
+
+- developed the PlayerVamp to glow red when dashing
+- called randomize() in the _ready() function of the camera for proper randomization throughout the game
+- added screenshake to shooting, depending on the multishot
+- added screenshot on hit, depending on the amount of hp lost
+- rebuilt the Camera scene and reparented it to a Node2D called CamCtrl and successfully made the camera follow the mouse cursor

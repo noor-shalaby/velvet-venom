@@ -17,6 +17,7 @@ var hp := hp_max:
 func set_hp(new_hp):
 	if new_hp < hp:
 		blink()
+		cam_ctrl.screenshake((float(hp - new_hp) / hp_max) * 32, 0.2)
 	
 	hp = clamp(new_hp, 0, hp_max)
 	emit_signal("hp_changed", hp, hp_max)
@@ -42,6 +43,8 @@ var knockback_velocity: Vector2
 var blood_explosion_scene = preload("uid://cs6dxwtk5651p")
 var blood_pool_scene = preload("uid://1twhq540r50")
 var death_screen_scene = preload("uid://bomjpnrcspvgr")
+
+var cam_ctrl: Node2D
 
 
 @onready var game: Node2D = $/root/Game

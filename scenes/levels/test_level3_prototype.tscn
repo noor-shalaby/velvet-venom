@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_0sfwk"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_7ccfl"]
 [ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tile_map.tscn" id="3_to8ug"]
-[ext_resource type="PackedScene" uid="uid://b0hf5ugi8olt6" path="res://scenes/levels/camera.tscn" id="4_uho5g"]
+[ext_resource type="PackedScene" uid="uid://b0hf5ugi8olt6" path="res://scenes/levels/cam_ctrl.tscn" id="4_uho5g"]
 [ext_resource type="PackedScene" uid="uid://c8klnxe2lr3ma" path="res://scenes/characters/zombie_norm.tscn" id="7_to8ug"]
 [ext_resource type="PackedScene" uid="uid://bg16074l4ym1u" path="res://scenes/pickups/pickup_weapon.tscn" id="8_nsah4"]
 [ext_resource type="PackedScene" uid="uid://boqei7v8w8q57" path="res://scenes/characters/zombie_brawler.tscn" id="8_vi130"]
@@ -63,13 +63,15 @@ tile_map_data = PackedByteArray("AAAKABMAAAALAAoAAAAKAAsAAAALAAoAAAALABIAAAAOAAs
 [node name="NavRegion" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
-[node name="Camera" parent="." node_paths=PackedStringArray("host") instance=ExtResource("4_uho5g")]
+[node name="CamCtrl" parent="." node_paths=PackedStringArray("host") instance=ExtResource("4_uho5g")]
 position = Vector2(800, 450)
+host = NodePath("../Player")
+
+[node name="Camera" parent="CamCtrl" index="0"]
 limit_left = 0
 limit_top = -2016
 limit_right = 1600
 limit_bottom = 928
-host = NodePath("../Player")
 
 [node name="Zombies" type="Node2D" parent="."]
 
@@ -177,3 +179,4 @@ material = SubResource("ShaderMaterial_vi130")
 position = Vector2(124, 808)
 
 [editable path="TileMap"]
+[editable path="CamCtrl"]
