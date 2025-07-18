@@ -161,3 +161,8 @@ Day 27 - THU 17/7/2025
 - added screenshake to shooting, depending on the multishot
 - added screenshot on hit, depending on the amount of hp lost
 - rebuilt the Camera scene and reparented it to a Node2D called CamCtrl and successfully made the camera follow the mouse cursor
+
+
+Day 28 - FRI 18/7/2025
+
+- fixed a bug where all the zombies with hp less then the ZombieNorm would blink right on entering the screen

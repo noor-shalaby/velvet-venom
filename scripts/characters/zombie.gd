@@ -17,7 +17,7 @@ extends CharacterBody2D
 var hp := max_hp:
 	set = set_hp
 func set_hp(new_hp):
-	if new_hp < hp:
+	if new_hp < hp and not _readying:
 		blink()
 	
 	hp = clamp(new_hp, 0, max_hp)
@@ -63,9 +63,12 @@ var blood_pool_scene = preload("uid://1twhq540r50")
 @onready var vis_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier
 @onready var vis_enabler: VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler
 
+var _readying: bool = true
+
 func _ready():
 	global_rotation_degrees = randf_range(-180.0, 180.0)
 	hp = max_hp
+	_readying = false
 
 
 

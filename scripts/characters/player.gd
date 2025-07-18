@@ -17,7 +17,7 @@ var hp := hp_max:
 func set_hp(new_hp):
 	if new_hp < hp:
 		blink()
-		cam_ctrl.screenshake((float(hp - new_hp) / hp_max) * 32, 0.2)
+		cam_ctrl.screenshake((float(hp - new_hp) / hp_max) * 40, 0.2)
 	
 	hp = clamp(new_hp, 0, hp_max)
 	emit_signal("hp_changed", hp, hp_max)

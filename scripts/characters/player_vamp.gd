@@ -107,7 +107,7 @@ func _physics_process(delta):
 		bloodshot.wall_puncture = wep["wall_puncture"]
 		bloodshot.shooter = self
 		game.add_child(bloodshot)
-		cam_ctrl.screenshake(max(1, wep["multishot"] / 2), 0.1)
+		cam_ctrl.screenshake(max(1.64, wep["multishot"] / 1.32), 0.1)
 		for shot in range(wep["multishot"] - 1):
 			bloodshot = bloodshot_scene.instantiate()
 			bloodshot.global_position = muzzle.global_position
