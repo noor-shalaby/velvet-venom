@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://boqei7v8w8q57"]
 
 [ext_resource type="SpriteFrames" uid="uid://0d3d8osuw42l" path="res://resources/spritesheets/zombie_brawler1.tres" id="2_527j7"]
-[ext_resource type="Shader" uid="uid://clol157o6cvty" path="res://resources/shaders/blink_outline.gdshader" id="2_c3dow"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="2_c3dow"]
 [ext_resource type="Script" uid="uid://dbnguoap2aqls" path="res://scripts/characters/zombie_brawler.gd" id="2_f1vlm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_527j7"]
@@ -9,9 +9,6 @@ resource_local_to_scene = true
 shader = ExtResource("2_c3dow")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
-shader_parameter/outline_on = false
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vlb3"]
 radius = 13.0
@@ -40,9 +37,7 @@ script = ExtResource("2_f1vlm")
 turning_speed = 0.2
 patrol_speed = 80.0
 chase_speed = 240.0
-damage = 50
 attack_speed = 1.0
-knockback_force = 10000
 max_hp = 512.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

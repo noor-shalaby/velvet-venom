@@ -2,19 +2,19 @@ class_name Zombie
 extends CharacterBody2D
 
 @export_category("Movement")
-@export var turning_speed := 0.3
-@export var patrol_speed := 100.0
-@export var chase_speed := 300.0
-@export var friction := 0.3
+@export var turning_speed: float = 0.3
+@export var patrol_speed: float = 100.0
+@export var chase_speed: float = 300.0
+@export_range(0.0, 1.0, 0.01) var friction: float = 0.3
 
 @export_category("Attack")
-@export var damage := 20
-@export var attack_speed := 2.0
-@export var knockback_force := 4800
+@export var damage: float = 20
+@export var attack_speed: float = 2.0
+@export var knockback_force: float = 4800.0
 
 @export_category("Health")
-@export var max_hp := 60.0
-var hp := max_hp:
+@export var max_hp: float = 60.0
+var hp: float = max_hp:
 	set = set_hp
 func set_hp(new_hp):
 	if new_hp < hp and not _readying:
@@ -26,9 +26,9 @@ func set_hp(new_hp):
 		die()
 
 var dir: Vector2
-var movement_speed = patrol_speed
+var movement_speed: float = patrol_speed
 
-var is_knocked_back = false
+var is_knocked_back: bool = false
 var knockback_velocity: Vector2
 
 var target: CharacterBody2D:
@@ -59,7 +59,7 @@ var blood_pool_scene = preload("uid://1twhq540r50")
 @onready var comm_eye: RayCast2D = $CommEye
 @onready var eye_group: Node2D = $EyeGroup
 @onready var eyes = eye_group.get_children()
-@onready var sprite = $Sprite
+@onready var sprite := $Sprite
 @onready var vis_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier
 @onready var vis_enabler: VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler
 

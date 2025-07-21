@@ -52,13 +52,13 @@ var weapons = [
 
 var weapon = weapons.pick_random()
 
-@export var precision := 0.1
-@export var melee_range := 76
+@export var precision: float = 0.1
+@export var melee_range: float = 76
 
-var can_shoot := true
-var open_fire_on_screen := false
-@export var open_fire_on_screen_delay_time := 1.0
-var melee_mode := false
+var can_shoot: bool = true
+var open_fire_on_screen: bool = false
+@export var open_fire_on_screen_delay_time: float = 1.0
+var melee_mode: bool = false
 
 var bullet_scene = preload("uid://cb2jamqa27vhl")
 var muzzle_flash_scene = preload("uid://dtj76lgbo4ydn")

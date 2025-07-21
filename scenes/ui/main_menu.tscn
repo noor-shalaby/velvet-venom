@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5pn4nalkxme2"]
 
-[ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="2_fe2o3"]
-[ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="4_m1kxf"]
+[ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="1_fe2o3"]
+[ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="2_1g8jr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -46,8 +46,9 @@ theme_override_font_sizes/font_size = 64
 text = "Topdown Zombie Shooter"
 horizontal_alignment = 1
 
-[node name="PlayButton" parent="Margin/VBox" instance=ExtResource("2_fe2o3")]
+[node name="PlayButton" parent="Margin/VBox" instance=ExtResource("1_fe2o3")]
 layout_mode = 2
+target_scene = "uid://bhywd8ptw76nk"
 
-[node name="QuitButton" parent="Margin/VBox" instance=ExtResource("4_m1kxf")]
+[node name="QuitButton" parent="Margin/VBox" instance=ExtResource("2_1g8jr")]
 layout_mode = 2

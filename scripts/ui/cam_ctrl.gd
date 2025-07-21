@@ -27,8 +27,8 @@ func _physics_process(delta):
 		host.cam_ctrl = self
 		
 		var mouse_pos = get_global_mouse_position()
-		cam.position.x = (mouse_pos.x - host.global_position.x) / (get_viewport_rect().size.x / 2.0) * 128
-		cam.position.y = (mouse_pos.y - host.global_position.y) / (get_viewport_rect().size.y / 2.0) * 128
+		cam.position.x = lerp(cam.position.x, (mouse_pos.x - host.global_position.x) / (get_viewport_rect().size.x / 2.0) * 128, 0.8)
+		cam.position.y = lerp(cam.position.y, (mouse_pos.y - host.global_position.y) / (get_viewport_rect().size.y / 2.0) * 128, 0.8)
 	
 	if active_shake_dur > 0.0:
 		shake_time += shake_time_speed * delta

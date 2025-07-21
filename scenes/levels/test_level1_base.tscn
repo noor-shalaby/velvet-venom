@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6rg2mcrxwc8e"]
+[gd_scene load_steps=12 format=3 uid="uid://c6rg2mcrxwc8e"]
 
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_gd7ii"]
 [ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player_norm.tscn" id="2_s4v1q"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnd3h2kcjhckq" path="res://scenes/characters/zombie_runner.tscn" id="4_mwkxh"]
 [ext_resource type="PackedScene" uid="uid://boqei7v8w8q57" path="res://scenes/characters/zombie_brawler.tscn" id="5_s4v1q"]
 [ext_resource type="PackedScene" uid="uid://bg16074l4ym1u" path="res://scenes/pickups/pickup_weapon.tscn" id="7_ncwps"]
+[ext_resource type="PackedScene" uid="uid://b0hf5ugi8olt6" path="res://scenes/levels/cam_ctrl.tscn" id="9_0vq3v"]
 
 [sub_resource type="Environment" id="Environment_s4v1q"]
 background_mode = 3
@@ -40,13 +41,6 @@ environment = SubResource("Environment_s4v1q")
 [node name="NavRegion" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(800, 450)
-zoom = Vector2(1.2, 1.2)
-
-[node name="Player" parent="." instance=ExtResource("2_s4v1q")]
-position = Vector2(233, 413)
-
 [node name="Zombies" type="Node2D" parent="."]
 
 [node name="Zombie" parent="Zombies" instance=ExtResource("3_gd7ii")]
@@ -66,12 +60,18 @@ position = Vector2(848, 823)
 
 [node name="ZombieRunner" parent="Zombies" instance=ExtResource("4_mwkxh")]
 position = Vector2(480, 403)
+damage = 20.0
+knockback_force = 4800.0
 
 [node name="ZombieRunner2" parent="Zombies" instance=ExtResource("4_mwkxh")]
 position = Vector2(577, 767)
+damage = 20.0
+knockback_force = 4800.0
 
 [node name="ZombieBrawler" parent="Zombies" instance=ExtResource("5_s4v1q")]
 position = Vector2(971, 162)
+damage = 20.0
+knockback_force = 4800.0
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -82,4 +82,11 @@ position = Vector2(239, 209)
 position = Vector2(239, 162)
 weapon = "shotgun"
 
+[node name="CamCtrl" parent="." node_paths=PackedStringArray("host") instance=ExtResource("9_0vq3v")]
+host = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_s4v1q")]
+position = Vector2(217, 665)
+
 [editable path="TileMap"]
+[editable path="CamCtrl"]

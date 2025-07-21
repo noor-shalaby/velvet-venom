@@ -1,14 +1,14 @@
 class_name Bullet
 extends CharacterBody2D
 
-@export var speed := 50
+@export var speed: float = 50.0
 
 var dir: Vector2
 
-var dmg := 10
-var knockback_force := 1500
-var puncture := 0
-var wall_puncture := 0
+var dmg: int = 10
+var knockback_force: float = 1500.0
+var puncture: int = 0
+var wall_puncture: int = 0
 
 var shooter: CharacterBody2D
 var entities_hit = []

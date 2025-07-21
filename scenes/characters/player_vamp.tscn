@@ -70,11 +70,9 @@ position = Vector2(10, 0)
 texture = ExtResource("5_xh4w1")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_fjrip")
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 position = Vector2(2, 0)
 collision_layer = 4
 collision_mask = 64
@@ -89,7 +87,6 @@ position = Vector2(20, 12.5)
 gizmo_extents = 8.0
 
 [node name="BloodSucker" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 256
 

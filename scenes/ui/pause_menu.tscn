@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://5ag4hs7q66nt"]
 
 [ext_resource type="Script" uid="uid://dx37y2r5o8xyy" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
-[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="2_0lmf7"]
-[ext_resource type="PackedScene" uid="uid://bdy5ljxeo4ne1" path="res://scenes/ui/button_restart.tscn" id="3_0bnpd"]
-[ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="3_8uki6"]
-[ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="3_f6eus"]
+[ext_resource type="PackedScene" uid="uid://bdy5ljxeo4ne1" path="res://scenes/ui/button_restart.tscn" id="3_8uki6"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_f6eus"]
+[ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="4_0bnpd"]
+[ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="4_4inpj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tw0m"]
 bg_color = Color(0.25098, 0.25098, 0.25098, 0.517647)
@@ -58,18 +58,19 @@ text = "PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResumeButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("2_0lmf7")]
+[node name="ResumeButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_f6eus")]
 layout_mode = 2
 text = "Resume"
 
-[node name="RestartButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_0bnpd")]
+[node name="RestartButton2" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_8uki6")]
 layout_mode = 2
 
-[node name="MainMenuButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_8uki6")]
+[node name="MainMenuButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("4_4inpj")]
 layout_mode = 2
 text = "Main Menu"
+target_scene = "uid://c5pn4nalkxme2"
 
-[node name="QuitButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_f6eus")]
+[node name="QuitButton2" parent="Dim/Panel/Margin/VBox" instance=ExtResource("4_0bnpd")]
 layout_mode = 2
 
 [connection signal="pressed" from="Dim/Panel/Margin/VBox/ResumeButton" to="." method="_on_resume_button_pressed"]

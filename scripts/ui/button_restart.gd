@@ -6,3 +6,4 @@ extends Button
 
 func _on_pressed():
 	tree.reload_current_scene()
+	tree.paused = false

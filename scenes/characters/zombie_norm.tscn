@@ -2,16 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://c62pvtxkwma4a" path="res://assets/characters/zombie/zombie1.png" id="1_1vlb3"]
 [ext_resource type="Script" uid="uid://ddvdf78pxkovx" path="res://scripts/characters/zombie_norm.gd" id="1_httt1"]
-[ext_resource type="Shader" uid="uid://clol157o6cvty" path="res://resources/shaders/blink_outline.gdshader" id="2_i0jrm"]
+[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="2_i0jrm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0jrm"]
 resource_local_to_scene = true
 shader = ExtResource("2_i0jrm")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
-shader_parameter/outline_on = false
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vlb3"]
 radius = 13.0

@@ -1,7 +1,7 @@
 extends Pickup
 
 
-@export var weapon := "machinegun"
+@export var weapon: String = "machinegun"
 
 var sprites = {
 	"gun": preload("uid://bygmehm306uvm"),

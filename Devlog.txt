@@ -9,6 +9,8 @@ Day 7 - FRI 27/6/2025
 
 
 
+======= WEEK 2 =======
+
 Day 8 - SAT 28/6/2025
 
 - animated the blood pool so it slowly scales up a little after appearing
@@ -59,6 +61,8 @@ Day 14 - FRI 4/7/2025
 - improved the Player's code a little
 
 
+
+======= WEEK 3 =======
 
 Day 15 - SAT 5/7/2025
 
@@ -115,6 +119,8 @@ Day 21 - FRI 11/7/2025
 
 
 
+======= WEEK 4 =======
+
 Day 22 - SAT 12/7/2025
 
 - split the player into human and vampire subclasses which inherit from a Player superclass
@@ -165,4 +171,27 @@ Day 27 - THU 17/7/2025
 
 Day 28 - FRI 18/7/2025
 
-- fixed a bug where all the zombies with hp less then the ZombieNorm would blink right on entering the screen
+- fixed a bug where all the zombies with hp_max less than the ZombieNorm would blink right on entering the screen
+- fixed a bug where the game would stay paused after restarting level
+- fixed a bug where the game would stay paused after switching to another scene via the DeathScreen or PauseMenu
+- fixed a bug where the ButtonPlay wouldn't work, by using the target level scene's file uid instead of a packed scene
+- used the blink shader for all the zombies instead of the Player's blink_outline shader
+
+
+
+======= WEEK 5 =======
+
+Day 29 - SAT 19/7/2025
+
+- OFF
+
+
+Day 30 - SUN 20/7/2025
+
+- OFF
+
+
+Day 31 - MON 21/7/2025
+
+- lerped the camera's position when following the mouse cursor
+- improved the code a lil. hardcoded variable types and added ranges to some exported variables

@@ -1,0 +1,2 @@
+- create support enemies
+- develop the dash to go through enemies and slash them (slah dash)

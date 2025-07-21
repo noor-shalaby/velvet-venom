@@ -43,8 +43,8 @@ func set_hp(new_hp):
 			start_sucking(blood_pool, "blood")
 
 
-@export var blood_max: int = 128
-@export var blood := 96:
+@export var blood_max: float = 128.0
+@export var blood: float = 96.0:
 	set = set_blood
 func set_blood(new_value):
 	blood = clamp(new_value, 0, blood_max)

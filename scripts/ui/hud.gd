@@ -32,7 +32,7 @@ func _ready():
 
 
 func update_hp(new_value, max_value):
-	create_tween().tween_property(hp_bar, "value", (float(new_value) / float(max_value)) * 100, 0.1)
+	create_tween().tween_property(hp_bar, "value", (new_value / max_value) * 100, 0.1)
 
 func update_weapon(new_weapon_name):
 	weapon_rect.texture = weapon_textures[new_weapon_name]
@@ -41,4 +41,4 @@ func update_mag(new_value):
 	mag_label.text = str(new_value)
 
 func update_blood(new_value, max_value):
-	create_tween().tween_property(blood_bar, "value", (float(new_value) / float(max_value)) * 100, 0.1)
+	create_tween().tween_property(blood_bar, "value", (new_value / max_value) * 100, 0.1)

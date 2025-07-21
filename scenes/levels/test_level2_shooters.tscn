@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://doctmcuyp1rm6"]
+[gd_scene load_steps=9 format=3 uid="uid://doctmcuyp1rm6"]
 
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_aqqae"]
 [ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player_norm.tscn" id="2_aqqae"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_r6kcv"]
 [ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tile_map.tscn" id="3_aqqae"]
 [ext_resource type="PackedScene" uid="uid://cknw1aokvic0m" path="res://scenes/characters/zombie_gunner.tscn" id="4_vjrko"]
+[ext_resource type="PackedScene" uid="uid://b0hf5ugi8olt6" path="res://scenes/levels/cam_ctrl.tscn" id="6_r6kcv"]
 
 [sub_resource type="Environment" id="Environment_hdhk2"]
 background_mode = 3
@@ -36,10 +37,6 @@ environment = SubResource("Environment_hdhk2")
 [node name="NavRegion" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(800, 450)
-zoom = Vector2(1.2, 1.2)
-
 [node name="Player" parent="." instance=ExtResource("2_aqqae")]
 position = Vector2(233, 413)
 
@@ -69,4 +66,8 @@ position = Vector2(718, 139)
 [node name="ZombieShooter8" parent="Zombies" instance=ExtResource("4_vjrko")]
 position = Vector2(436, 96)
 
+[node name="CamCtrl" parent="." node_paths=PackedStringArray("host") instance=ExtResource("6_r6kcv")]
+host = NodePath("../Player")
+
 [editable path="TileMap"]
+[editable path="CamCtrl"]

@@ -2,17 +2,17 @@ class_name Player
 extends CharacterBody2D
 
 @export_category("Movement")
-@export var movement_speed := 350
-@export var friction := 0.3
+@export var movement_speed: float = 350.0
+@export_range(0.0, 1.0, 0.01) var friction: float = 0.3
 
 @export_category("Dash")
-@export var dash_speed := 1300
-@export var dash_duration := 0.05
-@export var dash_cooldown := 0.2
+@export var dash_speed: float = 1300.0
+@export var dash_duration: float = 0.05
+@export var dash_cooldown: float = 0.2
 
 @export_category("Stats")
-@export var hp_max := 100
-var hp := hp_max:
+@export var hp_max: float = 100.0
+var hp: float = hp_max:
 	set = set_hp
 func set_hp(new_hp):
 	if new_hp < hp:
@@ -31,13 +31,13 @@ signal dead
 var dir: Vector2
 var input_dir: Vector2
 
-var can_shoot = true
+var can_shoot: bool = true
 
-var can_dash := true
+var can_dash: bool = true
 var dash_dir: Vector2
-var is_dashing := false
+var is_dashing: bool = false
 
-var is_knocked_back = false
+var is_knocked_back: bool = false
 var knockback_velocity: Vector2
 
 var blood_explosion_scene = preload("uid://cs6dxwtk5651p")
