@@ -11,13 +11,13 @@ extends CanvasLayer
 @onready var weapon_rect: TextureRect = $Margin/WeaponPanel/WeaponMargin/WeaponBox/WeaponTexture
 @onready var mag_label: Label = $Margin/WeaponPanel/WeaponMargin/WeaponBox/AmmoBox/MagLabel
 
-var weapon_textures = {
+var weapon_textures: Dictionary[String, CompressedTexture2D] = {
 	"gun": preload("uid://ddgwxtq3x1dsc"),
 	"machinegun": preload("uid://u8ok0u51cm5j"),
 	"shotgun": preload("uid://ccrxdbxnrhtkm")
 }
 
-func _ready():
+func _ready() -> void:
 	host.connect("hp_changed", update_hp)
 	
 	if host is PlayerNorm:
@@ -31,14 +31,14 @@ func _ready():
 	show()
 
 
-func update_hp(new_value, max_value):
+func update_hp(new_value: float, max_value: float) -> void:
 	create_tween().tween_property(hp_bar, "value", (new_value / max_value) * 100, 0.1)
 
-func update_weapon(new_weapon_name):
+func update_weapon(new_weapon_name: String) -> void:
 	weapon_rect.texture = weapon_textures[new_weapon_name]
 
-func update_mag(new_value):
+func update_mag(new_value: int) -> void:
 	mag_label.text = str(new_value)
 
-func update_blood(new_value, max_value):
+func update_blood(new_value: float, max_value: float) -> void:
 	create_tween().tween_property(blood_bar, "value", (new_value / max_value) * 100, 0.1)

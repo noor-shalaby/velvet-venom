@@ -3,7 +3,7 @@ extends Pickup
 
 @export var weapon: String = "machinegun"
 
-var sprites = {
+var sprites: Dictionary[String, CompressedTexture2D] = {
 	"gun": preload("uid://bygmehm306uvm"),
 	"machinegun": preload("uid://ds5ibso7vge53"),
 	"shotgun": preload("uid://cohyjtj6jsj5q")
@@ -12,11 +12,11 @@ var sprites = {
 
 @onready var sprite := $Sprite
 
-func _ready():
+func _ready() -> void:
 	sprite.texture = sprites[weapon]
 
 
-func _on_body_entered(body: Node2D):
+func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerNorm:
 		body.held_weapons[body.weapons[weapon]["index"]] = body.weapons[weapon]
 		body.held_weapon = body.held_weapons[body.weapons[weapon]["index"]]

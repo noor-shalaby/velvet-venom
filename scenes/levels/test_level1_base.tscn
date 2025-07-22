@@ -60,18 +60,12 @@ position = Vector2(848, 823)
 
 [node name="ZombieRunner" parent="Zombies" instance=ExtResource("4_mwkxh")]
 position = Vector2(480, 403)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieRunner2" parent="Zombies" instance=ExtResource("4_mwkxh")]
 position = Vector2(577, 767)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieBrawler" parent="Zombies" instance=ExtResource("5_s4v1q")]
 position = Vector2(971, 162)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="Pickups" type="Node2D" parent="."]
 

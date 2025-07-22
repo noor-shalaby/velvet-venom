@@ -194,4 +194,9 @@ Day 30 - SUN 20/7/2025
 Day 31 - MON 21/7/2025
 
 - lerped the camera's position when following the mouse cursor
-- improved the code a lil. hardcoded variable types and added ranges to some exported variables
+- improved the code a lil. static-typed basic variables and added ranges to some exported variables
+
+
+Day 32 - TUE 22/7/2025
+
+-

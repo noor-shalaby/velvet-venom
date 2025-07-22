@@ -12,21 +12,21 @@ var shake_decay: float = 5.0
 var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
 
-var noise = FastNoiseLite.new()
+var noise: FastNoiseLite = FastNoiseLite.new()
 
 
 @onready var cam: Camera2D = $Camera
 
-func _ready():
+func _ready() -> void:
 	randomize()
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	if host:
 		global_position = host.global_position
 		host.cam_ctrl = self
 		
-		var mouse_pos = get_global_mouse_position()
+		var mouse_pos: Vector2 = get_global_mouse_position()
 		cam.position.x = lerp(cam.position.x, (mouse_pos.x - host.global_position.x) / (get_viewport_rect().size.x / 2.0) * 128, 0.8)
 		cam.position.y = lerp(cam.position.y, (mouse_pos.y - host.global_position.y) / (get_viewport_rect().size.y / 2.0) * 128, 0.8)
 	
@@ -44,7 +44,7 @@ func _physics_process(delta):
 		cam.offset = lerp(cam.offset, Vector2.ZERO, 10.5 * delta)
 
 
-func screenshake(intensity: int, dur: float):
+func screenshake(intensity: int, dur: float) -> void:
 	noise.seed = randi()
 	noise.frequency = 2.0
 	

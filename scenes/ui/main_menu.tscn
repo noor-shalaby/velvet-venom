@@ -48,7 +48,6 @@ horizontal_alignment = 1
 
 [node name="PlayButton" parent="Margin/VBox" instance=ExtResource("1_fe2o3")]
 layout_mode = 2
-target_scene = "uid://bhywd8ptw76nk"
 
 [node name="QuitButton" parent="Margin/VBox" instance=ExtResource("2_1g8jr")]
 layout_mode = 2

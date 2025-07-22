@@ -11,10 +11,10 @@ var puncture: int = 0
 var wall_puncture: int = 0
 
 var shooter: CharacterBody2D
-var entities_hit = []
+var entities_hit: Array[PhysicsBody2D] = []
 
-var blood_splatter_scene = preload("uid://cwqe7churtxrv")
-var dirt_splatter_scene = preload("uid://48ojgreyybe")
+var blood_splatter_scene: PackedScene = preload("uid://cwqe7churtxrv")
+var dirt_splatter_scene: PackedScene = preload("uid://48ojgreyybe")
 
 @onready var game: Node2D = $/root/Game
 @onready var tip: Marker2D = $Tip
@@ -22,18 +22,18 @@ var dirt_splatter_scene = preload("uid://48ojgreyybe")
 
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	velocity = dir * speed
 	move_and_collide(velocity)
 
 
-func _on_screen_exited():
+func _on_screen_exited() -> void:
 	queue_free()
 
 
-func _on_hitbox_body_entered(body: Node2D):
+func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is not CharacterBody2D:
-		var dirt_splatter = dirt_splatter_scene.instantiate()
+		var dirt_splatter: ParticleEffect = dirt_splatter_scene.instantiate()
 		dirt_splatter.global_position = tip.global_position
 		dirt_splatter.global_rotation = global_rotation
 		game.add_child(dirt_splatter)
@@ -43,13 +43,13 @@ func _on_hitbox_body_entered(body: Node2D):
 			queue_free()
 
 
-func _on_hitbox_area_entered(area: Area2D):
+func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.owner not in entities_hit:
 		entities_hit.append(area.owner)
 		area.owner.hp -= dmg
 		area.owner.knockback(knockback_force * dir)
 		
-		var blood_splatter = blood_splatter_scene.instantiate()
+		var blood_splatter: ParticleEffect = blood_splatter_scene.instantiate()
 		blood_splatter.global_position = tip.global_position
 		blood_splatter.global_rotation = global_rotation
 		blood_splatter.scale *= area.owner.scale

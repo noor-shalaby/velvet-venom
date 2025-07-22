@@ -1,12 +1,12 @@
 extends ParticleEffect
 
 
-var blood_stain_scene = preload("uid://mg1wvhjyn4p6")
+var blood_stain_scene: PackedScene = preload("uid://mg1wvhjyn4p6")
 
 
 @onready var game: Node2D = $/root/Game
 
-func _ready():
+func _ready() -> void:
 	super()
 	
 	var blood_stain: Sprite2D = blood_stain_scene.instantiate()

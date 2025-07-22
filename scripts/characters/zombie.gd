@@ -16,7 +16,7 @@ extends CharacterBody2D
 @export var max_hp: float = 60.0
 var hp: float = max_hp:
 	set = set_hp
-func set_hp(new_hp):
+func set_hp(new_hp: float) -> void:
 	if new_hp < hp and not _readying:
 		blink()
 	
@@ -33,7 +33,7 @@ var knockback_velocity: Vector2
 
 var target: CharacterBody2D:
 	set = set_target
-func set_target(new_target):
+func set_target(new_target: CharacterBody2D) -> void:
 	target = new_target
 	if target:
 		movement_speed = lerp(movement_speed, chase_speed, 0.1)
@@ -44,9 +44,9 @@ func set_target(new_target):
 var target_in_vision: CharacterBody2D
 
 
-var blood_splatter_scene = preload("uid://cwqe7churtxrv")
-var blood_explosion_scene = preload("uid://cs6dxwtk5651p")
-var blood_pool_scene = preload("uid://1twhq540r50")
+var blood_splatter_scene: PackedScene = preload("uid://cwqe7churtxrv")
+var blood_explosion_scene: PackedScene = preload("uid://cs6dxwtk5651p")
+var blood_pool_scene: PackedScene = preload("uid://1twhq540r50")
 
 
 
@@ -65,17 +65,17 @@ var blood_pool_scene = preload("uid://1twhq540r50")
 
 var _readying: bool = true
 
-func _ready():
+func _ready() -> void:
 	global_rotation_degrees = randf_range(-180.0, 180.0)
 	hp = max_hp
 	_readying = false
 
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	look_for_target()
 	
-	var next_path_pos = nav_agent.get_next_path_position()
+	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 	dir = global_position.direction_to(next_path_pos)
 	global_rotation = lerp_angle(global_rotation, (next_path_pos - global_position).angle(), turning_speed)
 	velocity = movement_speed * dir
@@ -85,7 +85,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func look_for_target():
+func look_for_target() -> void:
 	if target_in_vision:
 		for eye in eyes:
 			eye.set_deferred("enabled", true)
@@ -95,7 +95,7 @@ func look_for_target():
 			target = target_in_vision
 
 
-func eyes_on_target(_target) -> int:
+func eyes_on_target(_target: CharacterBody2D) -> int:
 	var _eyes_on_target: int = 0
 	for eye in eyes:
 		if eye.is_colliding():
@@ -105,27 +105,27 @@ func eyes_on_target(_target) -> int:
 	return _eyes_on_target
 
 
-func make_path():
+func make_path() -> void:
 	if target:
 		nav_agent.target_position = target.global_position
 	elif get_real_velocity().length() < movement_speed * 0.8 or nav_agent.is_target_reached() or global_position.distance_to(nav_agent.get_next_path_position()) < movement_speed / 100:
 		nav_agent.target_position = get_random_nav_point(nav_region)
 
 
-func handle_knockback():
+func handle_knockback() -> void:
 	if is_knocked_back:
 		velocity += knockback_velocity
 		velocity = lerp(get_real_velocity(), velocity, friction)
 		is_knocked_back = false
 
 
-func knockback(knockback_force):
+func knockback(knockback_force: Vector2) -> void:
 	is_knocked_back = true
 	knockback_velocity = knockback_force
 
 
-func die():
-	var blood_explosion = blood_explosion_scene.instantiate()
+func die() -> void:
+	var blood_explosion: ParticleEffect = blood_explosion_scene.instantiate()
 	blood_explosion.global_position = global_position
 	blood_explosion.scale *= scale
 	game.add_child(blood_explosion)
@@ -138,16 +138,16 @@ func die():
 	queue_free()
 
 
-func blink():
+func blink() -> void:
 	create_tween().tween_method(set_blink_shader_intensity, 1.32, 0.0, 0.2)
 
 
-func set_blink_shader_intensity(new_value):
+func set_blink_shader_intensity(new_value: float) -> void:
 	sprite.material.set_shader_parameter("blink_intensity", new_value)
 
 
 
-func _on_attack_hitbox_area_entered(area: Area2D):
+func _on_attack_hitbox_area_entered(area: Area2D) -> void:
 	area.owner.hp -= damage
 	max_hp += damage
 	hp += damage
@@ -155,31 +155,31 @@ func _on_attack_hitbox_area_entered(area: Area2D):
 	attack_hitbox.set_deferred("monitoring", false)
 	attack_delay.start(1.0/attack_speed)
 	
-	var blood_splatter = blood_splatter_scene.instantiate()
+	var blood_splatter: ParticleEffect = blood_splatter_scene.instantiate()
 	blood_splatter.global_position = area.global_position
 	blood_splatter.global_rotation = global_rotation
 	game.add_child(blood_splatter)
 
 
-func _on_attack_delay_timeout():
+func _on_attack_delay_timeout() -> void:
 	attack_hitbox.set_deferred("monitoring", true)
 
 
-func _on_nav_timer_timeout():
+func _on_nav_timer_timeout() -> void:
 	make_path()
 
 
-func _on_vision_area_body_entered(body: CharacterBody2D):
+func _on_vision_area_body_entered(body: CharacterBody2D) -> void:
 	if body is CharacterBody2D:
 		target_in_vision = body
 
 
-func _on_vision_area_body_exited(body: CharacterBody2D):
+func _on_vision_area_body_exited(body: CharacterBody2D) -> void:
 	if body == target_in_vision:
 		target_in_vision = null
 
 
-func _on_comm_area_body_entered(body: CharacterBody2D):
+func _on_comm_area_body_entered(body: CharacterBody2D) -> void:
 	comm_eye.set_deferred("enabled", true)
 	for _body in comm_area.get_overlapping_bodies():
 		if _body.is_in_group("mobs"):
@@ -188,18 +188,18 @@ func _on_comm_area_body_entered(body: CharacterBody2D):
 				_body.set_target(target)
 
 
-func _on_hitbox_area_entered(area: Area2D):
+func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.owner is Bullet:
 		if area.owner.shooter:
 			target = area.owner.shooter
 
 
-func _on_screen_entered():
+func _on_screen_entered() -> void:
 	target_in_vision = game.get_node_or_null("Player")
 	if vis_enabler:
 		vis_enabler.queue_free()
 
-func _on_screen_exited():
+func _on_screen_exited() -> void:
 	pass
 
 
@@ -217,7 +217,7 @@ func get_random_nav_point(nav_region: NavigationRegion2D) -> Vector2:
 		return Vector2.ZERO
 
 	# Build list of all triangles from all polygons
-	var all_triangles: Array = []
+	var all_triangles: Array[PackedInt32Array] = []
 	
 	for i in range(poly_count):
 		var poly: PackedInt32Array = nav_poly.get_polygon(i)
@@ -238,7 +238,7 @@ func get_random_nav_point(nav_region: NavigationRegion2D) -> Vector2:
 
 	# Calculate areas for all triangles
 	var total_area: float = 0.0
-	var triangle_areas: Array = []
+	var triangle_areas: Array[float] = []
 	
 	for tri in all_triangles:
 		var a: Vector2 = vertices[tri[0]]

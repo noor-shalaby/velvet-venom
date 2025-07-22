@@ -7,7 +7,7 @@ extends Button
 @onready var tree: SceneTree = get_tree()
 
 
-func _on_pressed():
+func _on_pressed() -> void:
 	if target_scene_path != "":
 		tree.change_scene_to_file(target_scene_path)
 		tree.paused = false

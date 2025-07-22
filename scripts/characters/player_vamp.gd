@@ -2,7 +2,7 @@ class_name PlayerVamp
 extends Player
 
 
-var fire_empty = {
+var fire_empty: Dictionary[String, Variant] = {
 	"dmg": 20,
 	"fire_rate": 3.0,
 	"multishot": 1,
@@ -12,7 +12,7 @@ var fire_empty = {
 	"puncture": 0,
 	"wall_puncture": 0
 }
-var fire = {
+var fire: Dictionary[String, Variant] = {
 	"dmg": 24,
 	"fire_rate": 16.0,
 	"multishot": 1,
@@ -22,7 +22,7 @@ var fire = {
 	"puncture": 0,
 	"wall_puncture": 0
 }
-var fire_alt = {
+var fire_alt: Dictionary[String, Variant] = {
 	"dmg": 40,
 	"fire_rate": 2.0,
 	"multishot": 8,
@@ -34,7 +34,7 @@ var fire_alt = {
 }
 
 
-func set_hp(new_hp):
+func set_hp(new_hp: float) -> void:
 	super(new_hp)
 	
 	if new_hp >= hp_max:
@@ -46,7 +46,7 @@ func set_hp(new_hp):
 @export var blood_max: float = 128.0
 @export var blood: float = 96.0:
 	set = set_blood
-func set_blood(new_value):
+func set_blood(new_value: float) -> void:
 	blood = clamp(new_value, 0, blood_max)
 	emit_signal("blood_changed", blood, blood_max)
 	
@@ -57,13 +57,13 @@ func set_blood(new_value):
 signal blood_changed
 
 var blood_tween: Tween
-var active_blood_tweens = []
+var active_blood_tweens: Array[Tween] = []
 var blood_pool: Area2D
 var is_sucking: bool = false
 
 
-var bloodshot_scene = preload("uid://b4l7nhavg53cx")
-var blood_splash_scene = preload("uid://c5g8ji3vl07fb")
+var bloodshot_scene: PackedScene = preload("uid://b4l7nhavg53cx")
+var blood_splash_scene: PackedScene = preload("uid://c5g8ji3vl07fb")
 
 
 @onready var tree: SceneTree = get_tree()
@@ -71,14 +71,14 @@ var blood_splash_scene = preload("uid://c5g8ji3vl07fb")
 @onready var arm_right: Sprite2D = $ArmRight
 @onready var blood_sucker: Area2D = $BloodSucker
 
-func _ready():
+func _ready() -> void:
 	super()
 	
 	emit_signal("blood_changed", blood, blood_max)
 
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	super(delta)
 	
 	if (Input.is_action_pressed("fire") or Input.is_action_pressed("fire_alt")) and can_shoot:
@@ -145,23 +145,23 @@ func _physics_process(delta):
 		stop_sucking()
 
 
-func _unhandled_input(event: InputEvent):
+func _unhandled_input(event: InputEvent) -> void:
 	super(event)
 
 
-func dash():
+func dash() -> void:
 	super()
 	
 	outline_on()
 
-func _on_dash_duration_timeout():
+func _on_dash_duration_timeout() -> void:
 	super()
 	
 	outline_off()
 
 
 
-func start_sucking(_blood_pool: Area2D, resource := "hp"):
+func start_sucking(_blood_pool: Area2D, resource: String = "hp") -> void:
 	stop_sucking()
 	if is_instance_valid(blood_tween):
 		blood_tween.kill()
@@ -185,7 +185,7 @@ func start_sucking(_blood_pool: Area2D, resource := "hp"):
 			blood_tween.tween_property(self, "blood", blood + _blood_pool.sprite.global_scale.x * 64, _blood_pool.sprite.global_scale.x * 2.0)
 	blood_tween.finished.connect(_blood_pool.queue_free)
 
-func stop_sucking():
+func stop_sucking() -> void:
 	arm_left.hide()
 	is_sucking = false
 	
@@ -195,30 +195,30 @@ func stop_sucking():
 	active_blood_tweens.clear()
 
 
-func outline_on():
+func outline_on() -> void:
 	sprite.material.set_shader_parameter("outline_on", true)
 	create_tween().tween_method(set_outline_shader_intensity, sprite.material.get_shader_parameter("line_thickness"), 1.64, 0.2)
 
-func outline_off():
+func outline_off() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_method(set_outline_shader_intensity, sprite.material.get_shader_parameter("line_thickness"), 0.0, 0.2)
 	await tween.finished
 	sprite.material.set_shader_parameter("outline_on", false)
 
-func set_outline_shader_intensity(new_value):
+func set_outline_shader_intensity(new_value: float) -> void:
 	sprite.material.set_shader_parameter("line_thickness", new_value)
 
 
-func _on_blood_sucker_area_exited(area: Area2D):
+func _on_blood_sucker_area_exited(area: Area2D) -> void:
 	if area == blood_pool:
 		blood_pool = null
 		stop_sucking()
 
 
-func _on_arm_left_draw():
+func _on_arm_left_draw() -> void:
 	outline_on()
 
-func _on_arm_left_hidden():
+func _on_arm_left_hidden() -> void:
 	await tree.create_timer(0.1).timeout
 	if not is_sucking:
 		outline_off()

@@ -83,23 +83,15 @@ position = Vector2(1387, 479)
 
 [node name="ZombieBrawler" parent="Zombies" instance=ExtResource("8_vi130")]
 position = Vector2(1112, 488)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieBrawler2" parent="Zombies" instance=ExtResource("8_vi130")]
 position = Vector2(1130, -87.9999)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieBrawler3" parent="Zombies" instance=ExtResource("8_vi130")]
 position = Vector2(661, -259)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieBrawler4" parent="Zombies" instance=ExtResource("8_vi130")]
 position = Vector2(121, -774)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieNorm3" parent="Zombies" instance=ExtResource("7_to8ug")]
 position = Vector2(1414, -88)
@@ -121,18 +113,12 @@ position = Vector2(100, -1225)
 
 [node name="ZombieRunner" parent="Zombies" instance=ExtResource("9_u1smm")]
 position = Vector2(1284, -320)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieRunner2" parent="Zombies" instance=ExtResource("9_u1smm")]
 position = Vector2(1115, -248)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieRunner3" parent="Zombies" instance=ExtResource("9_u1smm")]
 position = Vector2(242, -1436)
-damage = 20.0
-knockback_force = 4800.0
 
 [node name="ZombieNorm6" parent="Zombies" instance=ExtResource("7_to8ug")]
 position = Vector2(765, 124)

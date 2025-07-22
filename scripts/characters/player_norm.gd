@@ -2,7 +2,7 @@ class_name PlayerNorm
 extends Player
 
 
-var gun = {
+var gun: Dictionary[String, Variant] = {
 	"name": "gun",
 	"index": 0,
 	"dmg": 20,
@@ -17,7 +17,7 @@ var gun = {
 	"mag": 8,
 	"reload_time": 1.16
 }
-var machinegun = {
+var machinegun: Dictionary[String, Variant] = {
 	"name": "machinegun",
 	"index": 1,
 	"dmg": 24,
@@ -32,7 +32,7 @@ var machinegun = {
 	"mag": 32,
 	"reload_time": 1.64
 }
-var shotgun = {
+var shotgun: Dictionary[String, Variant] = {
 	"name": "shotgun",
 	"index": 2,
 	"dmg": 40,
@@ -48,21 +48,21 @@ var shotgun = {
 	"reload_time": 2.64
 }
 
-var weapons = {
+var weapons: Dictionary[String, Dictionary] = {
 	"gun": gun,
 	"machinegun": machinegun,
 	"shotgun": shotgun
 }
 
-var held_weapons = [
+var held_weapons: Array[Dictionary] = [
 	gun,
-	null,
-	null
+	{},
+	{}
 ]
 
-var held_weapon:
+var held_weapon: Dictionary[String, Variant]:
 	set = set_held_weapon
-func set_held_weapon(new_held_weapon):
+func set_held_weapon(new_held_weapon: Dictionary[String, Variant]) -> void:
 	held_weapon = new_held_weapon
 	emit_signal("weapon_changed", held_weapon["name"])
 	emit_signal("mag_changed", held_weapon["mag"])
@@ -74,23 +74,23 @@ signal mag_changed
 signal weapon_changed
 var target_weapon_i: int
 
-var default_weapon = 0
+var default_weapon_i: int = 0
 
 var blood_tween: Tween
-var active_blood_tweens = []
+var active_blood_tweens: Array = []
 var blood_pool: Area2D
 var is_sucking: bool = false
 
-var bullet_scene = preload("uid://durccheqs6y0n")
-var muzzle_flash_scene = preload("uid://dtj76lgbo4ydn")
+var bullet_scene: PackedScene = preload("uid://durccheqs6y0n")
+var muzzle_flash_scene: PackedScene = preload("uid://dtj76lgbo4ydn")
 
 
 @onready var reload_timer: Timer = $ReloadTimer
 
-func _ready():
+func _ready() -> void:
 	super()
 	
-	held_weapon = held_weapons[default_weapon]
+	held_weapon = held_weapons[default_weapon_i]
 	target_weapon_i = held_weapon["index"]
 	held_weapon["mag"] = held_weapon["mag_max"]
 	
@@ -99,7 +99,7 @@ func _ready():
 
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	super(delta)
 	
 	if Input.is_action_pressed("fire") and can_shoot and held_weapon["mag"] > 0:
@@ -137,13 +137,13 @@ func _physics_process(delta):
 			bullet.shooter = self
 			game.add_child(bullet)
 		
-		var muzzle_flash = muzzle_flash_scene.instantiate()
+		var muzzle_flash: ParticleEffect = muzzle_flash_scene.instantiate()
 		muzzle.add_child(muzzle_flash)
 		
 		velocity += randf_range(0, held_weapon["recoil"]) * -dir
 
 
-func _unhandled_input(event: InputEvent):
+func _unhandled_input(event: InputEvent) -> void:
 	super(event)
 	
 	if event.is_action_pressed("scroll_up"):
@@ -166,20 +166,20 @@ func _unhandled_input(event: InputEvent):
 		held_weapon = held_weapons[2]
 
 
-func reload():
+func reload() -> void:
 	reload_timer.start(held_weapon["reload_time"])
 	sprite.play(held_weapon["name"] + "_reload")
 
 
-func _on_reload_timer_timeout():
+func _on_reload_timer_timeout() -> void:
 	held_weapon["mag"] = held_weapon["mag_max"]
 	sprite.play(held_weapon["name"])
 	emit_signal("mag_changed", held_weapon["mag"])
 
 
-func _on_dash_cooldown_timeout():
+func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
 
-func _on_dash_duration_timeout():
+func _on_dash_duration_timeout() -> void:
 	is_dashing = false
 	hitbox.set_deferred("monitorable", true)

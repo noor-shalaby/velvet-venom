@@ -68,7 +68,6 @@ layout_mode = 2
 [node name="MainMenuButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("4_4inpj")]
 layout_mode = 2
 text = "Main Menu"
-target_scene = "uid://c5pn4nalkxme2"
 
 [node name="QuitButton2" parent="Dim/Panel/Margin/VBox" instance=ExtResource("4_0bnpd")]
 layout_mode = 2
