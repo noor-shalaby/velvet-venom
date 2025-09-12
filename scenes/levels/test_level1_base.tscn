@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player_norm.tscn" id="2_s4v1q"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="2_wc6hh"]
 [ext_resource type="PackedScene" uid="uid://c8klnxe2lr3ma" path="res://scenes/characters/zombie_norm.tscn" id="3_gd7ii"]
-[ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tile_map.tscn" id="3_wc6hh"]
+[ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tilemap.tscn" id="3_wc6hh"]
 [ext_resource type="PackedScene" uid="uid://dnd3h2kcjhckq" path="res://scenes/characters/zombie_runner.tscn" id="4_mwkxh"]
 [ext_resource type="PackedScene" uid="uid://boqei7v8w8q57" path="res://scenes/characters/zombie_brawler.tscn" id="5_s4v1q"]
 [ext_resource type="PackedScene" uid="uid://bg16074l4ym1u" path="res://scenes/pickups/pickup_weapon.tscn" id="7_ncwps"]
@@ -25,10 +25,11 @@ source_geometry_group_name = &"nav"
 agent_radius = 16.0
 
 [node name="Game" type="Node2D"]
+metadata/_edit_vertical_guides_ = [1600.0]
+metadata/_edit_horizontal_guides_ = [928.0]
 
-[node name="HUD" parent="." node_paths=PackedStringArray("host") instance=ExtResource("1_gd7ii")]
+[node name="HUD" parent="." instance=ExtResource("1_gd7ii")]
 visible = false
-host = NodePath("../Player")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_wc6hh")]
 visible = false
@@ -77,9 +78,15 @@ position = Vector2(239, 162)
 weapon = "shotgun"
 
 [node name="CamCtrl" parent="." node_paths=PackedStringArray("host") instance=ExtResource("9_0vq3v")]
-host = NodePath("../Player")
+host = NodePath("../PlayerNorm")
 
-[node name="Player" parent="." instance=ExtResource("2_s4v1q")]
+[node name="Camera" parent="CamCtrl" index="0"]
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 928
+
+[node name="PlayerNorm" parent="." instance=ExtResource("2_s4v1q")]
 position = Vector2(217, 665)
 
 [editable path="TileMap"]

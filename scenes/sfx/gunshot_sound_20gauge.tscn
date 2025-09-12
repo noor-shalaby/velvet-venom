@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yxsstnq3w53u"]
+
+[ext_resource type="AudioStream" uid="uid://4wwp7q2wra2y" path="res://assets/audio/gunshot/20 Gauge Single Isolated.wav" id="1_yw31v"]
+[ext_resource type="Script" uid="uid://ee1s3vy3yncd" path="res://scripts/sfx/sfx_oneshot_2d.gd" id="2_sd52q"]
+
+[node name="GunshotSound20Gauge" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yw31v")
+volume_db = 12.0
+pitch_scale = 0.5
+autoplay = true
+script = ExtResource("2_sd52q")
+rando_type = 1
+
+[connection signal="finished" from="." to="." method="_on_finished"]

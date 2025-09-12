@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://byvpqdc4io075"]
+[gd_scene load_steps=19 format=4 uid="uid://byvpqdc4io075"]
 
-[ext_resource type="Script" uid="uid://cql3bkcybbjuo" path="res://scripts/characters/player_vamp.gd" id="1_65k6d"]
+[ext_resource type="Script" uid="uid://cql3bkcybbjuo" path="res://scripts/characters/player/player_vamp.gd" id="1_65k6d"]
 [ext_resource type="Texture2D" uid="uid://c3rl2vybs31lk" path="res://assets/characters/hitman1/hitman1_stand.png" id="2_ti7kl"]
 [ext_resource type="Shader" uid="uid://clol157o6cvty" path="res://resources/shaders/blink_outline.gdshader" id="3_xh4w1"]
 [ext_resource type="Texture2D" uid="uid://dctyxa7x5eumm" path="res://assets/characters/hitman1/hitman1_left_arm.png" id="4_65k6d"]
 [ext_resource type="Texture2D" uid="uid://dslsoowltex5y" path="res://assets/characters/hitman1/hitman1_right_arm.png" id="5_xh4w1"]
+[ext_resource type="AudioStream" uid="uid://ddcmhefm1gy4e" path="res://assets/audio/blade/machete_slash_flesh_attack_01.wav" id="6_l5ki3"]
+[ext_resource type="AudioStream" uid="uid://dv8pt0h85hp0a" path="res://assets/audio/bloodsuck/Ambiance_Stream_Calm_Loop_Stereo.wav" id="7_l5ki3"]
+[ext_resource type="AudioStream" uid="uid://kednpx5gs5h7" path="res://assets/audio/walk/Dirt Walk 1.wav" id="8_3j8mr"]
 
 [sub_resource type="Curve" id="Curve_y4r1p"]
 _data = [Vector2(0, 0.496188), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -33,11 +36,23 @@ radius = 13.0
 radius = 13.0
 height = 46.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5ki3"]
+radius = 13.0
+height = 46.0
+
+[sub_resource type="OggPacketSequence" id="OggPacketSequence_fbcfr"]
+packet_data = Array[Array]([[PackedByteArray("AXZvcmJpcwAAAAACAHcBAAAAAAD+////AAAAALgB")], [PackedByteArray("A3ZvcmJpcx0AAABYaXBoLk9yZyBsaWJWb3JiaXMgSSAyMDA3MDYyMgIAAAANAAAAVFJBQ0tOVU1CRVI9MQwAAABUSVRMRT13b29zaDEB"), PackedByteArray("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qaqq6rowTVFUVdV1Xciyaaqq68oybNs0VdV1ZRmoqqrKriwD11VV15VlAQDgCQ4AQAU2rI5wUjQWWGjISgAgAwCAIAQhpRRCSimElFIIKaUQEgAAMOAAABBgQhkoNGRFABAnAAAgJKWCTkoloZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWTUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUklJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJJKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZQKANCNcADQfTChDBQashIASAUAAIxRijEIqcVWIcSYcxJaa61CiDHnJLSUYs+YcxBKaS22njHHIJSSWou9lM5JSa21GHsqHaOSUksx9t5LKSWl2GLsvaeQQo4txth7zzGlFlursfdeY0qx1Rhj7733GGOrsdbee+8xtlZrjgUAYDY4AEAk2LA6wknRWGChISsBgJAAAMIYpRhjzDnnnHNOSskYc85BCCGEEEopGWPMOQghhBBCKSVjzjkHIYRQQiilZMw56CCEUEIopZTOOQcdhBBCCaWUkjHnIIQQQgmllFI65yCEEEIopYRUSimdgxBCKCGEUkpJKYQQQgihhFBSKSmFEEIIIYRQQkolpRBCCCGEEEpIpaSUUgghhBBCCKWUlFIKJZQQQiihpJJKKaWEEEoIoaRUUiqplBJCCCWEkkpKKZVUSighhFIAAMCBAwBAgBF0klFlETaacOEBKDRkJQAQBQAAGQcdlJYbgJBy1FqHHIQUWwuRQwxajJ1yjEFKKWSQMcaklZJCxxik1GJLoYMUe8+5ldQCAAAgCAAIMAEEBggKvhACYgwAQBAiM0RCYRUsMCiDBod5APAAESERACQmKNIuLqDLABd0cdeBEIIQhCAWB1BAAg5OuOGJNzzhBifoFJU6EAAAAACAAgB4AABAKICIiGauwuICI0Njg6PD4wNEAAAAAABUAOADAAAJASIimrkKiwuMDI0Njg6PD5AAAEAAAQAAAAAQQAACAgIAAAAAAAEAAAACAg==")], [PackedByteArray("1NSWfNbQhjqVFYKfDfcKM4P0nMJ/bt7z/XQX"), PackedByteArray("xNJ4+MTUWD6179HSQhD3/pDClM7Z9OxuBA=="), PackedByteArray("WjjdIyEAUQoVvwofRmiHJPaio+EEIEqhfANGaEQI71X4v7lZRC9PqXH0Hfn9eJy6/Fpr8XXWt/qi+/V1I5J2VPXSXs0wn8mypjxbu0XzSgeC8a68UvfI1oif6Wan8vc5uonh2y4oO1GaWbtLjWJ7/Qw="), PackedByteArray("PkhdHcHBC8o3YWEEo2KwOjnMLps7NPkqLIxgl3CofzD7/eoNx9YxE6dj4qKDN/WW7KUqzY5lOujdlTp9Hfk/9o8rhU/nMIrg0fHd5lP1C0GxDrcuQvznw03FWIlbDA29yzAP"), PackedByteArray("PjidJGaCMCnfhIUR7JIGpyPFdFTdVPoqNIxgl/AA7l3xXI7TuIDu8hDs0cnA+k/79p0h0KVWV+geWwBjOcfQcXouc3Ks4UNnYnSCeVLGZOdav1cqHleN8ua1WDEFC2pZPw=="), PackedByteArray("vjeNDHMQClW+AiMYFYPWRhkvwqEhfBUqjB4/71CK//R6JL096fiFeCXGZXSz3fWZUc/QFkE0ocvsvVchmW7EGnSdt+tb3+LJJxGbLf8n4zf1ZDS9UtNZLQZ6+kpGFbf5eqNUuUW7XA=="), PackedByteArray("vjc1ULCjCo3pK0MKRq+fH5QWzDggTBrzV6EJG8EOyak4/NPw05NtO3h16tnJcTYxGfsu4vPgKmazOFQcBNAemZQd0nztGc/bh8oiYKp8NkmSBO07yvS8lOl0KnerVl4knrc71dU0HSgFP0qetA0i"), PackedByteArray("/kcVWNOtCMwqX4FR+nN9VUo4dlqYQkf+LAcVjWBUOFT9GOx+t/ng8PLzpWL0/KN9bLy//XxuVlbnJsXPS72t3F5acmnadiuIHKSt5RCSgGvns+flbeUeQUay+ibpcZ1jXb/hnK0CPRY="), PackedByteArray("HkiVhGZiHWp+DoYRjEqBVMFpFjiUz6FhBCPCrnP5aWHVGNcFZ4eF/ztxqb2HTuoESSuA4eqfDN6drXKeKq7Q3m72zTMnZCJvWf6YhZ5Y7q/koxjVrZvmtRRB9OphjaFVly0G"), PackedByteArray("ntgk7MhgjLQoTeVz+C1xjJKfK2SqeU8SoKchvA5/HKPwc24DexA+OynFloDGVAlVS/RGbnJ/Gk3lOdXUdRgSdrQF6r/i7uZbY8j8j4b/5X+KEaiTYBiUAZN486IREaV0AQ=="), PackedByteArray("XtkMhzes45id7Y+gDUYwOrxshsMrXqIwOtOvkYIRDIZ+CYDjZbtMQK6yND2DjYV94rRLLgwNAJaRdHcr2DaddmyKN8sADHIlSiV2Ci2m268ppov+V7HNKx6WSWWzqBzV8JwqrLwE"), PackedByteArray("/tokch51ms6zo/wnMgmMYNc4lUkOOrqbZnW6078jG0kj2DH2AdMngOfLk8QIMDJp8scOlKA8FgYAeNnOzqU+duzovnNPcG6e3pOZz0G9y4B2iuIt92DJ5h0RL9BV1bua7yClpMLBH9aKCw=="), PackedByteArray("3tlUBhJ5kuFR7s727yFuI9g17mTygx5pcA/P3uWvUGEEoyN36k/TbAGCkcyBTuHop/PnLiRtFADqgeyM4fpIEXPbk7mR26D/Mn295BrMX4R3u8jwjTaHkxWty9fLLsvHvcYnSA=="), PackedByteArray("ftnEeU1qqoRZ8/caRjA6YrIJBhl04dCZP08wgk6SpzKAyMgsjs7WP+U3YI0snZY7PS+PFChK543v1K/9aNXReXvLgHCE6MKI7G13zB7v6qjviyTIZmVep622mCt5RNd10WzyPqQP"), PackedByteArray("PsgkhmNsM8oc9XwBK/38YZPIAxA2MPpMW7DEz/mOAe4sAUs5TaszXQvTxqP9j91xn4cBAGAsiN21+57x6dbHieNtO7ex4YryvBMcxOvkq1qwGnXhbZ7X6L/FLpgnPALre3O7AA=="), PackedByteArray("/sh0IQZrwKzzCqz8c49MnGOAUOgzXSOy4s95fACrUj+955c6abnJBZ3pQ+Xw9iysLNtoVN7ptr8cx+2yOHQs5emgKgYHwnqcWI2Jc2lq8zl8dMTXOGqWEOYjSULsx4XURucOAA=="), PackedByteArray("Psh0NoRkJOdb8zMYJT836MScBNME7k6vERiFn/MG8JXnn2jwCbDypVN1edjdKJiyGWOJYYMi+Boak4Mzb6/+8Rec7qbAdnxFRDqdx1qPhja6ob+OO7levbe2H6nqi9zMquqqIyQ="), PackedByteArray("HsgsJAaMgSpfgdHj5wObGjBAJbTFz4iN0p/zuEAWeP4T00cW26BWQ82HT3k/ppbnRgpuQ211BScsvOnfNDqsA9YabPccgj3W579nl/UZ62/0jG/uR011l51+mqukacpdQA8="), PackedByteArray("HtisDEBSsKt8BUbpz/qaBlAgJLTVrxAYpT/v8TEwSvFP9DuY4WqEqJqK7L3tp6suNUIgHK7gnDwoIgHQ4M72LhjtLxM8aoqffrk3ZoXGcfWCMYIT8ukw6oqXe5WUCQUS"), PackedByteArray("HticBMdCADW+AqP05xKbo4bsuDGo/Dk0jF4/ORTnP71/dEsP4+dd307eufiPm596GLost5Qu+RZOPvsNnUeH1BKwNJN2Ho5w2oPgltcTx30pMEYqGtzOyfPzPhKN62uNxi9YUFdjAA=="), PackedByteArray("PshcNEdHGJsqX4UKo/TnEpmzR9y4sWn2VWiy0ePnPSzjbfgHJ/MPfcNun+sPTnSq9fvHt6iTJkjSbu02qNvfqrvd61oneIYB3qxoc6rS8W97HjBPihM5HjcZvNZ1jk1jSONWLIF2AQ=="), PackedByteArray("3sfsmmSiBqp8BUbpzw02J0dwCAkN8auICRmlP+fI4Z/snHZhfyMcje5sTlh8RSkNdup8c/Pwvf3pWCdqIJZw6nSEujQEVLe8FWd9mO6uznYnTKqDbOwNsG6hDrkdzSsB"), PackedByteArray("PshcEslCGJsqn8OH0eunuabXBC2VxK78FRilP+/OwptS+ifl25t11Qkvo4RV0kFBTlk5D1s3IUJwOIgCtILs1AhHbWR07YBJGmPsyZjyb4nLM1n1iqaG6B+9hGxyC7jP5KpiKSo="), PackedByteArray("PsicC0dPahwqfRUWRo+f62t2R9BxaVPhm8Rh9PrJqf+pVzncbdez89mRV+Pvx862P4tqowFYHThkTLUEK/vPi7/3jceal7sxPuObB9MaliJh7b5rBWWTRCyqq+4uY0SzIgI="), PackedByteArray("ntjcG8luHbdY5atQswSjx8/tNZsmWJQxqfgVGL1+zqnqHwz2wvnuvrvTjzbnw8UfTrlf92200UBrglbX4LZjyoSuOOIOIu4AhU4wnNDXHvObeT0vRWnw++sXP5cStepO4omgCjUC"), PackedByteArray("frhcPcmNW4dKX0UIo9fP/zEXzXFQY1K+AqPXzzlU/tOWPlyd7cciVm1fOcXOF69/ylv3tAUhKsex837M3uqkFcoa+V7TbbaFdb6vHf3v300ZYYwP0cvhPoyMsiLiKNF0GBY23Qg="), PackedByteArray("3tccNcmhMKnwFRg9fvbHXCLPNGUcGuJXZoweP+dQ/E9nOUe74YLRoGGunKV+aW5nud+RpAokBL/JruP56ZJIOfaM7ERut86v1dTPlHh4hfqTxEuLmqqBM2Jr+K2EYVUS"), PackedByteArray("XujcHcdO4KZ8FRZGj58GmbPjeAgDFb4KDaPHzzn+mGYb178l/suNfj7c1N5LfrVJG5p9ulsbc9nDQvEiW9vpKP6EGl9O1HxvX0P0PMTBkjyGWJc6WVaKv8IrwiPsAA=="), PackedByteArray("fsjcI89PM1Dhc4QwSn9urtkgz05IQ6vwFRilP+eOiwql/mTaX/83lmv+f0ZL2TB20q5Fh7+CcVzLZ0sogaAtwTs3NXT+zV63ze7m2nC6+eKO+vurtiNX2gU3DuFyKByHwQ6rlixPFw=="), PackedByteArray("HticI8HMCjeVvgGj18/1MSfNMSlrUvE1GL1+5lD/lCy69NTobN3R5v7xOpbauK7LU1WqUVoRwuB2nZXd5xw7v5Y0D/viOJZJ9tChmL5POQq/vqVoMDB329dIIdb+NEOwVHdXAQ=="), PackedByteArray("PuicC6Jkk24qfAaj109/zsWRdOl4Ur4Bo9fPnCr/6fUJt5rOuja+2776cNw//BKjmIlGqcZ6djLYmIxJnesdPzVFkz45AGrZg+P4PW2Qyq9fbwm1HLqWcs0tgqPVWjMiuTUCxgA="), PackedByteArray("XshcPcdOlzblKzB6/Nxes1eSlTdsKnwFRunPHCr/aafxjcPHiunLbjIO69M3PQ1/07FEI9NqrcQyvf/b1THX6h+MjUOufGIAacWrOurz+ptruLdnu3fakZIilrEpJTWGfINbhlNKWgA="), PackedByteArray("XthcHcdDSINKX4WF0ePnB5nzyNHzJh3KV2CU/pzzP2153OO/3vTKzlj+Mjl/cfxDs8FkHRpEq1N3bf6kXgoj+4z2lpS25f8mfc+vmVfxtdVQU7u8dlNZ0fXKJ9bVRB3OJsJlJr5mFw=="), PackedByteArray("vtccDcehgPIVGD1+1uecNMehS5MKn8Ho8TPH6qdfPvxActLo/IbOf90LaS5ZNqSpvLmfjsPL+rKdy490szCbEsfXEGWOpx5vVjvEsTOmy6OmGwijaH/iQvAcdbE8U9Z1AQ=="), PackedByteArray("/rccNcHt3Zo0xM8WjF4/G2zOkeQzIQ2zI3wVFkbpTx4uAzU/RrpV7/9qtrHLbo2mtbu8/abndlTq/aGW2ymlmpME5rhFDCG3AUMk9Arja7fe2ddGsYSNP2uNsAKfxTGWGT7xfznOMAA="), PackedByteArray("PsicPcdDMwYVvgoVRo+fG2ROjmCXJT1pC9+A0etnjv90sZ/+KQ9HPzOPd+tnzv/Lf+1SFfR8d2ez7dpNUvapZBqHSfrZP/V2X0dvO7JxnFR0p5VF6JeJu2gy7JZVS6kMuAE="), PackedByteArray("PtjcC8mDGyjfQ4XR6+f6mqMjmJQ0Kd+A0evnnasfXOr6t69/fnP+aCP38XxLbV8R87kIe9pOq276ozQP/faM7J43b3E3kBDS6TReD80Pfzkeu9rhdI3iOr4QtbGSQ6siVE3zZDAq"), PackedByteArray("PqfskuOlJJQfYAS7S4HKUyt8TXH0NX6GmjBGsEtyKK6PGIgn3905EjgczxuMe7o7DgVScaoM4GvSOVcMGCBNBnJhZJkc3ThBiZ/Qvh3esmKWT8Dj08Hna2jzHoVjBA==")]])
+granule_positions = PackedInt64Array(0, 0, 36493)
+sampling_rate = 96000.0
+
+[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_4d523"]
+packet_sequence = SubResource("OggPacketSequence_fbcfr")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l4js"]
 radius = 13.0
 height = 46.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="PlayerVamp" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 81
 motion_mode = 1
@@ -70,15 +85,20 @@ position = Vector2(10, 0)
 texture = ExtResource("5_xh4w1")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_fjrip")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="AudioListener" type="AudioListener2D" parent="."]
+current = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(2, 0)
 collision_layer = 4
 collision_mask = 64
 monitoring = false
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_fjrip")
 debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
 
@@ -86,7 +106,44 @@ debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
 position = Vector2(20, 12.5)
 gizmo_extents = 8.0
 
+[node name="FireDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashHitbox" type="Area2D" parent="."]
+visible = false
+position = Vector2(2, 0)
+collision_layer = 8
+collision_mask = 16
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="DashHitbox"]
+shape = SubResource("CapsuleShape2D_l5ki3")
+debug_color = Color(0.823529, 0.196078, 0.196078, 0.419608)
+
+[node name="DashDuration" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashInvincibilityDuration" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamOggVorbis_4d523")
+
+[node name="DashSlashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_l5ki3")
+
+[node name="SuctionPoint" type="Marker2D" parent="."]
+position = Vector2(20, -12.5)
+gizmo_extents = 8.0
+
 [node name="BloodSucker" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 256
 
@@ -94,20 +151,18 @@ collision_mask = 256
 position = Vector2(2, 0)
 shape = SubResource("CapsuleShape2D_2l4js")
 
-[node name="FireDelay" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+[node name="SuckSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_l5ki3")
 
-[node name="DashDuration" type="Timer" parent="."]
-one_shot = true
-
-[node name="DashCooldown" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3j8mr")
 
 [connection signal="draw" from="ArmLeft" to="." method="_on_arm_left_draw"]
 [connection signal="hidden" from="ArmLeft" to="." method="_on_arm_left_hidden"]
-[connection signal="area_exited" from="BloodSucker" to="." method="_on_blood_sucker_area_exited"]
 [connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]
+[connection signal="body_entered" from="DashHitbox" to="." method="_on_dash_hitbox_body_entered"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="DashInvincibilityDuration" to="." method="_on_dash_invincibility_duration_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="area_exited" from="BloodSucker" to="." method="_on_blood_sucker_area_exited"]
+[connection signal="finished" from="WalkSound" to="." method="_on_walk_sound_finished"]

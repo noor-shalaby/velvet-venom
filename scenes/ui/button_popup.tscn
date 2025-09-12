@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b81n1bf132qc4"]
+
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="1_j5k1j"]
+[ext_resource type="Script" uid="uid://cm01rru21pee" path="res://scripts/ui/button_popup.gd" id="2_h5ixv"]
+
+[node name="PopupButton" instance=ExtResource("1_j5k1j")]
+text = "Popup"
+script = ExtResource("2_h5ixv")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw201dalnsllq"]
+
+[ext_resource type="Script" uid="uid://d2bhiad4or024" path="res://scripts/ui/splash_screen.gd" id="1_wh6tg"]
+[ext_resource type="FontFile" uid="uid://dx42bbpiek4kl" path="res://assets/fonts/CinzelDecorative-Bold.ttf" id="4_vratd"]
+
+[sub_resource type="Gradient" id="Gradient_m0ilf"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.556863, 0.0823529, 0.00784314, 1, 0.111902, 0.0314725, 0.0244786, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eina6"]
+gradient = SubResource("Gradient_m0ilf")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wh6tg")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gradient" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_eina6")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -86.5
+offset_right = 522.0
+offset_bottom = 86.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_vratd")
+theme_override_font_sizes/font_size = 128
+text = "Velvet Venom"
+horizontal_alignment = 1

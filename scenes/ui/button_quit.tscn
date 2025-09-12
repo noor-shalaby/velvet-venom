@@ -6,5 +6,4 @@
 [node name="QuitButton" instance=ExtResource("1_wvn4u")]
 text = "Quit"
 script = ExtResource("2_up6lg")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+sfx = null

@@ -1,9 +1,37 @@
-[gd_scene format=3 uid="uid://cv0b8mfiyro15"]
+[gd_scene load_steps=7 format=3 uid="uid://cv0b8mfiyro15"]
+
+[ext_resource type="Script" uid="uid://cqlly6v8crsm2" path="res://scripts/ui/buttona.gd" id="1_di1ux"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="1_vgxan"]
+[ext_resource type="Texture2D" uid="uid://clijd1owffyxm" path="res://assets/ui/tex_red.png" id="2_vgxan"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrrss"]
+texture = ExtResource("2_vgxan")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgxan"]
+texture = ExtResource("2_vgxan")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0w6a"]
+texture = ExtResource("2_vgxan")
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(512, 64)
 offset_right = 8.0
 offset_bottom = 8.0
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("1_vgxan")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxTexture_mrrss")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vgxan")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_y0w6a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mrrss")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mrrss")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mrrss")
 text = "Button"
+script = ExtResource("1_di1ux")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="resized" from="." to="." method="_on_resized"]

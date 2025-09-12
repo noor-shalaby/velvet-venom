@@ -1,8 +1,7 @@
-extends Button
-
-
-@onready var tree: SceneTree = get_tree()
+extends Buttona
 
 
 func _on_pressed() -> void:
-	tree.quit()
+	super()
+	
+	SceneTransitioner.quit()

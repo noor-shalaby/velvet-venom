@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmyckr4h84cif"]
+
+[ext_resource type="PackedScene" uid="uid://bdlh1qn7b7dsk" path="res://scenes/sfx/sfx_oneshot_2d.tscn" id="1_pl5qw"]
+
+[node name="ImpactSound" instance=ExtResource("1_pl5qw")]
+volume_db = -13.0

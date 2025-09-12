@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5wjqm0rc6n38"]
+
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="1_x01a4"]
+[ext_resource type="Script" uid="uid://crmxbahnutoji" path="res://scripts/ui/button_url.gd" id="2_jxnth"]
+
+[node name="URLButton" instance=ExtResource("1_x01a4")]
+text = "URL"
+script = ExtResource("2_jxnth")
+url = ""

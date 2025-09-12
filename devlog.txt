@@ -1,0 +1,659 @@
+STARTED 21/6/2025
+
+Day 7 - FRI 27/6/2025
+
+- added blood splatter effect to Player
+- added one more sprite texture for the zombie to randomly choose from
+- added blood explosion particles death effect to Player
+- improved and simplified code
+- added blood pool death effect
+- HIGHLIGHT: developed the zombies to patrol when they don't have a target instead of just standing still
+
+
+
+======= WEEK 2 =======
+
+Day 8 - SAT 28/6/2025
+
+- animated the blood pool so it slowly scales up a little after appearing
+- added multishot, spread and wall puncture as properties to all weapons
+- added a VisibleOnScreenEnabler2D node to the zombie to improve performance
+
+
+Day 9 - SUN 29/6/2025
+
+- developed the zombies to share their target with nearby zombies
+- added a small blood stain that the blood splatter leaves behind
+- developed the dash to dash in the direction of the mouse cursor if there is no input direction instead of just standing still
+- added a white blink effect on hit
+- added reload animations
+
+
+Day 10 - MON 30/6/2025
+
+- added a ghost trail particle effect to the dash
+
+
+Day 11 - TUE 1/7/2025
+
+- HIGHLIGHT: made a basic Gunner Zombie
+
+
+Day 12 - WED 2/7/2025
+
+- made the zombies turn and rotate via lerp()
+- added a variable called precision for the Gunner Zombies to determine how fast they should turn while shooting at the Player
+
+
+Day 13 - THU 3/7/2025
+
+- fixed a bug where the Gunner Zombie sometimes attempted to shoot at the Player while the weapon is actually stuck to a wall
+- developed the Gunner Zombie to switch to melee mode when the Player is close enough and the zombie is reloading
+- rewrote the dash code to have a duration and speed instead of being an instantaneous addition to the velocity vector
+- added i-frames to the dash
+- made the reload animations for the Gunner Zombie
+
+
+Day 14 - FRI 4/7/2025
+
+- made a new type of zombie: Runner Zombie, which is basically a Zombie Norm but with more speed, attack speed, damage and knockback force but with a lil less hp and emits ghost trail particles when on the chase
+- made the Gunner Zombie a lil slower than the Zombie Norm, which made more sense
+- fixed a bug where you can reload even with a full mag
+- fixed a bug where you can restart the reload while already in the middle of reloading
+- improved the Player's code a little
+
+
+
+======= WEEK 3 =======
+
+Day 15 - SAT 5/7/2025
+
+- coded all the blood vfx to scale according to the host's scale
+- made a new type of zombie: Brawler Zombie, which is basically a Zombie Norm that's a lil bigger with more damage and knockback force and a lot more hp, but a lil slower. it attacks by punching instead of biting and it's not affected by knockback
+- added the ability to interrupt a reload and start shooting unless the mag is empty
+- redid the blink hit effect with a shader instead of playing with self modulate using an animation player
+
+
+Day 16 - SUN 6/7/2025
+
+- used a Reinhard WorldEnvironment
+
+
+Day 17 - MON 7/7/2025
+
+- made a basic HUD with a basic HP Bar
+- added live equipped weapon texture and mag to the HUD
+- added a very basic Pickup System and Pickup Weapons
+- made a basic Pause Menu with a Resume Button and a Quit Button
+
+
+Day 18 - TUE 8/7/2025
+
+- made a basic Main Menu
+- made a Play and a Quit Buttons in their own separate inherited scenes
+- saved the TileMap into its own scene, making future edits much easier
+- fixed a bug where blood drew on top of pickups, by adjusting the Z Index of some scenes
+
+
+Day 19 - WED 9/7/2025
+
+- created a more proper prototype level
+- created a basic camera system
+- added a lil lifesteal to all the Zombies' melee attacks equal to their damage. no vfx for it at all yet though
+- duct-taped an error where the game would crash when you attempt to switch weapon using the scroll wheel and the index iterator landed on a null weapon in the held_weapons array
+- fixed a bug where if you get away from an enemy to the point that it exits the viewport, it would pause. by freeing the VisibleOnScreenEnabler2D node on entering the screen
+- created a timer for the Zombie Gunner to give it a lil time before opening fire on entering the screen and prevented it from shooting while off-screen
+
+
+Day 20 - THU 10/7/2025
+
+- fixed the duct-taped scroll switch weapon bug
+- added a small drag to the camera in the direction of the mouse
+- created a Restart Button
+- created a basic Death Screen
+
+
+Day 21 - FRI 11/7/2025
+
+- added a Restart and a Main Menu Buttons to the Pause Menu
+- HIGHLIGHT: added the basic mechanic of Blood Sucking to the Player
+- debugged the heck outta this new mechanic
+
+
+
+======= WEEK 4 =======
+
+Day 22 - SAT 12/7/2025
+
+- split the player into human and vampire subclasses which inherit from a Player superclass
+- created Bloodshot which is basically a Bullet made outta blood for the PlayerVamp class to use
+- finished the PlayerVamp shooting logic with a machinegun-like primary fire mode and a shotgun-like alternative fire mode
+- shaded the dash particles with a lil red for the PlayerVamp
+
+
+Day 23 - SUN 13/7/2025
+
+- coded the PlayerVamp's right arm to show when shooting and the left arm to show when sucking or using any future abilities
+- coded the HUD's WeaponPanel to hide if the Player is a PlayerVamp
+
+
+Day 24 - MON 14/7/2025
+
+- made the PlayerVamp's ammo (blood) limited
+- added the ability to suck blood pools for blood instead of hp, using the reload input action
+- created a ProgressBar for the blood right under the HPBar
+- added a new gun-like fire type for the PlayerVamp for when you run outta blood
+- simplified the code by creating tweens right away instead of getting the tree first
+
+
+Day 25 - TUE 15/7/2025
+
+- fixed a bug where each time you released the suck button and held it again for the same blood pool, you would suck more resource out of it
+- developed the PlayerVamp to suck the other attribute when you're sucking one and it fully fills
+- created 2 subfolders in the recources folder: spritesheets and shaders
+- renamed the restart_button scene and script files to button_restart and moved the script from the scenes folder to the scripts folder for consistency folders
+- improved the pickup and the pickup_weapon code by creating a picked_up() func that handles the animation of the Pickup diappearing and queue_freeing. also created the tween right away instead of getting the SceneTree first
+
+
+Day 26 - WED 16/7/2025
+
+- developed the PlayerVamp to suck the other resource right away when attempting to suck a full one
+- simplified some code a bit by not storing tweens in variables if these tweens are only gonna be used once in one line
+- developed the PlayerVamp to glow red when sucking blood
+
+
+Day 27 - THU 17/7/2025
+
+- developed the PlayerVamp to glow red when dashing
+- called randomize() in the _ready() function of the camera for proper randomization throughout the game
+- added screenshake to shooting, depending on the multishot
+- added screenshot on hit, depending on the amount of hp lost
+- rebuilt the Camera scene and reparented it to a Node2D called CamCtrl and successfully made the camera follow the mouse cursor
+
+
+Day 28 - FRI 18/7/2025
+
+- fixed a bug where all the zombies with hp_max less than the ZombieNorm would blink right on entering the screen
+- fixed a bug where the game would stay paused after restarting level
+- fixed a bug where the game would stay paused after switching to another scene via the DeathScreen or PauseMenu
+- fixed a bug where the ButtonPlay wouldn't work, by using the target level scene's file uid instead of a packed scene
+- used the blink shader for all the zombies instead of the Player's blink_outline shader
+
+
+
+======= WEEK 5 =======
+
+Day 29 - SAT 19/7/2025
+
+- OFF
+
+
+Day 30 - SUN 20/7/2025
+
+- OFF
+
+
+Day 31 - MON 21/7/2025
+
+- lerped the camera's position when following the mouse cursor
+- improved the code a lil. static-typed basic variables and added ranges to some exported variables
+
+
+Day 32 - TUE 22/7/2025
+
+- static-typed everything. variables, arrays, array items, dictionaries, dictionary items, functions, parameters and all
+
+
+Day 33 - WED 23/7/2025
+
+- OFF
+
+
+Day 34 - THU 24/7/2025
+
+- fixed an error where the game crashed when the Player took damage when he had more hp than 100
+- developed the dash to make you go through enemies
+- created a DashInvincibilityDuration timer to add more i-frames to the dash even a bit after its actual execution
+
+
+Day 35 - FRI 25/7/2025
+
+- OFF
+
+
+
+======= WEEK 6 =======
+
+Day 36 - SAT 26/7/2025
+
+- OFF
+
+
+Day 37 - SUN 27/7/2025
+
+- added 8 different audio files for the dash to randomly choose from
+
+
+Day 38 - MON 28/7/2025
+
+- added a calm water stream audio to bloodsucking
+- found and fixed a lil bug in the start_sucking() logic
+- added a gunshot sound effect for each weapon type
+- developed the suck sound effect to resume where it last left off
+- created an autoload singleton scene and script: AudioManager
+- added a ui button click sound
+- added the click sound to the pause key
+- added reload sounds to each weapon type
+- fixed a bug where the ZombieGunner didn't reload when the Player has left its melee range after previously entering it and triggering the zombie's melee mode when it was reloading
+
+
+Day 39 - TUE 29/7/2025
+
+- developed the click sound to be able to have more than one instance playing at the same time by making it into its own scene and instanciating it as a child of the AudioManager autoload singleton
+- added a zombie death sound effect that varies in pitch and volume according to the zombie's scale
+- added a grunt sound to the ZombieBrawler's punch
+- added a bite sound to the zombie and a different one for the ZombieRunner
+- added an AudioListener2D node to the Player
+- added a wall impact sound for the Bullets
+
+
+Day 40 - WED 30/7/2025
+
+- created an autoload singleton script for constants used throughout the game: Constants
+- added FILE_UIDS to the Constants singleton
+
+
+Day 41 - THU 31/7/2025
+
+- created an autoload singleton scene and script: SceneTransitioner, to animate game quits and transitions from scene to scene with a black fade-in-and-out
+- renamed hitboxes to hurtboxes to differentiate them from attack hitboxes for more readability
+- found and removed duplicate dash logic in the PlayerNorm subclass logic that was already in the Player superclass logic, which also fixed a lil bug
+- fixed a bug where the enemy Bullets damaged enemies instead of the Player after realizing the ZombieGunner script was using the Player's Bullet scene from the Constants singleton and not the BulletEnemy
+- renamed the player_shots and enemy_shots 2d physics layers to "player_hitboxes" and "enemy_hitboxes" which is more generic and not specific to shots as there are melee attacks in the game too
+- set the Debug GDScript Untyped Declaration Project Setting to "Warn", which allowed me to easily 100% static-type the whole project and maintain that in the future for even more performance
+
+
+Day 42 - FRI 1/8/2025
+
+- converted Bullet from CharacterBody2D to Area2D and deleted its Hitbox child node
+- deleted the BulletEnemy inherited scene and made use of the unused "enemies" group
+
+
+
+======= WEEK 7 =======
+
+Day 43 - SAT 2/8/2025
+
+- created an autoload singleton called EventBus for global signals instead of having to assign the Player to the exported var host of the HUD manually for each level
+- cleaned and improved some code and cleared out all the debugger warnings except the delta ones to come back for the whole delta topic later
+- fixed a lotta bugs that appeared after renaming some stuff and recoded everything to be more modular and independant of those names
+- fixed an error where the game would crash when the Player died by a Bullet with a shooter that's been freed
+
+
+Day 44 - SUN 3/8/2025
+
+- moved the randomize() call to the Constants autoload singleton script instead of the CamCtrl script
+- fixed a bug in the Zombie script where the _on_screen_entered() logic wouldn't trigger if the Zombie had been already on screen when the scene loaded
+- renamed the max_hp var in the Zombie script to hp_max for better readability and consistency
+- used the RANDOFACTO const from the Constants singleton on Zombie stats and on all sfx
+- made an enum: RANDO_TYPES in the Constants script for SFXOneShot & SFXOneShot2D with 3 randomization values to choose from for their volume_db and pitch_scale properties and set the rando_type to NORMAL for every randomized value in the game except gunshot sfx with the SUBTLE rando_type
+
+
+Day 45 - MON 4/8/2025
+
+- added a slash dash mechanic which makes the player damage the Zombie by dashing through it
+- added stun logic to the slash dash
+
+
+Day 46 - TUE 5/8/2025
+
+- OFF
+
+
+Day 47 - WED 6/8/2025
+
+- added a slight rotation to the blood pool suction animation
+- added a slight rotation to the blood pool spawn animation
+- developed the start_sucking() PlayerVamp func to kill the BloodPool spawn tween if valid
+
+
+Day 48 - THU 7/8/2025
+
+- developed all the melee-based Zombies drop their arms when stunned
+
+
+Day 49 - FRI 8/8/2025
+
+- fixed the ZombieGunner stun logic
+- developed the ZombieGunner to drop their weapon and turn into ZombieNorms when stunned
+
+
+
+======= WEEK 8 =======
+
+Day 50 - SAT 9/8/2025
+
+- used the RANDOFACTO_SUBTLE for the Zombie's vitality_randofacto instead of the standard RANDOFACTO
+- fixed a bug where the DirtSplatter wouldn't queue_free on finished
+
+
+Day 51 - SUN 10/8/2025
+
+- OFF
+
+
+Day 52 - MON 11/8/2025
+
+- removed all the sounds used from the monster sfx pack from itch.io on my Zombies
+- added zombie pain vocals with a cooldown
+
+
+Day 53 - TUE 12/8/2025
+
+- fixed a bug where the HUD hp and blood bars would start filling up at the start
+- added zombie death sounds
+- added zombie attack vocals
+- added player death_sounds
+- increased the zombie pain vocal cooldown from 1.0 secs to 2.0
+- added a zombie alert sound through the AudioManager autoload singleton
+- changed the player dash sounds
+- added slash dash sounds
+- changed the slash dash collision shape from a circle in the center of the player sprite to a capsule covering the whole sprite
+- fixed a bug where a zombie would play the alert sound again once it got out of its stun state
+
+
+Day 54 - WED 13/8/2025
+
+- fixed a bug that prevented the Zombie pain vocal to actually have a cooldown and changed the cooldown to 0.5 secs
+- added a cooldown of 0.1 secs for spawning blood stains per zombie
+
+
+Day 55 - THU 14/8/2025
+
+- OFF
+
+
+Day 56 - FRI 15/8/2025
+
+- OFF
+
+
+
+======= WEEK 9 =======
+
+Day 57 - SAT 16/8/2025
+
+- fixed the ZombieBrawler's knockback_force
+- removed some trash code and comments
+- converted all preloaded scene in the game from variables to constants
+
+
+Day 58 - SUN 17/8/2025
+
+- OFF
+
+
+Day 59 - MON 18/8/2025
+
+- OFF
+
+
+Day 60 - TUE 19/8/2025
+
+- added walk sfx to the Player
+- fixed a bug where all the zombies would gather on a ZombieGunner on Player death because they had that ZombieGunner as their target because the Zombie script would assign the shooter of any Bullet hit as the target regardless of whether said shooter was a Player or a Zombie
+
+
+Day 61 - WED 20/8/2025
+
+- OFF
+
+
+Day 62 - THU 21/8/2025
+
+- imported run sounds and put their uids into the Constants singleton
+
+
+Day 63 - FRI 22/8/2025
+
+- OFF
+
+
+
+======= WEEK 10 =======
+
+Day 64 - SAT 23/8/2025
+
+- improved the stun code using a setter function
+- added walk and run step sounds to the Zombie
+
+
+Day 65 - SUN 24/8/2025
+
+- moved the step sound logic from the stun logic to the velocity logic which fixed the bug where the ZombieGunner would play step sounds even when standing still and shooting at the Player
+
+
+Day 66 - MON 25/8/2025
+
+- OFF
+
+
+Day 67 - TUE 26/8/2025
+
+- OFF
+
+
+Day 68 - WED 27/8/2025
+
+- OFF
+
+
+Day 69 - THU 28/8/2025
+
+- OFF
+
+
+Day 70 - FRI 29/8/2025
+
+- OFF
+
+
+
+======= WEEK 11 =======
+
+Day 71 - SAT 30/8/2025
+
+- OFF
+
+
+Day 72 - SUN 31/8/2025
+
+- OFF
+
+
+Day 73 - MON 1/9/2025
+
+- cleaned up all the garbage nodes and stuff from when I was tryna work on the game's lighting
+- fixed a bug where the DeathScreen would appear but wouldn't work
+- made sure the SceneTransitioner drew over everything else
+- created a BloodSplatterDouble scene
+- added double blood splatters to the slash dash
+- added blood stains to the slash dash's double blood splatters
+- increased the BloodStain's size by 50%
+- lowered the Zombie's running step sound
+- wrote the Zombie's two different step volumes into two variables
+- moved the PlayerVamp's arm sprites to draw over the body sprite
+- made sure the PlayerVamp's arms were hidden on _ready
+
+
+Day 74 - TUE 2/9/2025
+
+- OFF
+
+
+Day 75 - WED 3/9/2025
+
+- created a settings menu
+- created a ui screen system and a transition between ui screens
+- added game mute option to the settings menu
+- decided on the base ui theme and started working on it
+
+
+Day 76 - THU 4/9/2025
+
+- added a texture to panels
+- decided on the game's fonts
+- decided on the game's title: "Velvet Venom"
+- decided on the protagonist's name: "V"
+- changed the screen transition animation from horizontal to vertical
+- differentiated the screen transition animation depending on whether you're going back from a screen or just opening a new one
+- corrected the different Zombie randofacto implementation logic
+- added a speed_facto to the Zombie
+- removed the RANDOFACTO logic from the non-2d sfx_oneshot script
+- added a round circle texture to all particles
+- swapped the pinterest panel texture for an original one
+- made a shader that paints the whole texture with a single uniform color
+- made an all black shader material using the single_color shader and used it on the black panel texture to remove the subtle white border
+- made an all white shader material using the single_color shader
+- deleted the hud weapon white textures and swapped them for the normal weapon textures with the all white shader
+- fixed a bug where the ui totally disappeared on pressing esc in the middle of a screen transition
+- swapped the panel texture for another similar one but with no whhite borders and removed the all black shader material from all the panels
+- set the default window mode to fullscreen
+- set the default stretch mode to viewport which is best for smooth 2d
+- set the default texture filter to linear mipmap
+
+
+Day 77 - FRI 5/9/2025
+
+- improved the main_menu script code
+- set tween ease and trans types to export variables in the main_menu script
+- saved the SettingsScreen as its own scene
+- added video and audio setting categories in the SettingsScreen
+- added a fullscreen setting in the SettingsScreen
+- added more keys to the default input actions
+- converted all controller input actions from All Devices to Device 0
+- improved the panel black texture
+- made 2 different animation speed variables for hovering and unhovering and set the unhover animation speed to be slower
+- set the main menu to listen to the "ui_cancel" input action instead of the "pause" action
+- created a full keyboard ui navigation system
+- increased the hovver scale for checkboxes and back buttons
+- renamed the project to the new game title: "Velvet Venom" and renamed the project folder to "velvet-venom" instead of "topdown-shooters"
+- removed Zombie step sounds for now
+- coded the audio setting to actually work
+- added custom original textures for the checkbox's checked and unchecked statuses
+- improved the structure of the SettingsScreen
+- changed the default window mode to exclusive fullscreen instead of fullscreen
+- changed the window stretch mode back to canvas_items which somewhat solved the issue where the fonts would get pixelized if the window is resized
+- changed the window aspect mode to keep_height
+- moved the MainMenu BloodParticles down a lil so it spawns outside the viewport
+
+
+
+======= WEEK 12 =======
+
+Day 78 - SAT 6/9/2025
+
+- set the SceneTransitioner layer to 128 to stop worrying about other stuff drawing on top of it
+- created a scene called GameBackground which is a black canvas that draws behind all levels for when the viewport is wider than the camera limit
+- changed the letter case of all ui text from all caps to capitalized which looked a lot cleaner
+- swapped the "X" BackButton's Cinzel SemiBold font for Cinzel Black
+- improved the SettingsScreen layout
+- fixed a bug where the BackButton wouldn't work
+- created a CreditsScreen
+- created a URLButton to be a LinkButton that looks just like a normal Button in the game
+- fixed a bug where you can pause the game while DeathScreen is there
+- decreased the corner radius of the HP and Blood bars
+- perfectly realigned the two bars after the change of the HP label's font
+
+
+Day 79 - SUN 7/9/2025
+
+- finished the CreditsScreen and credited every single source of assets used in the game
+- created a shader called "golden_blood" that turns red into golden and applied it to the ButtonURLs of the people who worked on this specific project
+- set the BloodParticles amount to be modular depending on its rect width
+- adjusted the SettingsScreen sizes to be consistent with the CreditsScreen
+
+
+Day 80 - MON 8/9/2025
+
+- added a working screenshake option to the SettingsScreen
+
+
+Day 81 - TUE 9/9/2025
+
+- added a working mouse capture option to the SettingsScreen
+- darkened and desaturated the whole tileset which fit the game way better
+
+
+Day 82 - WED 10/9/2025
+
+- removed the MainMenu BloodParticles preprocess
+- adjusted the mouse capture feature to only work during actual gameplay not ui
+- added a mouse cursor texture
+- created an ambience track player system
+- added a music option to the SettingsMenu for playing the ambience track
+- added a game-over/player-death sfx
+- improved the spacings and vbox separations of multiple ui elements
+- darkened the tileset even more
+- animated the PauseMenu appearing and disappearing and improved its logic
+- animated the DeathScreen appearing
+- added a ui back sound
+- enabled mouse capture by default
+- deleted some zombie alert sounds that were too long or too ugly
+- shortened zombie alert sounds
+- darkened and desaturated all the zombies with a shader
+- darkened and desaturated Zombie blood
+- deleted many zombie pain sounds for they sounded like buffalos
+- fixed a bug where the zombie pain vocal cooldown wouldn't work
+- prevented ZombieGunners from rotating while reloading
+- created a splash screen
+- removed the WorldEnvironment node
+
+
+Day 83 - THU 11/9/2025
+
+- improved the splash screen by tweaking the gradient and game title position and removing the particles
+- improved the MainMenu by adding a gradient similar to that of the splash screen but less opaque
+- redesigned the CreditsScreen
+- changed ButtonBack and ButtonCheck's default hover_scale from 1.1 to 1.2
+- added SettingsScreen to the PauseMenu
+- swapped CamCtrl's _physics_process for _process
+- moved the CamCtrl's host assignment from the _process function to the _ready
+- fixed an error where the game would crash on shooting right after the player spawned and trying to screenshake before the CamCtrl had fully loaded and set up
+- redesigned TitleScreen layout so now it looks much better on different screen aspect ratios
+- fixed a bug where ui BloodParticles wouldn't set up according to the viewport properly
+- moved the player alive condition in the PauseMenu script from the _input function to the pause()
+- improved the switch_screen() logic
+- created an icon for the game
+- decreased BloodParticles amount to quarter
+- redesigned the SettingsScreen layout
+- swappped the ButtonCheck textures for better and higher quality ones
+- removed the ButtonCheck background texture
+- created a slider and added 3 instances to the SettingsMenu for Audio, Music and Screenshake
+
+
+Day 84 - FRI 12/9/2025
+
+- coded all the sliders to work
+- changed screenshake slider max val from 2.0 to 4.0
+- increased shotgun screenshake
+- decreased slash dash screenshake
+- fixed the ambience track not looping and instead stopping way before mid-track
+- changed audio and music slider max values from 2.0 to 3.0
+- fixed a bug where the zombie alert vocal would increase volume each time it's played
+- added RANDOFACTO to the PlayerNorm reload_end sound
+- added RANDOFACTO to the ZombieGunner reload sounds
+- renamed zombie alert sound to zombie alert vocal which is more accurate
+- removed the pitch_scale RANDOFACTO of the reload sounds for it caused an error
+- fixed a bug where the ambience track didn't play on going back to the MainMenu
+- changed the mouse cursor back
+- made sure any PauseMenu focused button released focus when unpausing not just if it was ResumeButton
+- released the PauseMenu focus before the unpause animation starts rather than after it finishes
+- fixed a bug where PauseMenu initiating focus grab didn't work
+- created a popup system
+- added confirmation popups to the Restart, MainMenu and Quit buttons of the PauseMenu
+- set the slider texture expand margin right and left to 3
+- improved SettingsMenu keyboard navigation by assigning custom focus neighbours for each setting
+- added the "ui_accept" action as a focus initiator for the DeathScreen and MainMenu
+- added the "ui_focus_next" action as a focus initiator
+- globally renamed "mouse capture" to "gameplay mouse capture" to be clearer

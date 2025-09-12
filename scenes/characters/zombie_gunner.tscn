@@ -1,12 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://cknw1aokvic0m"]
 
-[ext_resource type="Script" uid="uid://c6rkuy7boafnm" path="res://scripts/characters/zombie_gunner.gd" id="1_uri5w"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="2_tpj27"]
+[ext_resource type="Script" uid="uid://c6rkuy7boafnm" path="res://scripts/characters/zombies/zombie_gunner.gd" id="1_uri5w"]
+[ext_resource type="Shader" uid="uid://fgsywmuu030o" path="res://resources/shaders/blink_darken.gdshader" id="2_tpj27"]
 [ext_resource type="SpriteFrames" uid="uid://yysv60ig3y48" path="res://resources/spritesheets/zombie_gunner1.tres" id="2_v7mxi"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpj27"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kjokk"]
 resource_local_to_scene = true
 shader = ExtResource("2_tpj27")
+shader_parameter/darken_amount = 0.2
+shader_parameter/desaturate_amount = 0.3
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
 
@@ -30,7 +32,7 @@ radius = 760.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xepks"]
 radius = 128.0
 
-[node name="ZombieGunner" type="CharacterBody2D" groups=["mobs"]]
+[node name="ZombieGunner" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 16
 collision_mask = 27
 motion_mode = 1
@@ -40,7 +42,7 @@ patrol_speed = 90.0
 chase_speed = 250.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_tpj27")
+material = SubResource("ShaderMaterial_kjokk")
 position = Vector2(10, 0)
 sprite_frames = ExtResource("2_v7mxi")
 animation = &"machinegun"
@@ -59,23 +61,25 @@ one_shot = true
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="ReloadSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(2, 0)
 collision_layer = 32
 collision_mask = 8
 monitoring = false
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_httt1")
 debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
 
-[node name="AttackHitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(15, 0)
 collision_layer = 64
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape2D" parent="AttackHitbox"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_xepks")
 debug_color = Color(0.823529, 0.196078, 0.196078, 0.419608)
 
@@ -161,10 +165,22 @@ scale = Vector2(1.75, 2.15)
 [node name="OpenFireOnScreenDelay" type="Timer" parent="."]
 one_shot = true
 
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PainVocalCooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="BloodStainCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="animation_changed" from="Sprite" to="." method="_on_sprite_animation_changed"]
 [connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_area_entered"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="body_entered" from="MeleeRange" to="." method="_on_melee_range_body_entered"]
 [connection signal="body_exited" from="MeleeRange" to="." method="_on_melee_range_body_exited"]
@@ -175,3 +191,6 @@ one_shot = true
 [connection signal="screen_entered" from="VisibleOnScreenNotifier" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]
 [connection signal="timeout" from="OpenFireOnScreenDelay" to="." method="_on_open_fire_on_screen_delay_timeout"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="PainVocalCooldown" to="." method="_on_pain_vocal_cooldown_timeout"]
+[connection signal="timeout" from="BloodStainCooldown" to="." method="_on_blood_stain_cooldown_timeout"]

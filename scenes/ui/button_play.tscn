@@ -6,5 +6,4 @@
 [node name="PlayButton" instance=ExtResource("1_1re8u")]
 text = "Play"
 script = ExtResource("2_lbh0p")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+target_scene_path = ""

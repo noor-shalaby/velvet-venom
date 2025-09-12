@@ -16,19 +16,22 @@ var noise: FastNoiseLite = FastNoiseLite.new()
 
 
 @onready var cam: Camera2D = $Camera
+@onready var viewport_rect: Rect2 = get_viewport_rect()
 
 func _ready() -> void:
-	randomize()
+	host.cam_ctrl = self
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if host:
 		global_position = host.global_position
-		host.cam_ctrl = self
 		
 		var mouse_pos: Vector2 = get_global_mouse_position()
-		cam.position.x = lerp(cam.position.x, (mouse_pos.x - host.global_position.x) / (get_viewport_rect().size.x / 2.0) * 128, 0.8)
-		cam.position.y = lerp(cam.position.y, (mouse_pos.y - host.global_position.y) / (get_viewport_rect().size.y / 2.0) * 128, 0.8)
+		cam.position.x = lerp(cam.position.x, (mouse_pos.x - host.global_position.x) / (viewport_rect.size.x / 2.0) * 128, 0.8)
+		cam.position.y = lerp(cam.position.y, (mouse_pos.y - host.global_position.y) / (viewport_rect.size.y / 2.0) * 128, 0.8)
+	
+	if not Settings.screenshake:
+		return
 	
 	if active_shake_dur > 0.0:
 		shake_time += shake_time_speed * delta
@@ -45,9 +48,12 @@ func _physics_process(delta: float) -> void:
 
 
 func screenshake(intensity: int, dur: float) -> void:
+	if not Settings.screenshake:
+		return
+	
 	noise.seed = randi()
 	noise.frequency = 2.0
 	
-	shake_intensity = intensity
-	active_shake_dur = dur
+	shake_intensity = intensity * Settings.screenshake_val
+	active_shake_dur = dur * max(Settings.screenshake_val / 2.0, 2.4)
 	shake_time = 0.0

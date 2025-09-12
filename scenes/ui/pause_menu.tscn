@@ -1,28 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://5ag4hs7q66nt"]
+[gd_scene load_steps=12 format=3 uid="uid://5ag4hs7q66nt"]
 
 [ext_resource type="Script" uid="uid://dx37y2r5o8xyy" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
+[ext_resource type="StyleBox" uid="uid://dtxxy6owvagxd" path="res://resources/ui/panel_tex.tres" id="2_8fwbo"]
+[ext_resource type="StyleBox" uid="uid://cvqbhkxwhkatf" path="res://resources/ui/stylebox_dim.tres" id="2_coo1x"]
 [ext_resource type="PackedScene" uid="uid://bdy5ljxeo4ne1" path="res://scenes/ui/button_restart.tscn" id="3_8uki6"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_f6eus"]
 [ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="4_0bnpd"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="4_2rlsb"]
 [ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="4_4inpj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tw0m"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 0.517647)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lmf7"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 0.847059)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[ext_resource type="PackedScene" uid="uid://b81n1bf132qc4" path="res://scenes/ui/button_popup.tscn" id="7_coo1x"]
+[ext_resource type="PackedScene" uid="uid://c0p5h8tci88bo" path="res://scenes/ui/settings_screen.tscn" id="10_2jkta"]
+[ext_resource type="PackedScene" uid="uid://1uvrefhdqa34" path="res://scenes/ui/confirmation_popup.tscn" id="10_ht4ye"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_6tw0m")
+screen_transition_duration = 0.4
+tween_trans = 2
+tween_ease = 1
 
 [node name="Dim" type="PanelContainer" parent="."]
 anchors_preset = 15
@@ -30,46 +25,103 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6tw0m")
+theme_override_styles/panel = ExtResource("2_coo1x")
 
 [node name="Panel" type="PanelContainer" parent="Dim"]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_0lmf7")
+theme_override_styles/panel = ExtResource("2_8fwbo")
 
 [node name="Margin" type="MarginContainer" parent="Dim/Panel"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="VBox" type="VBoxContainer" parent="Dim/Panel/Margin"]
+[node name="Menu" type="VBoxContainer" parent="Dim/Panel/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 16
 
-[node name="PausedLabel" type="Label" parent="Dim/Panel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 64)
+[node name="PausedLabel" type="Label" parent="Dim/Panel/Margin/Menu"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "PAUSED"
+theme_override_fonts/font = ExtResource("4_2rlsb")
+theme_override_font_sizes/font_size = 48
+text = "Paused"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ResumeButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_f6eus")]
+[node name="ResumeButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
+sfx = null
 
-[node name="RestartButton2" parent="Dim/Panel/Margin/VBox" instance=ExtResource("3_8uki6")]
+[node name="PopupButton" parent="Dim/Panel/Margin/Menu" node_paths=PackedStringArray("popup") instance=ExtResource("7_coo1x")]
 layout_mode = 2
+text = "Restart"
+popup = NodePath("../../../../../RestartPopup")
 
-[node name="MainMenuButton" parent="Dim/Panel/Margin/VBox" instance=ExtResource("4_4inpj")]
+[node name="SettingsButton" parent="Dim/Panel/Margin/Menu" instance=ExtResource("3_f6eus")]
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenuPopupButton" parent="Dim/Panel/Margin/Menu" node_paths=PackedStringArray("popup") instance=ExtResource("7_coo1x")]
 layout_mode = 2
 text = "Main Menu"
+popup = NodePath("../../../../../MainMenuPopup")
 
-[node name="QuitButton2" parent="Dim/Panel/Margin/VBox" instance=ExtResource("4_0bnpd")]
+[node name="QuitPopupButton" parent="Dim/Panel/Margin/Menu" node_paths=PackedStringArray("popup") instance=ExtResource("7_coo1x")]
 layout_mode = 2
+text = "Quit"
+popup = NodePath("../../../../../QuitPopup")
 
-[connection signal="pressed" from="Dim/Panel/Margin/VBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[node name="SettingsScreen" parent="." instance=ExtResource("10_2jkta")]
+visible = false
+
+[node name="Background" parent="SettingsScreen" index="0"]
+visible = true
+
+[node name="MainMenuPopup" parent="." instance=ExtResource("10_ht4ye")]
+visible = false
+
+[node name="ConfirmationLabel" parent="MainMenuPopup/Panel/Margin/VBox" index="0"]
+text = "Quit to Main Menu?"
+
+[node name="MainMenuButton" parent="MainMenuPopup/Panel/Margin/VBox/Buttons" index="0" instance=ExtResource("4_4inpj")]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+text = "Confirm"
+target_scene_path = "uid://c5pn4nalkxme2"
+
+[node name="QuitPopup" parent="." instance=ExtResource("10_ht4ye")]
+visible = false
+
+[node name="ConfirmationLabel" parent="QuitPopup/Panel/Margin/VBox" index="0"]
+text = "Quit?"
+
+[node name="QuitButton" parent="QuitPopup/Panel/Margin/VBox/Buttons" index="0" instance=ExtResource("4_0bnpd")]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+text = "Confirm"
+
+[node name="RestartPopup" parent="." instance=ExtResource("10_ht4ye")]
+visible = false
+
+[node name="ConfirmationLabel" parent="RestartPopup/Panel/Margin/VBox" index="0"]
+text = "Restart?"
+
+[node name="RestartButton" parent="RestartPopup/Panel/Margin/VBox/Buttons" index="0" instance=ExtResource("3_8uki6")]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="pressed" from="Dim/Panel/Margin/Menu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Dim/Panel/Margin/Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/MarginContainer/Header/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="SettingsScreen"]
+[editable path="MainMenuPopup"]
+[editable path="QuitPopup"]
+[editable path="RestartPopup"]

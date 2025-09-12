@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5pn4nalkxme2"]
+[gd_scene load_steps=16 format=3 uid="uid://c5pn4nalkxme2"]
 
+[ext_resource type="Script" uid="uid://b8wrctuypeaxn" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="1_fe2o3"]
 [ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="2_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://8p1o643tq1ja" path="res://assets/vfx/particle_circle.png" id="2_8g5eo"]
+[ext_resource type="PackedScene" uid="uid://hqypk32yg24e" path="res://scenes/ui/gradient_rect.tscn" id="2_otr3d"]
+[ext_resource type="FontFile" uid="uid://dx42bbpiek4kl" path="res://assets/fonts/CinzelDecorative-Bold.ttf" id="2_q85j6"]
+[ext_resource type="Script" uid="uid://cv3rty3dv6aqp" path="res://scripts/ui/screen.gd" id="3_8g5eo"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://clijd1owffyxm" path="res://assets/ui/tex_red.png" id="4_uhagc"]
+[ext_resource type="Texture2D" uid="uid://dpgrb42mjcrhi" path="res://assets/ui/player_portrait.png" id="7_wb0q5"]
+[ext_resource type="PackedScene" uid="uid://c0p5h8tci88bo" path="res://scenes/ui/settings_screen.tscn" id="9_q85j6"]
+[ext_resource type="PackedScene" uid="uid://i0ug2plhmy3s" path="res://scenes/ui/credits_screen.tscn" id="11_7suek"]
+
+[sub_resource type="Curve" id="Curve_q85j6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.01, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_q85j6"]
+offsets = PackedFloat32Array(0, 0.01, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btxxm"]
+texture = ExtResource("4_uhagc")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +31,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1g8jr")
+tween_trans = 2
+tween_ease = 1
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -18,36 +42,117 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.501961, 0, 0, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Gradient" parent="." instance=ExtResource("2_otr3d")]
+layout_mode = 1
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+position = Vector2(960, 1088)
+amount = 32
+texture = ExtResource("2_8g5eo")
+lifetime = 7.0
+lifetime_randomness = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(960, 0)
+direction = Vector2(0, -1)
+spread = 32.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 90.0
+initial_velocity_max = 180.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+scale_amount_curve = SubResource("Curve_q85j6")
+color = Color(0.823529, 0.0980392, 0, 0.454902)
+color_ramp = SubResource("Gradient_q85j6")
+
+[node name="TitleScreen" type="Control" parent="." node_paths=PackedStringArray("init_focus_node")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+script = ExtResource("3_8g5eo")
+init_focus_node = NodePath("HBox/MenuContainer/VBox/PlayButton")
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
+[node name="HBox" type="HBoxContainer" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuContainer" type="MarginContainer" parent="TitleScreen/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="TitleScreen/HBox/MenuContainer"]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 16
 
-[node name="GameTitle" type="Label" parent="Margin/VBox"]
-custom_minimum_size = Vector2(0, 128)
+[node name="GameTitle" type="Label" parent="TitleScreen/HBox/MenuContainer/VBox"]
+custom_minimum_size = Vector2(0, 164)
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Topdown Zombie Shooter"
+theme_override_fonts/font = ExtResource("2_q85j6")
+theme_override_font_sizes/font_size = 76
+text = "Velvet Venom"
 horizontal_alignment = 1
 
-[node name="PlayButton" parent="Margin/VBox" instance=ExtResource("1_fe2o3")]
+[node name="PlayButton" parent="TitleScreen/HBox/MenuContainer/VBox" instance=ExtResource("1_fe2o3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_btxxm")
+target_scene_path = "uid://bhywd8ptw76nk"
 
-[node name="QuitButton" parent="Margin/VBox" instance=ExtResource("2_1g8jr")]
+[node name="SettingsButton" parent="TitleScreen/HBox/MenuContainer/VBox" instance=ExtResource("3_m1kxf")]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="CreditsButton" parent="TitleScreen/HBox/MenuContainer/VBox" instance=ExtResource("3_m1kxf")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+
+[node name="QuitButton" parent="TitleScreen/HBox/MenuContainer/VBox" instance=ExtResource("2_1g8jr")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+
+[node name="PortraitContainer" type="MarginContainer" parent="TitleScreen/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 64
+
+[node name="PlayerPortrait" type="TextureRect" parent="TitleScreen/HBox/PortraitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("7_wb0q5")
+stretch_mode = 2
+
+[node name="SettingsScreen" parent="." instance=ExtResource("9_q85j6")]
+visible = false
+layout_mode = 1
+offset_right = 5.16504
+
+[node name="CreditsScreen" parent="." instance=ExtResource("11_7suek")]
+visible = false
+layout_mode = 1
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="pressed" from="TitleScreen/HBox/MenuContainer/VBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="TitleScreen/HBox/MenuContainer/VBox/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="SettingsScreen/MarginContainer/Header/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CreditsScreen/MarginContainer/Header/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="SettingsScreen"]
+[editable path="CreditsScreen"]

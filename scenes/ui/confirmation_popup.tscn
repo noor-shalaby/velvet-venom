@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://1uvrefhdqa34"]
+
+[ext_resource type="Script" uid="uid://6c44e6f1vbul" path="res://scripts/ui/confirmation_popup.gd" id="1_3yhhn"]
+[ext_resource type="StyleBox" uid="uid://dtxxy6owvagxd" path="res://resources/ui/panel_tex.tres" id="1_w24ka"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="2_3yhhn"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_to2ax"]
+
+[node name="ConfirmationPopup" type="CanvasLayer"]
+process_mode = 4
+layer = 3
+script = ExtResource("1_3yhhn")
+
+[node name="Rect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(720, 320)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_w24ka")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+
+[node name="ConfirmationLabel" type="Label" parent="Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_3yhhn")
+theme_override_font_sizes/font_size = 48
+text = "Confirm?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 16
+
+[node name="CancelButton" parent="Panel/Margin/VBox/Buttons" instance=ExtResource("3_to2ax")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[connection signal="pressed" from="Panel/Margin/VBox/Buttons/CancelButton" to="." method="_on_cancel_button_pressed"]

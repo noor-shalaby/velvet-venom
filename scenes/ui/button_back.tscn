@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkhh40fkkcle6"]
+
+[ext_resource type="FontFile" uid="uid://wudrm0a3xe40" path="res://assets/fonts/Cinzel-Black.ttf" id="1_rqhx0"]
+[ext_resource type="Texture2D" uid="uid://clijd1owffyxm" path="res://assets/ui/tex_red.png" id="2_1rlcb"]
+[ext_resource type="Script" uid="uid://cqlly6v8crsm2" path="res://scripts/ui/buttona.gd" id="3_scc1x"]
+[ext_resource type="PackedScene" uid="uid://ue70psdbmej7" path="res://scenes/sfx/back_sound.tscn" id="4_1rlcb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrrss"]
+texture = ExtResource("2_1rlcb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgxan"]
+texture = ExtResource("2_1rlcb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0w6a"]
+texture = ExtResource("2_1rlcb")
+
+[node name="BackButton" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_rqhx0")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxTexture_mrrss")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vgxan")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_y0w6a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mrrss")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mrrss")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mrrss")
+text = " X "
+script = ExtResource("3_scc1x")
+hover_scale = 1.2
+sfx = ExtResource("4_1rlcb")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="resized" from="." to="." method="_on_resized"]

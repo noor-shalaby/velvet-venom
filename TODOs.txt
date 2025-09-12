@@ -1,2 +1,78 @@
-- create support enemies
-- develop the dash to go through enemies and slash them (slah dash)
+( ) create support enemy types
+( ) create enemy types with more supernatural abilities such as teleportation
+(X) create a slash dash mechanic
+(X) create stun logic
+( ) create a suck effect shader for the BloodPool
+( ) create an autoload singleton called ObjectPools for Bullets and some sfx like gunshots, impacts and ui click sounds
+(X) create an autoload singleton called EventBus for global signals
+(X) convert Bullet from CharacterBody2D to Area2D
+(X) delete the BulletEnemy inherited scene and use groups instead
+(X) change the dash sounds
+(X) change all the zombie sounds
+(X) use the RANDOFACTO from the Constants singleton
+(X) make the Zombie drop its arms when stunned
+(X) fix the ZombieGunner stun logic
+(X) make the ZombieGunner drop their weapon and turn into ZombieNorms when stunned
+( ) animate the ZombieGunner's weapon dropping and fading away from their hands when stunned
+(X) convert all preloaded scene in the game from variables to constants
+(X) add a slash dash sound
+(X) add a cooldown for spawning blood stains per zombie
+( ) code the ability for the PlayerVamp to hide in a BloodPool
+( ) code a teleportation ability mechanic using a RayCast2D and an Area2D with an instance of the teleporter's CollisionShape2D, preferably between blood pools
+( ) create some sort of ultimate ability that relies on the amount of spilled blood around the PlayerVamp that he would consume and execute some very powerful feat
+( ) add ambient background tracks
+( ) code the Zombies to gather on the Player's BloodPool on death to consume him
+(X) add double-sided blood splatters to the slash dash
+(X) add blood stains to the slash dash
+( ) animate the PlayerVamp's arms showing and hiding
+(X) create a settings menu
+(X) create a ui screen system and a transition between ui screens
+(X) add game audio option to the settings menu
+(X) code the audio setting to actually work
+( ) add game resolution option to the settings
+(X) add fullscreen option to the settings
+(X) add mouse capture mode options to the settings
+( ) code the game to save and load your settings from a local save file
+(X) create a credits menu
+(X) add the settings screen to the PauseMenu
+( ) rework the step sound system from local child nodes to separate scenes instanciated when needed and otherwise freed
+( ) design one full proper level for playtesting
+( ) design a bunch of levels, each one being larger and harder than its predecessor and utilizing more enemies and enemy types
+( ) create a levels menu with a thumbnail, a description and hopefully a name for each level
+(X) animate Button to scale up and down on hover
+(X) decide on a name for the game
+(X) decide on a name for the protagonist
+(X) add a texture to the checkbox
+(X) add a texture to panels
+( ) add a projectile_speed stat to all weapons and change it from weapon to another
+(X) create a splash screen
+(X) create an icon
+(X) create a mouse cursor
+(X) add more ui audio
+(X) make the ui completely navigateable with the keyboard
+(X) animate the pause and death menu appearing and disappearing
+( ) delete all unused assets and unnecessary bloat
+(X) fix bug where you can pause the game while DeathScreen is there
+(X) create confirmation popups for quitting to the main menu or the desktop or restarting the level when the Player is still alive
+(X) set a black canvas that draws behind all levels for when the viewport is wider than the camera limit
+( ) create an ammo system for PLayerNorm or just make the ammo infinite
+(X) code the game to uncapture the mouse cursor in ui and only capture it in actual gameplay
+( ) set up a Github repo for the game
+( ) create a Google Forms survey about the first playtest and add a link to it in the game
+(X) find a way to darken the zombies a bit
+( ) add sfx for collecting weapons
+( ) change all the Bloodshot sfx
+( ) split the BloodPool sprite's small blood spots each into its own separate sprite
+( ) fix the bug where the ZombieGunner would keep shooting into the wall
+( ) create an endless survival mode
+( ) create a "defaults" button for settings
+( ) document the code with comments
+( ) change the horizontally aligned button focus animation from scaling to expanding
+( ) create breakable glass
+( ) code the Slider to work with right and left arrow keys or A and D
+( ) create a damage system where hitting different body parts of a Zombie would result in different outcomes:
+        a Zombie has 3 body parts: Body, ArmLeft and ArmRight, each with its own separate hp
+        hitting the Body damages the main hp directly, which results in a Zombie's death on reaching 0
+        hitting either of the arms would mainly damage that specific arm's hp, but also contribute to the damage of the main hp but not as much as direct Body hits would
+        on reaching 0 on the hp of an arm, the arm would be torn off the body and dropping its sprite permanently on the ground in an animation
+        losing an arm would result in the Zombie losing half of its damage

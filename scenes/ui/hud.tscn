@@ -1,28 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhkaqpdvim4t"]
+[gd_scene load_steps=10 format=3 uid="uid://dhkaqpdvim4t"]
 
 [ext_resource type="Script" uid="uid://bj6jeklgw6nlk" path="res://scripts/ui/hud.gd" id="1_0mwgc"]
-[ext_resource type="Texture2D" uid="uid://u8ok0u51cm5j" path="res://assets/ui/weapon_machinegun.png" id="2_hqnrr"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="4_136eg"]
+[ext_resource type="Texture2D" uid="uid://dht42lhuygo86" path="res://assets/ui/tex_black.png" id="4_oj5la"]
+[ext_resource type="Texture2D" uid="uid://ds5ibso7vge53" path="res://assets/weapons/weapon_machinegun.png" id="5_136eg"]
+[ext_resource type="Material" uid="uid://can68qs553ida" path="res://resources/shadermaterials/allwhite_shadermaterial.tres" id="5_oj5la"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqnrr"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 0.517647)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oj5la"]
+texture = ExtResource("4_oj5la")
+expand_margin_left = 76.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wh2we"]
-bg_color = Color(0.321569, 0.0392157, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+bg_color = Color(0.392157, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
 bg_color = Color(0.823529, 0.0980392, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_136eg"]
+texture = ExtResource("4_oj5la")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 64.0
+expand_margin_bottom = 8.0
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_0mwgc")
@@ -42,9 +52,10 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hqnrr")
+theme_override_styles/panel = SubResource("StyleBoxTexture_oj5la")
 
 [node name="HPMargin" type="MarginContainer" parent="Margin/HPPanel"]
+z_index = 1
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 8
@@ -63,6 +74,7 @@ theme_override_constants/separation = 16
 
 [node name="HPLabel" type="Label" parent="Margin/HPPanel/HPMargin/VBox/HPBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_136eg")
 theme_override_font_sizes/font_size = 24
 text = "HP"
 
@@ -72,7 +84,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_wh2we")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0mwgc")
-value = 64.0
+value = 100.0
 show_percentage = false
 
 [node name="BloodBox" type="HBoxContainer" parent="Margin/HPPanel/HPMargin/VBox"]
@@ -81,7 +93,7 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="Control" type="Control" parent="Margin/HPPanel/HPMargin/VBox/BloodBox"]
-custom_minimum_size = Vector2(33, 0)
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
 [node name="BloodBar" type="ProgressBar" parent="Margin/HPPanel/HPMargin/VBox/BloodBox"]
@@ -90,14 +102,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_wh2we")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0mwgc")
-value = 64.0
+value = 75.0
 show_percentage = false
 
 [node name="WeaponPanel" type="PanelContainer" parent="Margin"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_hqnrr")
+theme_override_styles/panel = SubResource("StyleBoxTexture_136eg")
 
 [node name="WeaponMargin" type="MarginContainer" parent="Margin/WeaponPanel"]
 layout_mode = 2
@@ -111,11 +123,12 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="WeaponTexture" type="TextureRect" parent="Margin/WeaponPanel/WeaponMargin/WeaponBox"]
+material = ExtResource("5_oj5la")
 custom_minimum_size = Vector2(100, 72)
 layout_mode = 2
-texture = ExtResource("2_hqnrr")
+texture = ExtResource("5_136eg")
 expand_mode = 5
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="AmmoBox" type="VBoxContainer" parent="Margin/WeaponPanel/WeaponMargin/WeaponBox"]
 layout_mode = 2
@@ -123,6 +136,7 @@ layout_mode = 2
 [node name="MagLabel" type="Label" parent="Margin/WeaponPanel/WeaponMargin/WeaponBox/AmmoBox"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_136eg")
 theme_override_font_sizes/font_size = 24
 text = "32"
 horizontal_alignment = 1
@@ -131,6 +145,7 @@ vertical_alignment = 1
 [node name="AmmoLabel" type="Label" parent="Margin/WeaponPanel/WeaponMargin/WeaponBox/AmmoBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_fonts/font = ExtResource("4_136eg")
 theme_override_font_sizes/font_size = 16
 text = "256"
 horizontal_alignment = 1

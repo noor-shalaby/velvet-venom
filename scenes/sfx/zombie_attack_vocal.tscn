@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3nuqmybq5ogg"]
+
+[ext_resource type="PackedScene" uid="uid://bdlh1qn7b7dsk" path="res://scenes/sfx/sfx_oneshot_2d.tscn" id="1_luaw1"]
+[ext_resource type="AudioStream" uid="uid://cw7umcy35ry1i" path="res://assets/audio/zombie/attack/zombie_massacre_vocal_attack_short_01.wav" id="2_mst40"]
+
+[node name="ZombieAttackVocal" instance=ExtResource("1_luaw1")]
+stream = ExtResource("2_mst40")
+rando_type = 1

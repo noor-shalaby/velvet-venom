@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://w11jkih6lm7d"]
+
+[ext_resource type="Texture2D" uid="uid://c62pvtxkwma4a" path="res://assets/characters/zombie/zombie1.png" id="1_iufj4"]
+[ext_resource type="Texture2D" uid="uid://wntbgoscdwhp" path="res://assets/characters/zombie/zombie1_stand.png" id="2_aytlx"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iufj4")
+}],
+"loop": false,
+"name": &"hold",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aytlx")
+}],
+"loop": false,
+"name": &"stand",
+"speed": 0.0
+}]

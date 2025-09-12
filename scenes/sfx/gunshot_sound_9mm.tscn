@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu8jx5g44exkl"]
+
+[ext_resource type="AudioStream" uid="uid://0pcuqllq57cd" path="res://assets/audio/gunshot/9mm Single Isolated.wav" id="1_c38cf"]
+[ext_resource type="Script" uid="uid://ee1s3vy3yncd" path="res://scripts/sfx/sfx_oneshot_2d.gd" id="2_r8d7q"]
+
+[node name="GunshotSound9mm" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_c38cf")
+autoplay = true
+script = ExtResource("2_r8d7q")
+rando_type = 1
+
+[connection signal="finished" from="." to="." method="_on_finished"]

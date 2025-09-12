@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1gdpr0f26sg2"
+path="res://.godot/imported/Fx 3.wav-fbcb5c1958b58563cea00c545dead2d8.sample"
+
+[deps]
+
+source_file="res://assets/audio/fx/Fx 3.wav"
+dest_files=["res://.godot/imported/Fx 3.wav-fbcb5c1958b58563cea00c545dead2d8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

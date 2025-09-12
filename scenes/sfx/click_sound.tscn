@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbjd5elpu7hmv"]
+
+[ext_resource type="AudioStream" uid="uid://kspbo10akv5o" path="res://assets/audio/ui/Unholy UI - Souls (7).wav" id="1_jq0vc"]
+[ext_resource type="Script" uid="uid://b5bjiqulog0jy" path="res://scripts/sfx/sfx_oneshot.gd" id="2_nuxji"]
+
+[node name="ClickSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_jq0vc")
+autoplay = true
+script = ExtResource("2_nuxji")

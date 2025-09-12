@@ -1,13 +1,11 @@
-extends Button
+extends Buttona
 
 
 @export var target_scene_path: String
 
 
-@onready var tree: SceneTree = get_tree()
-
-
 func _on_pressed() -> void:
-	if target_scene_path != "":
-		tree.change_scene_to_file(target_scene_path)
-		tree.paused = false
+	super()
+	
+	if target_scene_path:
+		SceneTransitioner.trans_to_scene(target_scene_path)

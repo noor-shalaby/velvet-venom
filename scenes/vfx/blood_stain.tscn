@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mg1wvhjyn4p6"]
+
+[ext_resource type="Texture2D" uid="uid://cyd7kj8xbmexv" path="res://assets/vfx/blood.png" id="1_d7te7"]
+[ext_resource type="Script" uid="uid://c5rgn7die1mg4" path="res://scripts/vfx/blood_stain.gd" id="2_auiv4"]
+
+[node name="BloodStain" type="Sprite2D"]
+z_index = -2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_d7te7")
+offset = Vector2(-10, -8)
+script = ExtResource("2_auiv4")

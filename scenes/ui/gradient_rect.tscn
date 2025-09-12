@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqypk32yg24e"]
+
+[sub_resource type="Gradient" id="Gradient_7suek"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.556863, 0.0823529, 0.00784314, 1, 0.111902, 0.0314725, 0.0244786, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7suek"]
+gradient = SubResource("Gradient_7suek")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[node name="Gradient" type="TextureRect"]
+modulate = Color(1, 1, 1, 0.298039)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7suek")

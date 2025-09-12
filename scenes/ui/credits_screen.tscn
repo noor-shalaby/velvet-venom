@@ -1,0 +1,169 @@
+[gd_scene load_steps=6 format=3 uid="uid://i0ug2plhmy3s"]
+
+[ext_resource type="Script" uid="uid://cv3rty3dv6aqp" path="res://scripts/ui/screen.gd" id="1_uklmw"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="2_helb1"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_s67r0"]
+[ext_resource type="PackedScene" uid="uid://bkhh40fkkcle6" path="res://scenes/ui/button_back.tscn" id="3_uklmw"]
+[ext_resource type="PackedScene" uid="uid://b5wjqm0rc6n38" path="res://scenes/ui/button_url.tscn" id="5_uklmw"]
+
+[node name="CreditsScreen" type="Control" node_paths=PackedStringArray("init_focus_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_uklmw")
+init_focus_node = NodePath("MarginContainer/HBox/Main/Development/NoorShalabyButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+
+[node name="BackButton" parent="MarginContainer/Header" instance=ExtResource("3_uklmw")]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 128
+
+[node name="Main" type="VBoxContainer" parent="MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Development" type="VBoxContainer" parent="MarginContainer/HBox/Main"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="DevLabel" type="Label" parent="MarginContainer/HBox/Main/Development"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 24
+text = "Development"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoorShalabyButton" parent="MarginContainer/HBox/Main/Development" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Noor Shalaby"
+url = "https://www.linkedin.com/in/noor-shalaby-a8414a357/"
+
+[node name="UI_UX" type="VBoxContainer" parent="MarginContainer/HBox/Main"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="UI_UXLabel" type="Label" parent="MarginContainer/HBox/Main/UI_UX"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 24
+text = "UI/UX Design"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SalmaMedhatButton" parent="MarginContainer/HBox/Main/UI_UX" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Salma Medhat"
+url = "https://www.linkedin.com/in/salma-medhat-409a3a350/"
+
+[node name="Assets" type="VBoxContainer" parent="MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="AssetsLabel" type="Label" parent="MarginContainer/HBox/Assets"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 24
+text = "Assets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/Assets"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="OmarShalabyButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Omar Shalaby"
+
+[node name="SalmaShalabyButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("3_s67r0")]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+disabled = true
+text = "Salma Shalaby"
+
+[node name="Kenney_NLButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Kenney"
+url = "https://kenney.nl/"
+
+[node name="AtelierMagicaeButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Atelier Magicae"
+url = "https://itch.io/profile/ateliermagicae"
+
+[node name="SnakeF8Button" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "SnakeF8"
+url = "https://itch.io/profile/f8studios"
+
+[node name="TerrorByteGamesButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "TerrorByteGames"
+url = "https://itch.io/profile/terrorbytegames"
+
+[node name="alkakrabButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "alkakrab"
+url = "https://itch.io/profile/alkakrab"
+
+[node name="TomMusicButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "TomMusic"
+url = "https://itch.io/profile/tommusic"
+
+[node name="AurelienMonteroButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Aurelien Montero"
+url = "https://punkzen.itch.io/"
+
+[node name="NvthicSoundsButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Nvthic Sounds"
+url = "https://itch.io/profile/nvthicprod"
+
+[node name="Nox_Sound_DesignButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Nox_Sound_Design"
+url = "https://itch.io/profile/nox-sound-design"

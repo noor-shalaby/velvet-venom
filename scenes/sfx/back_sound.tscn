@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ue70psdbmej7"]
+
+[ext_resource type="AudioStream" uid="uid://cmqqbu607wd8i" path="res://assets/audio/ui/Unholy UI - Souls (16).wav" id="1_pwfmk"]
+[ext_resource type="Script" uid="uid://b5bjiqulog0jy" path="res://scripts/sfx/sfx_oneshot.gd" id="2_xy31c"]
+
+[node name="BackSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_pwfmk")
+autoplay = true
+script = ExtResource("2_xy31c")

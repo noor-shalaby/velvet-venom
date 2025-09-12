@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjn7kimpi1t4b"]
+
+[ext_resource type="Texture2D" uid="uid://dj5ok7q8ikbrj" path="res://assets/ui/checkbox_checked.png" id="1_apgyt"]
+[ext_resource type="Texture2D" uid="uid://cja40x6esj635" path="res://assets/ui/slider_grabber_scaled.png" id="2_ghrh3"]
+[ext_resource type="Texture2D" uid="uid://6u5hbjq5yv57" path="res://assets/ui/slider.png" id="3_xvvxs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03o02"]
+texture = ExtResource("3_xvvxs")
+expand_margin_left = 3.0
+expand_margin_top = 12.0
+expand_margin_right = 3.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yabvx"]
+
+[node name="Slider" type="HSlider"]
+custom_minimum_size = Vector2(512, 0)
+theme_override_icons/grabber = ExtResource("1_apgyt")
+theme_override_icons/grabber_highlight = ExtResource("2_ghrh3")
+theme_override_icons/grabber_disabled = ExtResource("2_ghrh3")
+theme_override_styles/slider = SubResource("StyleBoxTexture_03o02")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_yabvx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yabvx")
+max_value = 2.0
+step = 0.0
+value = 1.0

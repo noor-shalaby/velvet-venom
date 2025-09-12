@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4cxk07sq7oo1"
+path="res://.godot/imported/556 Single Isolated WAV.wav-1950b70bb90bdc95d7d2ac2040a6e270.sample"
+
+[deps]
+
+source_file="res://assets/audio/gunshot/556 Single Isolated WAV.wav"
+dest_files=["res://.godot/imported/556 Single Isolated WAV.wav-1950b70bb90bdc95d7d2ac2040a6e270.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu4b0m5pyx8sp"]
+
+[ext_resource type="PackedScene" uid="uid://bdlh1qn7b7dsk" path="res://scenes/sfx/sfx_oneshot_2d.tscn" id="1_bio3h"]
+[ext_resource type="AudioStream" uid="uid://bs216n52cey52" path="res://assets/audio/zombie/player death/zombie_massacre_head_smash_02.wav" id="2_84wiv"]
+
+[node name="PlayerDeathSound" instance=ExtResource("1_bio3h")]
+stream = ExtResource("2_84wiv")
+volume_db = 8.0
+rando_type = 1

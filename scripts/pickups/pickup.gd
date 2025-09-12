@@ -5,9 +5,8 @@ extends Area2D
 @export var animation_dur: float = 0.1
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		picked_up()
+func _on_body_entered(_body: Player) -> void:
+	picked_up()
 
 
 func picked_up() -> void:

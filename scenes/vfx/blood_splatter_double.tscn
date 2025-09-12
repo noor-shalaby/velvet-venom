@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8w8gmjbvpced"]
+
+[ext_resource type="Script" uid="uid://dfnusrdfgwi3c" path="res://scripts/vfx/blood_splatter_double.gd" id="1_lx1c5"]
+[ext_resource type="PackedScene" uid="uid://cwqe7churtxrv" path="res://scenes/vfx/blood_splatter.tscn" id="1_odr4p"]
+
+[node name="BloodSplatterDouble" type="Node2D"]
+script = ExtResource("1_lx1c5")
+
+[node name="BloodSplatter" parent="." instance=ExtResource("1_odr4p")]
+amount = 32
+script = null
+
+[node name="BloodSplatter2" parent="." instance=ExtResource("1_odr4p")]
+rotation = 3.14159
+amount = 32
+script = null
+
+[connection signal="finished" from="BloodSplatter" to="." method="_on_blood_splatter_finished"]

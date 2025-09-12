@@ -1,0 +1,322 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0p5h8tci88bo"]
+
+[ext_resource type="Script" uid="uid://ceto5of2ydnyw" path="res://scripts/ui/settings_screen.gd" id="1_dyuo2"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="1_n5rhh"]
+[ext_resource type="PackedScene" uid="uid://hqypk32yg24e" path="res://scenes/ui/gradient_rect.tscn" id="2_klwlf"]
+[ext_resource type="PackedScene" uid="uid://bkhh40fkkcle6" path="res://scenes/ui/button_back.tscn" id="3_8y8uj"]
+[ext_resource type="PackedScene" uid="uid://c8ftvcb0x1lte" path="res://scenes/ui/button_check.tscn" id="3_dyuo2"]
+[ext_resource type="Texture2D" uid="uid://clijd1owffyxm" path="res://assets/ui/tex_red.png" id="4_o0pos"]
+[ext_resource type="PackedScene" uid="uid://bjn7kimpi1t4b" path="res://scenes/ui/slider.tscn" id="6_jowa0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyuo2"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0pos"]
+content_margin_right = 16.0
+texture = ExtResource("4_o0pos")
+
+[node name="SettingsScreen" type="Control" node_paths=PackedStringArray("init_focus_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_dyuo2")
+init_focus_node = NodePath("MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
+
+[node name="Background" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dyuo2")
+
+[node name="Gradient" parent="Background" instance=ExtResource("2_klwlf")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="BackButton" parent="MarginContainer/Header" instance=ExtResource("3_8y8uj")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
+focus_neighbor_right = NodePath("../../VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
+focus_neighbor_bottom = NodePath("../../VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
+focus_next = NodePath("../../VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
+focus_previous = NodePath("../../VBoxContainer/Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 128
+
+[node name="Row1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 256
+
+[node name="VideoSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 64
+
+[node name="VideoLabel" type="Label" parent="MarginContainer/VBoxContainer/Row1/VideoSettings"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_o0pos")
+text = "Video"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1/VideoSettings"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="FullscreenSetting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen"
+
+[node name="FullscreenCheck" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting" instance=ExtResource("3_dyuo2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath("../../../../../../Header/BackButton")
+focus_neighbor_top = NodePath("../../../../../../Header/BackButton")
+focus_neighbor_right = NodePath("../../../../AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
+focus_neighbor_bottom = NodePath("../../ScreenshakeVBox/ScreenshakeSetting/ScreenshakeCheck")
+focus_next = NodePath("../../ScreenshakeVBox/ScreenshakeSetting/ScreenshakeCheck")
+focus_previous = NodePath("../../../../../../Header/BackButton")
+
+[node name="ScreenshakeVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ScreenshakeSetting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="ScreenshakeLabel" type="Label" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSetting"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 24
+text = "Screenshake"
+
+[node name="ScreenshakeCheck" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSetting" instance=ExtResource("3_dyuo2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath("../../../FullscreenSetting/FullscreenCheck")
+focus_neighbor_top = NodePath("../../../FullscreenSetting/FullscreenCheck")
+focus_neighbor_right = NodePath("../../../../../AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
+focus_neighbor_bottom = NodePath("../../ScreenshakeSlider")
+focus_next = NodePath("../../ScreenshakeSlider")
+focus_previous = NodePath("../../../FullscreenSetting/FullscreenCheck")
+
+[node name="ScreenshakeSlider" parent="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox" instance=ExtResource("6_jowa0")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../ScreenshakeSetting/ScreenshakeCheck")
+focus_neighbor_bottom = NodePath("../../../../../Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck")
+focus_next = NodePath("../../../../AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
+focus_previous = NodePath("../ScreenshakeSetting/ScreenshakeCheck")
+max_value = 4.0
+
+[node name="AudioSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 64
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/VBoxContainer/Row1/AudioSettings"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_o0pos")
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1/AudioSettings"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="AudioVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AudioSetting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../../../VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
+theme_override_constants/separation = 64
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 24
+text = "Audio"
+
+[node name="AudioCheck" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting" instance=ExtResource("3_dyuo2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath("../../../../../VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
+focus_neighbor_top = NodePath("../../../../../../../Header/BackButton")
+focus_neighbor_right = NodePath("../../AudioSlider")
+focus_neighbor_bottom = NodePath("../../AudioSlider")
+focus_next = NodePath("../../AudioSlider")
+focus_previous = NodePath("../../../../../VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSlider")
+
+[node name="AudioSlider" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox" instance=ExtResource("6_jowa0")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../AudioSetting/AudioCheck")
+focus_neighbor_bottom = NodePath("../../MusicVBox/MusicSetting/MusicCheck")
+focus_next = NodePath("../../MusicVBox/MusicSetting/MusicCheck")
+focus_previous = NodePath("../AudioSetting/AudioCheck")
+max_value = 3.0
+
+[node name="MusicVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MusicSetting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSetting"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="MusicCheck" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSetting" instance=ExtResource("3_dyuo2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath("../../../../../VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
+focus_neighbor_top = NodePath("../../../AudioVBox/AudioSlider")
+focus_neighbor_right = NodePath("../../MusicSlider")
+focus_neighbor_bottom = NodePath("../../MusicSlider")
+focus_next = NodePath("../../MusicSlider")
+focus_previous = NodePath("../../../AudioVBox/AudioSlider")
+
+[node name="MusicSlider" parent="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox" instance=ExtResource("6_jowa0")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../MusicSetting/MusicCheck")
+focus_neighbor_bottom = NodePath("../../../../../Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck")
+focus_next = NodePath("../../../../../Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck")
+focus_previous = NodePath("../MusicSetting/MusicCheck")
+max_value = 3.0
+
+[node name="Row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 256
+
+[node name="ControlsSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 64
+
+[node name="ControlsLabel" type="Label" parent="MarginContainer/VBoxContainer/Row2/ControlsSettings"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_o0pos")
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Row2/ControlsSettings"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="GameplayMouseCaptureSetting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Row2/ControlsSettings/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="GameplayMouseCaptureLabel" type="Label" parent="MarginContainer/VBoxContainer/Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("1_n5rhh")
+theme_override_font_sizes/font_size = 24
+text = "Gameplay Mouse Capture"
+
+[node name="GameplayMouseCaptureCheck" parent="MarginContainer/VBoxContainer/Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting" instance=ExtResource("3_dyuo2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath("../../../../../Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSlider")
+focus_neighbor_top = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider")
+focus_neighbor_right = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider")
+focus_previous = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck" to="." method="_on_fullscreen_check_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSetting/ScreenshakeCheck" to="." method="_on_screenshake_check_pressed"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSlider" to="." method="_on_screenshake_slider_drag_ended"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck" to="." method="_on_audio_check_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSlider" to="." method="_on_audio_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSetting/MusicCheck" to="." method="_on_music_check_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck" to="." method="_on_gameplay_mouse_capture_check_pressed"]

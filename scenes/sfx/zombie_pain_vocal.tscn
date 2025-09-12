@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw7ps6bat76hc"]
+
+[ext_resource type="PackedScene" uid="uid://bdlh1qn7b7dsk" path="res://scenes/sfx/sfx_oneshot_2d.tscn" id="1_vnrgh"]
+[ext_resource type="AudioStream" uid="uid://cclei48vh714e" path="res://assets/audio/zombie/pain/zombie_massacre_vocal_impact_pain_hurt_01.wav" id="2_n28cr"]
+
+[node name="ZombiePainVocal" instance=ExtResource("1_vnrgh")]
+stream = ExtResource("2_n28cr")
+volume_db = -9.0
+rando_type = 1

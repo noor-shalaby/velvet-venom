@@ -1,12 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://boqei7v8w8q57"]
 
 [ext_resource type="SpriteFrames" uid="uid://0d3d8osuw42l" path="res://resources/spritesheets/zombie_brawler1.tres" id="2_527j7"]
-[ext_resource type="Shader" uid="uid://b4hi6rhp1hcc2" path="res://resources/shaders/blink.gdshader" id="2_c3dow"]
-[ext_resource type="Script" uid="uid://dbnguoap2aqls" path="res://scripts/characters/zombie_brawler.gd" id="2_f1vlm"]
+[ext_resource type="Shader" uid="uid://fgsywmuu030o" path="res://resources/shaders/blink_darken.gdshader" id="2_c3dow"]
+[ext_resource type="Script" uid="uid://dbnguoap2aqls" path="res://scripts/characters/zombies/zombie_brawler.gd" id="2_f1vlm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_527j7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pw20o"]
 resource_local_to_scene = true
 shader = ExtResource("2_c3dow")
+shader_parameter/darken_amount = 0.2
+shader_parameter/desaturate_amount = 0.3
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
 
@@ -27,7 +29,7 @@ radius = 760.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xepks"]
 radius = 128.0
 
-[node name="ZombieBrawler" type="CharacterBody2D" groups=["mobs"]]
+[node name="ZombieBrawler" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(1.32, 1.32)
 collision_layer = 16
 collision_mask = 27
@@ -37,11 +39,13 @@ script = ExtResource("2_f1vlm")
 turning_speed = 0.2
 patrol_speed = 80.0
 chase_speed = 240.0
+damage = 50.0
 attack_speed = 1.0
-max_hp = 512.0
+knockback_force = 7600.0
+hp_max = 512.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_527j7")
+material = SubResource("ShaderMaterial_pw20o")
 position = Vector2(3, 0)
 sprite_frames = ExtResource("2_527j7")
 animation = &"stand"
@@ -50,22 +54,22 @@ autoplay = "stand"
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1vlb3")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(2, 0)
 collision_layer = 32
 collision_mask = 8
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_httt1")
 debug_color = Color(0.196078, 0.823529, 0.196078, 0.419608)
 
-[node name="AttackHitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(15, 0)
 collision_layer = 64
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape2D" parent="AttackHitbox"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_xepks")
 debug_color = Color(0.823529, 0.196078, 0.196078, 0.419608)
 
@@ -139,8 +143,19 @@ scale = Vector2(1.75, 2.1)
 position = Vector2(3.5, 0)
 scale = Vector2(1.75, 2.15)
 
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PainVocalCooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="BloodStainCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_area_entered"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="PunchAnimationDuration" to="." method="_on_punch_animation_duration_timeout"]
 [connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
@@ -149,3 +164,6 @@ scale = Vector2(1.75, 2.15)
 [connection signal="timeout" from="NavTimer" to="." method="_on_nav_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="PainVocalCooldown" to="." method="_on_pain_vocal_cooldown_timeout"]
+[connection signal="timeout" from="BloodStainCooldown" to="." method="_on_blood_stain_cooldown_timeout"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdlh1qn7b7dsk"]
+
+[ext_resource type="Script" uid="uid://ee1s3vy3yncd" path="res://scripts/sfx/sfx_oneshot_2d.gd" id="1_p8tha"]
+
+[node name="SFXOneShot2D" type="AudioStreamPlayer2D"]
+autoplay = true
+script = ExtResource("1_p8tha")
