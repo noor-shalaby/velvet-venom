@@ -657,3 +657,4 @@ Day 84 - FRI 12/9/2025
 - added the "ui_accept" action as a focus initiator for the DeathScreen and MainMenu
 - added the "ui_focus_next" action as a focus initiator
 - globally renamed "mouse capture" to "gameplay mouse capture" to be clearer
+- deleted the default Godot icon and my inspo txt file
