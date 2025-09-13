@@ -106,6 +106,8 @@ func set_is_blood_stain_ready(new_value: bool) -> void:
 var pain_vocal_cooldown_duration: float = 0.5
 var is_pain_vocal_ready: bool = true
 
+var attack_vocal: AudioStreamPlayer2D
+
 func _ready() -> void:
 	global_rotation_degrees = randf_range(-180.0, 180.0)
 	
@@ -236,7 +238,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	game.add_child(blood_splatter)
 	
 	if Settings.audio:
-		var attack_vocal: AudioStreamPlayer2D = ATTACK_VOCAL_SCENE.instantiate()
+		if attack_vocal:
+			return
+		attack_vocal = ATTACK_VOCAL_SCENE.instantiate()
 		attack_vocal.global_position = global_position
 		attack_vocal.stream = Constants.ZOMBIE_ATTACK_VOCALS.pick_random()
 		attack_vocal.volume_db += scale.x
