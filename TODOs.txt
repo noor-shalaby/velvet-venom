@@ -69,7 +69,10 @@
 ( ) document the code with comments
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass
-( ) code the Slider to work with right and left arrow keys or A and D
+(X) code the Slider to be manipulated with the keyboard
+( ) fix a bug where the left arm would keep appearing and disappearing when shooting and sucking blood at the same time
+( ) code the PlayerVamp to stop sucking blood when hit
+( ) use delta
 ( ) create a damage system where hitting different body parts of a Zombie would result in different outcomes:
         a Zombie has 3 body parts: Body, ArmLeft and ArmRight, each with its own separate hp
         hitting the Body damages the main hp directly, which results in a Zombie's death on reaching 0

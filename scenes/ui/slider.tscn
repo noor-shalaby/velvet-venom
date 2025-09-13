@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjn7kimpi1t4b"]
+[gd_scene load_steps=7 format=3 uid="uid://bjn7kimpi1t4b"]
 
 [ext_resource type="Texture2D" uid="uid://dj5ok7q8ikbrj" path="res://assets/ui/checkbox_checked.png" id="1_apgyt"]
 [ext_resource type="Texture2D" uid="uid://cja40x6esj635" path="res://assets/ui/slider_grabber_scaled.png" id="2_ghrh3"]
 [ext_resource type="Texture2D" uid="uid://6u5hbjq5yv57" path="res://assets/ui/slider.png" id="3_xvvxs"]
+[ext_resource type="Script" uid="uid://bphrvw8csfer1" path="res://scripts/ui/slider.gd" id="4_ghrh3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03o02"]
 texture = ExtResource("3_xvvxs")
@@ -24,3 +25,4 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yabvx"
 max_value = 2.0
 step = 0.0
 value = 1.0
+script = ExtResource("4_ghrh3")
