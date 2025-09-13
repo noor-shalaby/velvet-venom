@@ -31,7 +31,7 @@ patrol_speed = 120.0
 chase_speed = 600.0
 damage = 30.0
 attack_speed = 3.0
-knockback_force = 320000.0
+knockback_force = 5500.0
 hp_max = 50.0
 
 [node name="DashParticles" type="GPUParticles2D" parent="." index="0"]

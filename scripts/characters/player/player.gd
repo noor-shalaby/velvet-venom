@@ -122,7 +122,7 @@ func _physics_process(delta: float) -> void:
 		dash_particles.scale = input_dir
 	
 	if is_knocked_back:
-		velocity += knockback_velocity * delta
+		velocity += knockback_velocity
 		velocity = lerp(get_real_velocity(), velocity, friction * delta)
 		is_knocked_back = false
 	

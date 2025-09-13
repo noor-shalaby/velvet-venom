@@ -8,7 +8,7 @@ var fire_empty: Dictionary[String, Variant] = {
 	"multishot": 1,
 	"spread": 20.0,
 	"recoil": 24.0,
-	"knockback_force": 240000.0,
+	"knockback_force": 4000.0,
 	"puncture": 0,
 	"wall_puncture": 0,
 	"gunshot_sound_scene": preload(Constants.FILE_UIDS["gunshot_gun_sound_scene"])
@@ -19,7 +19,7 @@ var fire: Dictionary[String, Variant] = {
 	"multishot": 1,
 	"spread": 30.0,
 	"recoil": 16.0,
-	"knockback_force": 300000.0,
+	"knockback_force": 5000.0,
 	"puncture": 0,
 	"wall_puncture": 0,
 	"gunshot_sound_scene": preload(Constants.FILE_UIDS["gunshot_machinegun_sound_scene"])
@@ -30,7 +30,7 @@ var fire_alt: Dictionary[String, Variant] = {
 	"multishot": 8,
 	"spread": 40.0,
 	"recoil": 128.0,
-	"knockback_force": 600000.0,
+	"knockback_force": 10000.0,
 	"puncture": 1,
 	"wall_puncture": 0,
 	"gunshot_sound_scene": preload(Constants.FILE_UIDS["gunshot_shotgun_sound_scene"])
