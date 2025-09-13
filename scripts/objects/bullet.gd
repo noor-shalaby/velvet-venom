@@ -1,7 +1,7 @@
 class_name Bullet
 extends Area2D
 
-@export var speed: float = 50.0
+@export var speed: float = 3000.0
 
 var dir: Vector2
 
@@ -28,7 +28,7 @@ const IMPACT_SOUNDS: Array[AudioStreamWAV] = [
 
 
 func _physics_process(delta: float) -> void:
-	global_position += speed * dir
+	global_position += speed * dir * delta
 
 
 func _on_screen_exited() -> void:
