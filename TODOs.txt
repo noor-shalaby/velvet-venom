@@ -44,7 +44,7 @@
 (X) decide on a name for the protagonist
 (X) add a texture to the checkbox
 (X) add a texture to panels
-( ) add a projectile_speed stat to all weapons and change it from weapon to another
+(X) add a projectile_speed stat to all weapons and change it from weapon to another
 (X) create a splash screen
 (X) create an icon
 (X) create a mouse cursor

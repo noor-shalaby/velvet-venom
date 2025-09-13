@@ -7,6 +7,7 @@ var gun: Dictionary[String, Variant] = {
 	"fire_rate": 3.0,
 	"multishot": 1,
 	"spread": 20.0,
+	"projectile_speed": 1500.0,
 	"recoil": 24.0,
 	"knockback_force": 2000.0,
 	"puncture": 0,
@@ -24,6 +25,7 @@ var machinegun: Dictionary[String, Variant] = {
 	"fire_rate": 16.0,
 	"multishot": 1,
 	"spread": 30.0,
+	"projectile_speed": 2000.0,
 	"recoil": 16.0,
 	"knockback_force": 2500.0,
 	"puncture": 0,
@@ -41,6 +43,7 @@ var shotgun: Dictionary[String, Variant] = {
 	"fire_rate": 2.0,
 	"multishot": 8,
 	"spread": 40.0,
+	"projectile_speed": 2500.0,
 	"recoil": 128.0,
 	"knockback_force": 5000.0,
 	"puncture": 1,
@@ -144,6 +147,7 @@ func shoot() -> void:
 		
 		bullet.dir = Vector2.from_angle(global_rotation)
 		bullet.dmg = weapon["dmg"]
+		bullet.speed = weapon["projectile_speed"]
 		bullet.knockback_force = weapon["knockback_force"]
 		bullet.puncture = weapon["puncture"]
 		bullet.wall_puncture = weapon["wall_puncture"]

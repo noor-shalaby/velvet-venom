@@ -669,3 +669,4 @@ Day 85 - SAT 13/9/2025
 - fixed a bug where popup buttons didn't play any sound because I had forgotten to call the super() keyword on the _on_pressed() function of the ButtonPopup subclass
 - changed the popup cancel button's sfx from click sound to back sound
 - fixed a bug where Zombie starts a second attack vocal while a first one is still active
+- added a projectile_speed stat to all weapons and changed it from weapon to another and also made it slower for Zombies

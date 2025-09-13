@@ -9,6 +9,7 @@ var gun: Dictionary[String, Variant] = {
 	"fire_rate": 3.0,
 	"multishot": 1,
 	"spread": 20.0,
+	"projectile_speed": 2000.0,
 	"recoil": 24.0,
 	"knockback_force": 4000.0,
 	"puncture": 0,
@@ -27,6 +28,7 @@ var machinegun: Dictionary[String, Variant] = {
 	"fire_rate": 16.0,
 	"multishot": 1,
 	"spread": 30.0,
+	"projectile_speed": 3000.0,
 	"recoil": 16.0,
 	"knockback_force": 5000.0,
 	"puncture": 0,
@@ -45,6 +47,7 @@ var shotgun: Dictionary[String, Variant] = {
 	"fire_rate": 2.0,
 	"multishot": 8,
 	"spread": 40.0,
+	"projectile_speed": 4000.0,
 	"recoil": 128.0,
 	"knockback_force": 10000.0,
 	"puncture": 1,
@@ -132,6 +135,7 @@ func _physics_process(delta: float) -> void:
 		
 		bullet.dir = dir
 		bullet.dmg = held_weapon["dmg"]
+		bullet.speed = held_weapon["projectile_speed"]
 		bullet.knockback_force = held_weapon["knockback_force"]
 		bullet.puncture = held_weapon["puncture"]
 		bullet.wall_puncture = held_weapon["wall_puncture"]
