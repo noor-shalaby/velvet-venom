@@ -1,7 +1,7 @@
 extends HSlider
 
 
-@export var drag_speed: float = 0.05
+@export var drag_speed: float = 2.0
 
 
 func _process(delta: float) -> void:
@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	if input_dir_x == 0.0:
 		return
 	
-	value += drag_speed * input_dir_x
+	value += drag_speed * input_dir_x * delta

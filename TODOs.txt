@@ -13,7 +13,7 @@
 (X) make the Zombie drop its arms when stunned
 (X) fix the ZombieGunner stun logic
 (X) make the ZombieGunner drop their weapon and turn into ZombieNorms when stunned
-( ) animate the ZombieGunner's weapon dropping and fading away from their hands when stunned
+( ) animate the ZombieGunner's weapon dropping from their hands when stunned
 (X) convert all preloaded scene in the game from variables to constants
 (X) add a slash dash sound
 (X) add a cooldown for spawning blood stains per zombie
@@ -70,9 +70,9 @@
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass
 (X) code the Slider to be manipulated with the keyboard
-( ) fix a bug where the left arm would keep appearing and disappearing when shooting and sucking blood at the same time
 ( ) code the PlayerVamp to stop sucking blood when hit
 ( ) use delta
+( ) add gore to the game by ripping off Zombie arms and such
 ( ) create a damage system where hitting different body parts of a Zombie would result in different outcomes:
         a Zombie has 3 body parts: Body, ArmLeft and ArmRight, each with its own separate hp
         hitting the Body damages the main hp directly, which results in a Zombie's death on reaching 0

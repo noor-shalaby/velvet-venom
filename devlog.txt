@@ -663,3 +663,4 @@ Day 84 - FRI 12/9/2025
 Day 85 - SAT 13/9/2025
 
 - coded the Slider to be manipulated with the keyboard
+- applied delta to the Slider keyboard movement
