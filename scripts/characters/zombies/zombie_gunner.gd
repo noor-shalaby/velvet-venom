@@ -61,7 +61,7 @@ var weapons: Array[Dictionary] = [
 
 var weapon: Dictionary[String, Variant] = weapons.pick_random()
 
-@export_range(0.0, 1.0, 0.01) var precision: float = 0.1
+@export_range(0.0, 1.0, 0.01) var precision: float = 6.0
 @export var melee_range: float = 76.0
 
 var can_shoot: bool = true
@@ -109,12 +109,12 @@ func _physics_process(delta: float) -> void:
 		if target and eyes_on_target(target) > 1 and not melee_ray.is_colliding() and not melee_mode and open_fire_on_screen and vis_notifier.is_on_screen():
 			velocity = Vector2.ZERO
 			if sprite.animation != weapon["name"] + "_reload":
-				global_rotation = lerp_angle(global_rotation, (target.global_position - global_position).angle(), precision)
+				global_rotation = lerp_angle(global_rotation, (target.global_position - global_position).angle(), precision * delta)
 			shoot()
 		else:
 			var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 			dir = global_position.direction_to(next_path_pos)
-			global_rotation = lerp_angle(global_rotation, (next_path_pos - global_position).angle(), turning_speed)
+			global_rotation = lerp_angle(global_rotation, (next_path_pos - global_position).angle(), turning_speed * delta)
 			velocity = movement_speed * dir
 	
 	handle_knockback()

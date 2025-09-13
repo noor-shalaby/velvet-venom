@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export_category("Movement")
 @export var movement_speed: float = 350.0
-@export_range(0.0, 1.0, 0.01) var friction: float = 0.3
+@export var friction: float = 18.0
 
 @export_category("Dash")
 @export var dash_speed: float = 1500.0
@@ -114,7 +114,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_dashing:
 		velocity = movement_speed * input_dir
-		velocity = lerp(get_real_velocity(), velocity, friction)
+		velocity = lerp(get_real_velocity(), velocity, friction * delta)
 	
 	if is_dashing:
 		velocity = dash_speed * dash_dir
@@ -123,7 +123,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_knocked_back:
 		velocity += knockback_velocity
-		velocity = lerp(get_real_velocity(), velocity, friction)
+		velocity = lerp(get_real_velocity(), velocity, friction * delta)
 		is_knocked_back = false
 	
 	move_and_slide()

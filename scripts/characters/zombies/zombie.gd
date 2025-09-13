@@ -2,10 +2,10 @@ class_name Zombie
 extends CharacterBody2D
 
 @export_category("Movement")
-@export var turning_speed: float = 0.3
+@export var turning_speed: float = 18.0
 @export var patrol_speed: float = 100.0
 @export var chase_speed: float = 300.0
-@export_range(0.0, 1.0, 0.01) var friction: float = 0.3
+@export var friction: float = 18.0
 
 @export_category("Attack")
 @export var damage: float = 20
@@ -61,10 +61,10 @@ func set_target(new_target: CharacterBody2D) -> void:
 		new_target = null
 	target = new_target
 	if target:
-		movement_speed = lerp(movement_speed, chase_speed, 0.1)
+		movement_speed = lerp(movement_speed, chase_speed, 6.0 * get_process_delta_time())
 		comm_area.set_deferred("monitoring", true)
 	else:
-		movement_speed = lerp(movement_speed, patrol_speed, 0.1)
+		movement_speed = lerp(movement_speed, patrol_speed, 6.0 * get_process_delta_time())
 		comm_area.set_deferred("monitoring", false)
 var target_in_vision: CharacterBody2D
 
@@ -137,7 +137,7 @@ func _physics_process(delta: float) -> void:
 	if not is_stunned:
 		var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 		dir = global_position.direction_to(next_path_pos)
-		global_rotation = lerp_angle(global_rotation, (next_path_pos - global_position).angle(), turning_speed)
+		global_rotation = lerp_angle(global_rotation, (next_path_pos - global_position).angle(), turning_speed * delta)
 		velocity = movement_speed * dir
 	
 	handle_knockback()
@@ -175,7 +175,7 @@ func make_path() -> void:
 func handle_knockback() -> void:
 	if is_knocked_back:
 		velocity += knockback_velocity
-		velocity = lerp(get_real_velocity(), velocity, friction)
+		velocity = lerp(get_real_velocity(), velocity, friction * get_process_delta_time())
 		is_knocked_back = false
 
 

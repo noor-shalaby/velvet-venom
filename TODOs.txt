@@ -71,7 +71,7 @@
 ( ) create breakable glass
 (X) code the Slider to be manipulated with the keyboard
 ( ) code the PlayerVamp to stop sucking blood when hit
-( ) use delta
+(X) use delta
 ( ) add gore to the game by ripping off Zombie arms and such
 ( ) create a damage system where hitting different body parts of a Zombie would result in different outcomes:
         a Zombie has 3 body parts: Body, ArmLeft and ArmRight, each with its own separate hp
