@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export_category("Attack")
 @export var damage: float = 20
 @export var attack_speed: float = 2.0
-@export var knockback_force: float = 4800.0
+@export var knockback_force: float = 280000.0
 
 @export_category("Health")
 @export var hp_max: float = 60.0
@@ -174,7 +174,7 @@ func make_path() -> void:
 
 func handle_knockback() -> void:
 	if is_knocked_back:
-		velocity += knockback_velocity
+		velocity += knockback_velocity * get_physics_process_delta_time()
 		velocity = lerp(get_real_velocity(), velocity, friction * get_process_delta_time())
 		is_knocked_back = false
 

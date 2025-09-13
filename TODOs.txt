@@ -20,7 +20,7 @@
 ( ) code the ability for the PlayerVamp to hide in a BloodPool
 ( ) code a teleportation ability mechanic using a RayCast2D and an Area2D with an instance of the teleporter's CollisionShape2D, preferably between blood pools
 ( ) create some sort of ultimate ability that relies on the amount of spilled blood around the PlayerVamp that he would consume and execute some very powerful feat
-( ) add ambient background tracks
+(X) add ambient background tracks
 ( ) code the Zombies to gather on the Player's BloodPool on death to consume him
 (X) add double-sided blood splatters to the slash dash
 (X) add blood stains to the slash dash
@@ -73,6 +73,7 @@
 ( ) code the PlayerVamp to stop sucking blood when hit
 (X) use delta
 ( ) add gore to the game by ripping off Zombie arms and such
+( ) add more alt fire modes for the PlayerVamp for the player to unlock and choose from
 ( ) create a damage system where hitting different body parts of a Zombie would result in different outcomes:
         a Zombie has 3 body parts: Body, ArmLeft and ArmRight, each with its own separate hp
         hitting the Body damages the main hp directly, which results in a Zombie's death on reaching 0

@@ -665,4 +665,5 @@ Day 85 - SAT 13/9/2025
 - coded the Slider to be manipulated with the keyboard
 - applied delta to the Slider keyboard movement
 - applied delta to the Bullet speed
-- appllied delta to all lerps
+- applied delta to all lerps
+- applied delta to knockback

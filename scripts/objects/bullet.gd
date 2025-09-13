@@ -6,7 +6,7 @@ extends Area2D
 var dir: Vector2
 
 var dmg: int = 10
-var knockback_force: float = 1500.0
+var knockback_force: float = 90000.0
 var puncture: int = 0
 var wall_puncture: int = 0
 

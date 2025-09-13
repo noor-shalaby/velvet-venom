@@ -26,11 +26,12 @@ shader_parameter/blink_intensity = 0.0
 
 [node name="ZombieRunner" instance=ExtResource("1_pglkk")]
 script = ExtResource("2_e4rk7")
-turning_speed = 0.6
+turning_speed = 24.0
 patrol_speed = 120.0
 chase_speed = 600.0
 damage = 30.0
 attack_speed = 3.0
+knockback_force = 320000.0
 hp_max = 50.0
 
 [node name="DashParticles" type="GPUParticles2D" parent="." index="0"]
