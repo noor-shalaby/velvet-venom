@@ -668,3 +668,4 @@ Day 85 - SAT 13/9/2025
 - applied delta to all lerps
 - applied delta to knockback
 - fixed a bug where popup buttons didn't play any sound because I had forgotten to call the super() keyword on the _on_pressed() function of the ButtonPopup subclass
+- changed the popup cancel button's sfx from click sound to back sound

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://1uvrefhdqa34"]
+[gd_scene load_steps=6 format=3 uid="uid://1uvrefhdqa34"]
 
 [ext_resource type="Script" uid="uid://6c44e6f1vbul" path="res://scripts/ui/confirmation_popup.gd" id="1_3yhhn"]
 [ext_resource type="StyleBox" uid="uid://dtxxy6owvagxd" path="res://resources/ui/panel_tex.tres" id="1_w24ka"]
 [ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="2_3yhhn"]
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="3_to2ax"]
+[ext_resource type="PackedScene" uid="uid://ue70psdbmej7" path="res://scenes/sfx/back_sound.tscn" id="5_to2ax"]
 
 [node name="ConfirmationPopup" type="CanvasLayer"]
 process_mode = 4
@@ -64,5 +65,6 @@ custom_minimum_size = Vector2(320, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
+sfx = ExtResource("5_to2ax")
 
 [connection signal="pressed" from="Panel/Margin/VBox/Buttons/CancelButton" to="." method="_on_cancel_button_pressed"]
