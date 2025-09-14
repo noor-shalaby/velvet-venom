@@ -67,7 +67,7 @@
 ( ) create an endless survival mode
 (X) create a "defaults" button for settings
 (X) tween slider values when resetting settings to defaults
-( ) animate checkboxes by scaling them up and down when resetting settings to defaults
+(X) animate checkboxes by scaling them up and down when resetting settings to defaults
 (X) fix a bug where the ambience track would restart after restting settings to defaults
 (X) add lifesteal to the PlayerVamp slash dash
 ( ) add a PlayerVamp ability that turns a BloodPool back into a BloodZombie minion

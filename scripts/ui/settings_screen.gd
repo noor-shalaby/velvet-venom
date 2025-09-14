@@ -71,22 +71,31 @@ func _on_reset_button_pressed() -> void:
 	
 	if audio_check.button_pressed != Settings.DEFAULTS.audio:
 		audio_check.button_pressed = Settings.DEFAULTS.audio
+		audio_check.pop_animation(Settings.TWEEN_DURATION)
 	
 	if audio_slider.value != Settings.DEFAULTS.audio_val:
 		var tween: Tween = create_tween()
 		tween.tween_property(audio_slider, "value", Settings.DEFAULTS.audio_val, Settings.TWEEN_DURATION)
 	
-	fullscreen_check.button_pressed = Settings.DEFAULTS.fullscreen
-	gameplay_mouse_capture_check.button_pressed = Settings.DEFAULTS.gameplay_mouse_capture
+	if fullscreen_check.button_pressed != Settings.DEFAULTS.fullscreen:
+		fullscreen_check.button_pressed = Settings.DEFAULTS.fullscreen
+		fullscreen_check.pop_animation(Settings.TWEEN_DURATION)
+	
+	if gameplay_mouse_capture_check.button_pressed != Settings.DEFAULTS.gameplay_mouse_capture:
+		gameplay_mouse_capture_check.button_pressed = Settings.DEFAULTS.gameplay_mouse_capture
+		gameplay_mouse_capture_check.pop_animation(Settings.TWEEN_DURATION)
 	
 	if music_check.button_pressed != Settings.DEFAULTS.music:
 		music_check.button_pressed = Settings.DEFAULTS.music
+		music_check.pop_animation(Settings.TWEEN_DURATION)
 	
 	if music_slider.value != Settings.DEFAULTS.music_val:
 		var tween: Tween = create_tween()
 		tween.tween_property(music_slider, "value", Settings.DEFAULTS.music_val, Settings.TWEEN_DURATION)
 	
-	screenshake_check.button_pressed = Settings.DEFAULTS.screenshake
+	if screenshake_check.button_pressed != Settings.DEFAULTS.screenshake:
+		screenshake_check.button_pressed = Settings.DEFAULTS.screenshake
+		screenshake_check.pop_animation(Settings.TWEEN_DURATION)
 	
 	if screenshake_slider.value != Settings.DEFAULTS.screenshake_val:
 		var tween: Tween = create_tween()

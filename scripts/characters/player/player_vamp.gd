@@ -188,10 +188,8 @@ func _on_dash_duration_timeout() -> void:
 func _on_dash_hitbox_body_entered(body: Zombie) -> void:
 	super(body)
 	
-	if not (dash_slash and dash_lifesteal):
-		return
-	
-	hp += min(body.hp * dash_lifesteal_factor, dash_slash_damage)
+	if dash_slash and dash_lifesteal:
+		hp += min(body.hp * dash_lifesteal_factor, dash_slash_damage)
 
 
 
