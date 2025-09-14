@@ -68,11 +68,13 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_reset_button_pressed() -> void:
 	Settings.reset_settings()
-	audio_check.button_pressed = Settings.DEFAULTS.audio
+	if audio_check.button_pressed != Settings.DEFAULTS.audio:
+		audio_check.button_pressed = Settings.DEFAULTS.audio
 	audio_slider.value = Settings.DEFAULTS.audio_val
 	fullscreen_check.button_pressed = Settings.DEFAULTS.fullscreen
 	gameplay_mouse_capture_check.button_pressed = Settings.DEFAULTS.gameplay_mouse_capture
-	music_check.button_pressed = Settings.DEFAULTS.music
+	if music_check.button_pressed != Settings.DEFAULTS.music:
+		music_check.button_pressed = Settings.DEFAULTS.music
 	music_slider.value = Settings.DEFAULTS.music_val
 	screenshake_check.button_pressed = Settings.DEFAULTS.screenshake
 	screenshake_slider.value = Settings.DEFAULTS.screenshake_val

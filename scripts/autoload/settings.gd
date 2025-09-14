@@ -95,11 +95,13 @@ func load_settings() -> void:
 	screenshake_val = data.screenshake_val
 
 func reset_settings() -> void:
-	audio = DEFAULTS.audio
+	if audio != DEFAULTS.audio:
+		audio = DEFAULTS.audio
 	audio_val = DEFAULTS.audio_val
 	fullscreen = DEFAULTS.fullscreen
 	gameplay_mouse_capture = DEFAULTS.gameplay_mouse_capture
-	music = DEFAULTS.music
+	if music != DEFAULTS.music:
+		music = DEFAULTS.music
 	music_val = DEFAULTS.music_val
 	screenshake = DEFAULTS.screenshake
 	screenshake_val = DEFAULTS.screenshake_val

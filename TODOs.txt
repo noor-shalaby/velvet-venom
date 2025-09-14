@@ -66,6 +66,8 @@
 ( ) fix the bug where the ZombieGunner would keep shooting into the wall
 ( ) create an endless survival mode
 (X) create a "defaults" button for settings
+( ) tween slider values when resetting settings to defaults
+(X) fix a bug where the ambience track would restart after restting settings to defaults
 ( ) document the code with comments
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass
