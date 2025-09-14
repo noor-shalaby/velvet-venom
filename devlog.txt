@@ -678,3 +678,4 @@ Day 86 - SUN 14/9/2025
 - decreased ui screen vertical margins
 - fixed a bug where the ambience track would restart after resetting settings to defaults
 - added lifesteal to the PlayerVamp slash dash that depends on the remaining hp of the Zombie
+- tweaked ui screen margins
