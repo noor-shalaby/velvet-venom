@@ -191,7 +191,7 @@ func _on_dash_hitbox_body_entered(body: Zombie) -> void:
 	if not (dash_slash and dash_lifesteal):
 		return
 	
-	hp += body.hp * dash_lifesteal_factor
+	hp += min(body.hp * dash_lifesteal_factor, dash_slash_damage)
 
 
 
