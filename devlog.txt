@@ -675,3 +675,4 @@ Day 85 - SAT 13/9/2025
 Day 86 - SUN 14/9/2025
 
 - created a save and load system for Settings and added a ResetButton to the SettingsMenu
+- decreased ui screen vertical margins
