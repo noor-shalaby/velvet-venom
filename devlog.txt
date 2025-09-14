@@ -679,3 +679,4 @@ Day 86 - SUN 14/9/2025
 - fixed a bug where the ambience track would restart after resetting settings to defaults
 - added lifesteal to the PlayerVamp slash dash that depends on the remaining hp of the Zombie
 - tweaked ui screen margins
+- fixed a bug where the ambience track would restart after restting settings to defaults

@@ -2,6 +2,7 @@ extends Node
 
 
 const FILE_NAME: String = "settings.res"
+const TWEEN_DURATION: float = 0.1
 
 
 @onready var scene_tree: SceneTree = get_tree()
@@ -97,12 +98,22 @@ func load_settings() -> void:
 func reset_settings() -> void:
 	if audio != DEFAULTS.audio:
 		audio = DEFAULTS.audio
-	audio_val = DEFAULTS.audio_val
+	
+	if audio_val != DEFAULTS.audio_val:
+		var tween: Tween = create_tween()
+		tween.tween_property(self, "audio_val", DEFAULTS.audio_val, TWEEN_DURATION)
+	
 	fullscreen = DEFAULTS.fullscreen
 	gameplay_mouse_capture = DEFAULTS.gameplay_mouse_capture
+	
 	if music != DEFAULTS.music:
 		music = DEFAULTS.music
-	music_val = DEFAULTS.music_val
+	
+	if music_val != DEFAULTS.music_val:
+		var tween: Tween = create_tween()
+		tween.tween_property(self, "music_val", DEFAULTS.music_val, TWEEN_DURATION)
+	
 	screenshake = DEFAULTS.screenshake
 	screenshake_val = DEFAULTS.screenshake_val
+	
 	save_settings()

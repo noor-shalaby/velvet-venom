@@ -68,13 +68,26 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_reset_button_pressed() -> void:
 	Settings.reset_settings()
+	
 	if audio_check.button_pressed != Settings.DEFAULTS.audio:
 		audio_check.button_pressed = Settings.DEFAULTS.audio
-	audio_slider.value = Settings.DEFAULTS.audio_val
+	
+	if audio_slider.value != Settings.DEFAULTS.audio_val:
+		var tween: Tween = create_tween()
+		tween.tween_property(audio_slider, "value", Settings.DEFAULTS.audio_val, Settings.TWEEN_DURATION)
+	
 	fullscreen_check.button_pressed = Settings.DEFAULTS.fullscreen
 	gameplay_mouse_capture_check.button_pressed = Settings.DEFAULTS.gameplay_mouse_capture
+	
 	if music_check.button_pressed != Settings.DEFAULTS.music:
 		music_check.button_pressed = Settings.DEFAULTS.music
-	music_slider.value = Settings.DEFAULTS.music_val
+	
+	if music_slider.value != Settings.DEFAULTS.music_val:
+		var tween: Tween = create_tween()
+		tween.tween_property(music_slider, "value", Settings.DEFAULTS.music_val, Settings.TWEEN_DURATION)
+	
 	screenshake_check.button_pressed = Settings.DEFAULTS.screenshake
-	screenshake_slider.value = Settings.DEFAULTS.screenshake_val
+	
+	if screenshake_slider.value != Settings.DEFAULTS.screenshake_val:
+		var tween: Tween = create_tween()
+		tween.tween_property(screenshake_slider, "value", Settings.DEFAULTS.screenshake_val, Settings.TWEEN_DURATION)
