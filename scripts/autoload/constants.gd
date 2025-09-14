@@ -11,6 +11,7 @@ enum RANDO_TYPES {
 	DOUBLE
 }
 
+const SAVE_PATH: String = "user://"
 
 const FILE_UIDS: Dictionary[String, Variant] = {
 	# SCENES

@@ -57,7 +57,7 @@
 (X) set a black canvas that draws behind all levels for when the viewport is wider than the camera limit
 ( ) create an ammo system for PLayerNorm or just make the ammo infinite
 (X) code the game to uncapture the mouse cursor in ui and only capture it in actual gameplay
-( ) set up a Github repo for the game
+(X) set up a Github repo for the game
 ( ) create a Google Forms survey about the first playtest and add a link to it in the game
 (X) find a way to darken the zombies a bit
 ( ) add sfx for collecting weapons
@@ -65,7 +65,7 @@
 ( ) split the BloodPool sprite's small blood spots each into its own separate sprite
 ( ) fix the bug where the ZombieGunner would keep shooting into the wall
 ( ) create an endless survival mode
-( ) create a "defaults" button for settings
+(X) create a "defaults" button for settings
 ( ) document the code with comments
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass

@@ -1,6 +1,9 @@
 extends Node
 
 
+const FILE_NAME: String = "settings.res"
+
+
 @onready var scene_tree: SceneTree = get_tree()
 
 
@@ -47,3 +50,57 @@ func set_gameplay_mouse_capture(_gameplay_mouse_capture: bool) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+const DEFAULTS: Dictionary[String, Variant] = {
+	"audio": true,
+	"audio_val": 1.0,
+	"fullscreen": true,
+	"gameplay_mouse_capture": true,
+	"music": true,
+	"music_val": 1.0,
+	"screenshake": true,
+	"screenshake_val": 1.0
+}
+
+
+func _ready() -> void:
+	load_settings()
+
+
+func save_settings() -> void:
+	var data: SettingsData = SettingsData.new()
+	data.audio = audio
+	data.audio_val = audio_val
+	data.fullscreen = fullscreen
+	data.gameplay_mouse_capture = gameplay_mouse_capture
+	data.music = music
+	data.music_val = music_val
+	data.screenshake = screenshake
+	data.screenshake_val = screenshake_val
+	ResourceSaver.save(data, Constants.SAVE_PATH + FILE_NAME)
+
+func load_settings() -> void:
+	if not ResourceLoader.exists(Constants.SAVE_PATH + FILE_NAME):
+		return
+	
+	var data: SettingsData = ResourceLoader.load(Constants.SAVE_PATH + FILE_NAME)
+	audio = data.audio
+	audio_val = data.audio_val
+	fullscreen = data.fullscreen
+	gameplay_mouse_capture = data.gameplay_mouse_capture
+	music = data.music
+	music_val = data.music_val
+	screenshake = data.screenshake
+	screenshake_val = data.screenshake_val
+
+func reset_settings() -> void:
+	audio = DEFAULTS.audio
+	audio_val = DEFAULTS.audio_val
+	fullscreen = DEFAULTS.fullscreen
+	gameplay_mouse_capture = DEFAULTS.gameplay_mouse_capture
+	music = DEFAULTS.music
+	music_val = DEFAULTS.music_val
+	screenshake = DEFAULTS.screenshake
+	screenshake_val = DEFAULTS.screenshake_val
+	save_settings()

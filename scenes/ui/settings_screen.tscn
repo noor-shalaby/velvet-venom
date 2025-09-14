@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0p5h8tci88bo"]
+[gd_scene load_steps=11 format=3 uid="uid://c0p5h8tci88bo"]
 
 [ext_resource type="Script" uid="uid://ceto5of2ydnyw" path="res://scripts/ui/settings_screen.gd" id="1_dyuo2"]
 [ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="1_n5rhh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8ftvcb0x1lte" path="res://scenes/ui/button_check.tscn" id="3_dyuo2"]
 [ext_resource type="Texture2D" uid="uid://clijd1owffyxm" path="res://assets/ui/tex_red.png" id="4_o0pos"]
 [ext_resource type="PackedScene" uid="uid://bjn7kimpi1t4b" path="res://scenes/ui/slider.tscn" id="6_jowa0"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="8_8680x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyuo2"]
 bg_color = Color(0, 0, 0, 1)
@@ -312,6 +313,13 @@ focus_neighbor_top = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/M
 focus_neighbor_right = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider")
 focus_previous = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider")
 
+[node name="ResetButton" parent="MarginContainer" instance=ExtResource("8_8680x")]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Reset"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck" to="." method="_on_fullscreen_check_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSetting/ScreenshakeCheck" to="." method="_on_screenshake_check_pressed"]
 [connection signal="drag_ended" from="MarginContainer/VBoxContainer/Row1/VideoSettings/VBoxContainer/ScreenshakeVBox/ScreenshakeSlider" to="." method="_on_screenshake_slider_drag_ended"]
@@ -320,3 +328,4 @@ focus_previous = NodePath("../../../../../Row1/AudioSettings/VBoxContainer/Music
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSetting/MusicCheck" to="." method="_on_music_check_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Row1/AudioSettings/VBoxContainer/MusicVBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Row2/ControlsSettings/VBoxContainer/GameplayMouseCaptureSetting/GameplayMouseCaptureCheck" to="." method="_on_gameplay_mouse_capture_check_pressed"]
+[connection signal="pressed" from="MarginContainer/ResetButton" to="." method="_on_reset_button_pressed"]

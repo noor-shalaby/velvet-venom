@@ -670,3 +670,8 @@ Day 85 - SAT 13/9/2025
 - changed the popup cancel button's sfx from click sound to back sound
 - fixed a bug where Zombie starts a second attack vocal while a first one is still active
 - added a projectile_speed stat to all weapons and changed it from weapon to another and also made it slower for Zombies
+
+
+Day 86 - SUN 14/9/2025
+
+- created a save and load system for Settings and added a ResetButton to the SettingsMenu

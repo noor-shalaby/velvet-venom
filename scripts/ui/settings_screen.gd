@@ -28,20 +28,25 @@ func _ready() -> void:
 
 func _on_fullscreen_check_pressed() -> void:
 	Settings.fullscreen = fullscreen_check.button_pressed
+	Settings.save_settings()
 
 func _on_screenshake_check_pressed() -> void:
 	Settings.screenshake = screenshake_check.button_pressed
+	Settings.save_settings()
 
 
 func _on_audio_check_pressed() -> void:
 	Settings.audio = audio_check.button_pressed
+	Settings.save_settings()
 
 func _on_music_check_pressed() -> void:
 	Settings.music = music_check.button_pressed
+	Settings.save_settings()
 
 
 func _on_gameplay_mouse_capture_check_pressed() -> void:
 	Settings.gameplay_mouse_capture = gameplay_mouse_capture_check.button_pressed
+	Settings.save_settings()
 
 
 func _on_screenshake_slider_drag_ended(value_changed: bool) -> void:
@@ -49,10 +54,25 @@ func _on_screenshake_slider_drag_ended(value_changed: bool) -> void:
 		return
 	
 	Settings.screenshake_val = screenshake_slider.value
+	Settings.save_settings()
 
 
 func _on_audio_slider_value_changed(value: float) -> void:
 	Settings.audio_val = audio_slider.value
+	Settings.save_settings()
 
 func _on_music_slider_value_changed(value: float) -> void:
 	Settings.music_val = music_slider.value
+	Settings.save_settings()
+
+
+func _on_reset_button_pressed() -> void:
+	Settings.reset_settings()
+	audio_check.button_pressed = Settings.DEFAULTS.audio
+	audio_slider.value = Settings.DEFAULTS.audio_val
+	fullscreen_check.button_pressed = Settings.DEFAULTS.fullscreen
+	gameplay_mouse_capture_check.button_pressed = Settings.DEFAULTS.gameplay_mouse_capture
+	music_check.button_pressed = Settings.DEFAULTS.music
+	music_slider.value = Settings.DEFAULTS.music_val
+	screenshake_check.button_pressed = Settings.DEFAULTS.screenshake
+	screenshake_slider.value = Settings.DEFAULTS.screenshake_val
