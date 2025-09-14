@@ -682,3 +682,4 @@ Day 86 - SUN 14/9/2025
 - fixed a bug where the ambience track would restart after restting settings to defaults
 - set slash dash lifesteal maximum value to the slash dash damage
 - animated checkboxes when resetting settings to defaults by scaling them up and down
+- added the checkbox pop animation to its pressed signal too
