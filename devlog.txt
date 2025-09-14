@@ -676,4 +676,5 @@ Day 86 - SUN 14/9/2025
 
 - created a save and load system for Settings and added a ResetButton to the SettingsMenu
 - decreased ui screen vertical margins
-- fixed a bug where the ambience track would restart after restting settings to defaults
+- fixed a bug where the ambience track would restart after resetting settings to defaults
+- added lifesteal to the PlayerVamp slash dash that depends on the remaining hp of the Zombie

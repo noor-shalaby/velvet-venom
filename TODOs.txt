@@ -68,6 +68,8 @@
 (X) create a "defaults" button for settings
 ( ) tween slider values when resetting settings to defaults
 (X) fix a bug where the ambience track would restart after restting settings to defaults
+(X) add lifesteal to the PlayerVamp slash dash
+( ) add a PlayerVamp ability that turns a BloodPool back into a BloodZombie minion
 ( ) document the code with comments
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass

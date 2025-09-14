@@ -67,6 +67,8 @@ var blood_pool: BloodPool
 var is_sucking: bool = false
 var suck_sound_last_playback_position: float = 0.0
 
+@export var dash_lifesteal: bool = true
+@export_range(0.0, 1.0, 0.01) var dash_lifesteal_factor: float = 0.1
 
 const BLOODSHOT_SCENE: PackedScene = preload(Constants.FILE_UIDS["bloodshot_scene"])
 const BLOOD_SPLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_splash_scene"])
@@ -182,6 +184,14 @@ func _on_dash_duration_timeout() -> void:
 	super()
 	
 	outline_off()
+
+func _on_dash_hitbox_body_entered(body: Zombie) -> void:
+	super(body)
+	
+	if not (dash_slash and dash_lifesteal):
+		return
+	
+	hp += body.hp * dash_lifesteal_factor
 
 
 
