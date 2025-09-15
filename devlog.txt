@@ -660,6 +660,9 @@ Day 84 - FRI 12/9/2025
 - deleted the default Godot icon and my inspo.txt file
 
 
+
+======= WEEK 13 =======
+
 Day 85 - SAT 13/9/2025
 
 - coded the Slider to be manipulated with the keyboard
@@ -683,3 +686,8 @@ Day 86 - SUN 14/9/2025
 - set slash dash lifesteal maximum value to the slash dash damage
 - animated checkboxes when resetting settings to defaults by scaling them up and down
 - added the checkbox pop animation to its pressed signal too
+
+
+Day 87 - MON 15/9/2025
+
+- deleted unused assets and unnecessary bloat (the "potential_assets" folder)

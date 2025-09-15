@@ -51,7 +51,7 @@
 (X) add more ui audio
 (X) make the ui completely navigateable with the keyboard
 (X) animate the pause and death menu appearing and disappearing
-( ) delete all unused assets and unnecessary bloat
+(X) delete all unused assets and unnecessary bloat
 (X) fix bug where you can pause the game while DeathScreen is there
 (X) create confirmation popups for quitting to the main menu or the desktop or restarting the level when the Player is still alive
 (X) set a black canvas that draws behind all levels for when the viewport is wider than the camera limit
