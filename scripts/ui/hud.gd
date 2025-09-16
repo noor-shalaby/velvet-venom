@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 
-const BLOOD_OVERLAY_THRESHOLD: float = 0.4
+const BLOOD_OVERLAY_THRESHOLD: float = 0.5
+const BLOOD_OVERLAY_VISIBILITY_MULTIPLIER: float = 2.0
 
 @onready var control: Control = $Control
 @onready var blood_overlay: TextureRect = $Control/BloodOverlay
@@ -41,7 +42,7 @@ func _update_player_class(new_value: String) -> void:
 func _update_player_hp(new_value: float, max_value: float) -> void:
 	var tween: Tween = create_tween().set_parallel(true)
 	tween.tween_property(hp_bar, "value", (new_value / max_value) * 100, 0.1)
-	tween.tween_property(blood_overlay, "modulate:a", (((max_value - new_value) / max_value) - (1.0 - BLOOD_OVERLAY_THRESHOLD)) * 1.7, 0.1)
+	tween.tween_property(blood_overlay, "modulate:a", (((max_value - new_value) / max_value) - (1.0 - BLOOD_OVERLAY_THRESHOLD)) * BLOOD_OVERLAY_VISIBILITY_MULTIPLIER, 0.1)
 
 func _update_player_weapon(new_weapon_name: String) -> void:
 	weapon_rect.texture = WEAPON_TEXTURES[new_weapon_name]
@@ -54,7 +55,6 @@ func _update_player_blood(new_value: float, max_value: float) -> void:
 
 
 func disappear() -> void:
-	print("hey")
 	var tween: Tween = create_tween()
 	tween.tween_property(control, "modulate:a", 0.0, 0.1)
 	await tween.finished

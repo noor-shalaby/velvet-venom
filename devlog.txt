@@ -705,3 +705,4 @@ Day 88 - TUE 16/9/2025
 - added a bloody screen overlay that appears when the Player is low on hp
 - coded the HUD to fade out and disappear on Player death
 - accessed HUD elements as unique names for better modularity, readability and convenience
+- increased the visibility and threshold of the HUD BloodOverlay
