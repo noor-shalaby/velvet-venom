@@ -3,8 +3,8 @@ extends Zombie
 
 
 const SPRITESHEETS: Array[SpriteFrames] = [
-	preload(Constants.FILE_UIDS["zombie_norm1_spriteframes"]),
-	preload(Constants.FILE_UIDS["zombie_norm2_spriteframes"])
+	preload(Constants.FILE_UIDS.zombie_norm1_spriteframes),
+	preload(Constants.FILE_UIDS.zombie_norm2_spriteframes)
 	]
 
 

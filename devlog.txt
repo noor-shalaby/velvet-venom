@@ -699,3 +699,4 @@ Day 87 - MON 15/9/2025
 Day 88 - TUE 16/9/2025
 
 - added a blood splatter screen overlay that appears behind the death menu on Player death and swapped the png icon for an svg
+- changed the way of accessing a dictionary element to the stringless way

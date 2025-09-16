@@ -9,9 +9,9 @@ extends CanvasLayer
 @onready var mag_label: Label = $Margin/WeaponPanel/WeaponMargin/WeaponBox/AmmoBox/MagLabel
 
 const WEAPON_TEXTURES: Dictionary[String, CompressedTexture2D] = {
-	"gun": preload(Constants.FILE_UIDS["weapon_tex_gun"]),
-	"machinegun": preload(Constants.FILE_UIDS["weapon_tex_machinegun"]),
-	"shotgun": preload(Constants.FILE_UIDS["weapon_tex_shotgun"])
+	"gun": preload(Constants.FILE_UIDS.weapon_tex_gun),
+	"machinegun": preload(Constants.FILE_UIDS.weapon_tex_machinegun),
+	"shotgun": preload(Constants.FILE_UIDS.weapon_tex_shotgun)
 }
 
 func _ready() -> void:

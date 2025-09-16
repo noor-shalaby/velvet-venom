@@ -47,32 +47,32 @@ var is_dashing: bool = false
 var is_knocked_back: bool = false
 var knockback_velocity: Vector2
 
-const BLOOD_SPLATTER_DOUBLE_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_splatter_double_scene"])
-const BLOOD_EXPLOSION_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_explosion_scene"])
-const BLOOD_POOL_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_pool_scene"])
-const DEATH_SCREEN_SCENE: PackedScene = preload(Constants.FILE_UIDS["death_screen_scene"])
+const BLOOD_SPLATTER_DOUBLE_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splatter_double_scene)
+const BLOOD_EXPLOSION_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_explosion_scene)
+const BLOOD_POOL_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_pool_scene)
+const DEATH_SCREEN_SCENE: PackedScene = preload(Constants.FILE_UIDS.death_screen_scene)
 const WALK_SOUNDS: Array[AudioStreamWAV] = [
-	preload(Constants.FILE_UIDS["walk_sound1"]),
-	preload(Constants.FILE_UIDS["walk_sound2"]),
-	preload(Constants.FILE_UIDS["walk_sound3"]),
-	preload(Constants.FILE_UIDS["walk_sound4"]),
-	preload(Constants.FILE_UIDS["walk_sound5"])
+	preload(Constants.FILE_UIDS.walk_sound1),
+	preload(Constants.FILE_UIDS.walk_sound2),
+	preload(Constants.FILE_UIDS.walk_sound3),
+	preload(Constants.FILE_UIDS.walk_sound4),
+	preload(Constants.FILE_UIDS.walk_sound5)
 ]
 const DASH_SOUNDS: Array[AudioStreamWAV] = [
-	preload(Constants.FILE_UIDS["dash_sound1"]),
-	preload(Constants.FILE_UIDS["dash_sound2"]),
-	preload(Constants.FILE_UIDS["dash_sound3"])
+	preload(Constants.FILE_UIDS.dash_sound1),
+	preload(Constants.FILE_UIDS.dash_sound2),
+	preload(Constants.FILE_UIDS.dash_sound3)
 ]
 const DASH_SLASH_SOUNDS: Array[AudioStreamWAV] = [
-	preload(Constants.FILE_UIDS["dash_slash_sound1"]),
-	preload(Constants.FILE_UIDS["dash_slash_sound2"]),
-	preload(Constants.FILE_UIDS["dash_slash_sound3"]),
-	preload(Constants.FILE_UIDS["dash_slash_sound4"])
+	preload(Constants.FILE_UIDS.dash_slash_sound1),
+	preload(Constants.FILE_UIDS.dash_slash_sound2),
+	preload(Constants.FILE_UIDS.dash_slash_sound3),
+	preload(Constants.FILE_UIDS.dash_slash_sound4)
 ]
-const DEATH_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS["player_death_sound_scene"])
+const DEATH_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.player_death_sound_scene)
 const DEATH_SOUNDS: Array[AudioStreamWAV] = [
-	preload(Constants.FILE_UIDS["player_death_sounds"][0]),
-	preload(Constants.FILE_UIDS["player_death_sounds"][1])
+	preload(Constants.FILE_UIDS.player_death_sounds[0]),
+	preload(Constants.FILE_UIDS.player_death_sounds[1])
 ]
 
 var cam_ctrl: Node2D

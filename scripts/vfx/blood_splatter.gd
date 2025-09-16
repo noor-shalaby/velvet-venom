@@ -1,7 +1,7 @@
 extends ParticleEffect
 
 
-const BLOOD_STAIN_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_stain_scene"])
+const BLOOD_STAIN_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_stain_scene)
 
 
 @onready var game: Node2D = $/root/Game

@@ -12,7 +12,7 @@ var fire_empty: Dictionary[String, Variant] = {
 	"knockback_force": 4000.0,
 	"puncture": 0,
 	"wall_puncture": 0,
-	"gunshot_sound_scene": preload(Constants.FILE_UIDS["gunshot_gun_sound_scene"])
+	"gunshot_sound_scene": preload(Constants.FILE_UIDS.gunshot_gun_sound_scene)
 }
 var fire: Dictionary[String, Variant] = {
 	"dmg": 24,
@@ -24,7 +24,7 @@ var fire: Dictionary[String, Variant] = {
 	"knockback_force": 5000.0,
 	"puncture": 0,
 	"wall_puncture": 0,
-	"gunshot_sound_scene": preload(Constants.FILE_UIDS["gunshot_machinegun_sound_scene"])
+	"gunshot_sound_scene": preload(Constants.FILE_UIDS.gunshot_machinegun_sound_scene)
 }
 var fire_alt: Dictionary[String, Variant] = {
 	"dmg": 40,
@@ -36,7 +36,7 @@ var fire_alt: Dictionary[String, Variant] = {
 	"knockback_force": 10000.0,
 	"puncture": 1,
 	"wall_puncture": 0,
-	"gunshot_sound_scene": preload(Constants.FILE_UIDS["gunshot_shotgun_sound_scene"])
+	"gunshot_sound_scene": preload(Constants.FILE_UIDS.gunshot_shotgun_sound_scene)
 }
 
 
@@ -70,8 +70,8 @@ var suck_sound_last_playback_position: float = 0.0
 @export var dash_lifesteal: bool = true
 @export_range(0.0, 1.0, 0.01) var dash_lifesteal_factor: float = 0.1
 
-const BLOODSHOT_SCENE: PackedScene = preload(Constants.FILE_UIDS["bloodshot_scene"])
-const BLOOD_SPLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_splash_scene"])
+const BLOODSHOT_SCENE: PackedScene = preload(Constants.FILE_UIDS.bloodshot_scene)
+const BLOOD_SPLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splash_scene)
 
 
 @onready var scene_tree: SceneTree = get_tree()
@@ -98,17 +98,17 @@ func _physics_process(delta: float) -> void:
 	
 	if (Input.is_action_pressed("fire") or Input.is_action_pressed("fire_alt")) and can_shoot:
 		var wep: Dictionary
-		if Input.is_action_pressed("fire") and blood >= fire["multishot"]:
+		if Input.is_action_pressed("fire") and blood >= fire.multishot:
 			wep = fire
-			blood -= fire["multishot"]
-		elif Input.is_action_pressed("fire_alt") and blood >= fire_alt["multishot"]:
+			blood -= fire.multishot
+		elif Input.is_action_pressed("fire_alt") and blood >= fire_alt.multishot:
 			wep = fire_alt
-			blood -= fire_alt["multishot"]
+			blood -= fire_alt.multishot
 		elif Input.is_action_pressed("fire") or Input.is_action_pressed("fire_alt"):
 			wep = fire_empty
 		
 		can_shoot = false
-		fire_delay.start(1.0/wep["fire_rate"])
+		fire_delay.start(1.0/wep.fire_rate)
 		
 		arm_right.show()
 		
@@ -119,37 +119,37 @@ func _physics_process(delta: float) -> void:
 		game.add_child(bloodshot)
 		
 		bloodshot.dir = dir
-		bloodshot.dmg = wep["dmg"]
-		bloodshot.speed = wep["projectile_speed"]
-		bloodshot.knockback_force = wep["knockback_force"]
-		bloodshot.puncture = wep["puncture"]
-		bloodshot.wall_puncture = wep["wall_puncture"]
+		bloodshot.dmg = wep.dmg
+		bloodshot.speed = wep.projectile_speed
+		bloodshot.knockback_force = wep.knockback_force
+		bloodshot.puncture = wep.puncture
+		bloodshot.wall_puncture = wep.wall_puncture
 		bloodshot.shooter = self
 		
 		if Settings.audio:
-			var gunshot_sound: AudioStreamPlayer2D = wep["gunshot_sound_scene"].instantiate()
+			var gunshot_sound: AudioStreamPlayer2D = wep.gunshot_sound_scene.instantiate()
 			gunshot_sound.global_position = muzzle.global_position
 			game.add_child(gunshot_sound)
 		
 		if cam_ctrl and Settings.screenshake:
-			cam_ctrl.screenshake(max(1.64, wep["multishot"] / 1.16), 0.1)
-		for shot in range(wep["multishot"] - 1):
+			cam_ctrl.screenshake(max(1.64, wep.multishot / 1.16), 0.1)
+		for shot in range(wep.multishot - 1):
 			bloodshot = BLOODSHOT_SCENE.instantiate()
 			bloodshot.global_position = muzzle.global_position
 			bloodshot.global_rotation = global_rotation
 			game.add_child(bloodshot)
 			
-			bloodshot.dir = Vector2.from_angle(dir.angle() + randf_range(deg_to_rad(-wep["spread"]/2), deg_to_rad(wep["spread"]/2))).normalized()
-			bloodshot.dmg = wep["dmg"]
-			bloodshot.knockback_force = wep["knockback_force"]
-			bloodshot.puncture = wep["puncture"]
-			bloodshot.wall_puncture = wep["wall_puncture"]
+			bloodshot.dir = Vector2.from_angle(dir.angle() + randf_range(deg_to_rad(-wep.spread/2), deg_to_rad(wep.spread/2))).normalized()
+			bloodshot.dmg = wep.dmg
+			bloodshot.knockback_force = wep.knockback_force
+			bloodshot.puncture = wep.puncture
+			bloodshot.wall_puncture = wep.wall_puncture
 			bloodshot.shooter = self
 		
 		var blood_splash: ParticleEffect = BLOOD_SPLASH_SCENE.instantiate()
 		muzzle.add_child(blood_splash)
 		
-		velocity += randf_range(0, wep["recoil"]) * -dir
+		velocity += randf_range(0, wep.recoil) * -dir
 	
 	if Input.is_action_just_released("fire") or Input.is_action_just_released("fire_alt"):
 		arm_right.hide()

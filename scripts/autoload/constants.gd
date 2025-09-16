@@ -142,40 +142,40 @@ const FILE_UIDS: Dictionary[String, Variant] = {
 
 
 const ZOMBIE_ALERT_VOCALS: Array[AudioStreamWAV] = [
-	preload(FILE_UIDS["zombie_alert_vocals"][0]),
-	preload(FILE_UIDS["zombie_alert_vocals"][1]),
-	preload(FILE_UIDS["zombie_alert_vocals"][2])
+	preload(FILE_UIDS.zombie_alert_vocals[0]),
+	preload(FILE_UIDS.zombie_alert_vocals[1]),
+	preload(FILE_UIDS.zombie_alert_vocals[2])
 ]
 
 const ZOMBIE_ATTACK_VOCALS: Array[AudioStreamWAV] = [
-	preload(FILE_UIDS["zombie_attack_vocals"][0]),
-	preload(FILE_UIDS["zombie_attack_vocals"][1]),
-	preload(FILE_UIDS["zombie_attack_vocals"][2]),
-	preload(FILE_UIDS["zombie_attack_vocals"][3]),
-	preload(FILE_UIDS["zombie_attack_vocals"][4]),
-	preload(FILE_UIDS["zombie_attack_vocals"][5]),
-	preload(FILE_UIDS["zombie_attack_vocals"][6])
+	preload(FILE_UIDS.zombie_attack_vocals[0]),
+	preload(FILE_UIDS.zombie_attack_vocals[1]),
+	preload(FILE_UIDS.zombie_attack_vocals[2]),
+	preload(FILE_UIDS.zombie_attack_vocals[3]),
+	preload(FILE_UIDS.zombie_attack_vocals[4]),
+	preload(FILE_UIDS.zombie_attack_vocals[5]),
+	preload(FILE_UIDS.zombie_attack_vocals[6])
 ]
 
 const ZOMBIE_PAIN_VOCALS: Array[AudioStreamWAV] = [
-	preload(FILE_UIDS["zombie_pain_vocals"][0]),
-	preload(FILE_UIDS["zombie_pain_vocals"][1]),
-	preload(FILE_UIDS["zombie_pain_vocals"][2]),
-	preload(FILE_UIDS["zombie_pain_vocals"][3]),
-	preload(FILE_UIDS["zombie_pain_vocals"][4]),
-	preload(FILE_UIDS["zombie_pain_vocals"][5]),
-	preload(FILE_UIDS["zombie_pain_vocals"][6]),
-	preload(FILE_UIDS["zombie_pain_vocals"][7]),
-	preload(FILE_UIDS["zombie_pain_vocals"][8]),
-	preload(FILE_UIDS["zombie_pain_vocals"][9]),
-	preload(FILE_UIDS["zombie_pain_vocals"][10])
+	preload(FILE_UIDS.zombie_pain_vocals[0]),
+	preload(FILE_UIDS.zombie_pain_vocals[1]),
+	preload(FILE_UIDS.zombie_pain_vocals[2]),
+	preload(FILE_UIDS.zombie_pain_vocals[3]),
+	preload(FILE_UIDS.zombie_pain_vocals[4]),
+	preload(FILE_UIDS.zombie_pain_vocals[5]),
+	preload(FILE_UIDS.zombie_pain_vocals[6]),
+	preload(FILE_UIDS.zombie_pain_vocals[7]),
+	preload(FILE_UIDS.zombie_pain_vocals[8]),
+	preload(FILE_UIDS.zombie_pain_vocals[9]),
+	preload(FILE_UIDS.zombie_pain_vocals[10])
 ]
 
 const ZOMBIE_DEATH_SOUNDS: Array[AudioStreamWAV] = [
-	preload(FILE_UIDS["zombie_death_sounds"][0]),
-	preload(FILE_UIDS["zombie_death_sounds"][1]),
-	preload(FILE_UIDS["zombie_death_sounds"][2]),
-	preload(FILE_UIDS["zombie_death_sounds"][3])
+	preload(FILE_UIDS.zombie_death_sounds[0]),
+	preload(FILE_UIDS.zombie_death_sounds[1]),
+	preload(FILE_UIDS.zombie_death_sounds[2]),
+	preload(FILE_UIDS.zombie_death_sounds[3])
 ]
 
 

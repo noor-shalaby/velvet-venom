@@ -3,8 +3,8 @@ extends Zombie
 
 @onready var punch_animation_duration_timer: Timer = $PunchAnimationDuration
 const SPRITESHEETS: Array[SpriteFrames] = [
-	preload(Constants.FILE_UIDS["zombie_brawler1_spriteframes"]),
-	preload(Constants.FILE_UIDS["zombie_brawler2_spriteframes"])
+	preload(Constants.FILE_UIDS.zombie_brawler1_spriteframes),
+	preload(Constants.FILE_UIDS.zombie_brawler2_spriteframes)
 ]
 const PUNCH_ANIMATIONS: Array[String] = [
 	"punch_left",

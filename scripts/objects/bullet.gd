@@ -13,14 +13,14 @@ var wall_puncture: int = 0
 var shooter: CharacterBody2D
 var entities_hit: Array[PhysicsBody2D] = []
 
-const BLOOD_SPLATTER_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_splatter_scene"])
-const DIRT_SPLATTER_SCENE: PackedScene = preload(Constants.FILE_UIDS["dirt_splatter_scene"])
-const IMPACT_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS["impact_sound_scene"])
+const BLOOD_SPLATTER_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splatter_scene)
+const DIRT_SPLATTER_SCENE: PackedScene = preload(Constants.FILE_UIDS.dirt_splatter_scene)
+const IMPACT_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.impact_sound_scene)
 const IMPACT_SOUNDS: Array[AudioStreamWAV] = [
-	preload(Constants.FILE_UIDS["impact_sound1"]),
-	preload(Constants.FILE_UIDS["impact_sound2"]),
-	preload(Constants.FILE_UIDS["impact_sound3"]),
-	preload(Constants.FILE_UIDS["impact_sound4"])
+	preload(Constants.FILE_UIDS.impact_sound1),
+	preload(Constants.FILE_UIDS.impact_sound2),
+	preload(Constants.FILE_UIDS.impact_sound3),
+	preload(Constants.FILE_UIDS.impact_sound4)
 ]
 
 @onready var game: Node2D = $/root/Game

@@ -69,12 +69,12 @@ func set_target(new_target: CharacterBody2D) -> void:
 var target_in_vision: CharacterBody2D
 
 
-const BLOOD_SPLATTER_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_splatter_scene"])
-const BLOOD_EXPLOSION_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_explosion_scene"])
-const BLOOD_POOL_SCENE: PackedScene = preload(Constants.FILE_UIDS["blood_pool_scene"])
-const ATTACK_VOCAL_SCENE: PackedScene = preload(Constants.FILE_UIDS["zombie_attack_vocal_scene"])
-const PAIN_VOCAL_SCENE: PackedScene = preload(Constants.FILE_UIDS["zombie_pain_vocal_scene"])
-const DEATH_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS["zombie_death_sound_scene"])
+const BLOOD_SPLATTER_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splatter_scene)
+const BLOOD_EXPLOSION_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_explosion_scene)
+const BLOOD_POOL_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_pool_scene)
+const ATTACK_VOCAL_SCENE: PackedScene = preload(Constants.FILE_UIDS.zombie_attack_vocal_scene)
+const PAIN_VOCAL_SCENE: PackedScene = preload(Constants.FILE_UIDS.zombie_pain_vocal_scene)
+const DEATH_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.zombie_death_sound_scene)
 
 
 @onready var game: Node2D = $/root/Game
