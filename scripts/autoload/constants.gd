@@ -29,6 +29,12 @@ const FILE_UIDS: Dictionary[String, Variant] = {
 	"blood_pool_scene": "uid://1twhq540r50",
 		# ui
 	"death_screen_scene": "uid://bomjpnrcspvgr",
+		# ui
+	"bloodslash1": "uid://lubkpi5hn26h",
+	"bloodsplash2": "uid://bvsm1u4002f13",
+	"bloodsplash_heavy": "uid://bvhasb18q6g3h",
+	"bloodsplat": "uid://c4ueci36j340x",
+	"bloodspray": "uid://1c4ggx8hfhuv",
 		# sfx
 	"gunshot_gun_sound_scene": "uid://cu8jx5g44exkl",
 	"gunshot_machinegun_sound_scene": "uid://cem6wtki1g5bc",

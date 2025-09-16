@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dic8j2nt64a1u"
-path="res://.godot/imported/splash_screen.png-378edf2dc0b0a0e9b1c42f1264d0179d.ctex"
+uid="uid://bvsm1u4002f13"
+path="res://.godot/imported/bloodslash2_big.png-38b46284043df5246bb8e0c019fafcaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/meta/splash_screen.png"
-dest_files=["res://.godot/imported/splash_screen.png-378edf2dc0b0a0e9b1c42f1264d0179d.ctex"]
+source_file="res://assets/overlay/bloodslash2_big.png"
+dest_files=["res://.godot/imported/bloodslash2_big.png-38b46284043df5246bb8e0c019fafcaf.ctex"]
 
 [params]
 

@@ -5,7 +5,16 @@ extends CanvasLayer
 
 @onready var viewport: Viewport = get_viewport()
 @onready var dim: PanelContainer = $Dim
+@onready var blood_overlay: TextureRect = $Dim/BloodOverlay
 @onready var retry_button: Buttona = %RetryButton
+
+const BLOOD_OVERLAY_TEXTURES: Array[CompressedTexture2D] = [
+	preload(Constants.FILE_UIDS.bloodslash1),
+	preload(Constants.FILE_UIDS.bloodsplash2),
+	preload(Constants.FILE_UIDS.bloodsplash_heavy),
+	preload(Constants.FILE_UIDS.bloodsplat),
+	preload(Constants.FILE_UIDS.bloodspray),
+]
 
 
 func _ready() -> void:
@@ -14,6 +23,10 @@ func _ready() -> void:
 	
 	if Settings.audio:
 		AudioManager.play_death()
+	
+	blood_overlay.texture = BLOOD_OVERLAY_TEXTURES.pick_random()
+	blood_overlay.flip_h = bool(randi_range(0, 1))
+	blood_overlay.flip_v = bool(randi_range(0, 1))
 	
 	dim.modulate.a = 0.0
 	var tween: Tween = create_tween()

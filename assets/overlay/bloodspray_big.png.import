@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3h1emfn4svjt"
-path="res://.godot/imported/icon.png-eade320076b24b97f544206fea4c6c6f.ctex"
+uid="uid://1c4ggx8hfhuv"
+path="res://.godot/imported/bloodspray_big.png-5dadbd97cb044cb9108b88194ee565ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/meta/icon.png"
-dest_files=["res://.godot/imported/icon.png-eade320076b24b97f544206fea4c6c6f.ctex"]
+source_file="res://assets/overlay/bloodspray_big.png"
+dest_files=["res://.godot/imported/bloodspray_big.png-5dadbd97cb044cb9108b88194ee565ef.ctex"]
 
 [params]
 
