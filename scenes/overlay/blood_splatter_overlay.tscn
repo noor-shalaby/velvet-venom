@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvfwvbhfkcnat"]
 
-[ext_resource type="Shader" uid="uid://o30rxt55xcv7" path="res://resources/shaders/black_bg_remover.gdshader" id="1_r88bl"]
+[ext_resource type="Shader" uid="uid://o30rxt55xcv7" path="res://resources/shaders/dark_pixels_remover.gdshader" id="1_r88bl"]
 [ext_resource type="Texture2D" uid="uid://bvhasb18q6g3h" path="res://assets/overlay/bloodslash_heavy_big.png" id="2_r88bl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r88bl"]

@@ -55,7 +55,7 @@
 (X) fix bug where you can pause the game while DeathScreen is there
 (X) create confirmation popups for quitting to the main menu or the desktop or restarting the level when the Player is still alive
 (X) set a black canvas that draws behind all levels for when the viewport is wider than the camera limit
-( ) create an ammo system for PLayerNorm or just make the ammo infinite
+( ) make ZombieGunners drop ammo for whatever weapon they had
 (X) code the game to uncapture the mouse cursor in ui and only capture it in actual gameplay
 (X) set up a Github repo for the game
 ( ) create a Google Forms survey about the first playtest and add a link to it in the game
@@ -68,9 +68,9 @@
 (X) create a "defaults" button for settings
 (X) tween slider values when resetting settings to defaults
 (X) animate checkboxes by scaling them up and down when resetting settings to defaults
-(X) fix a bug where the ambience track would restart after restting settings to defaults
+(X) fix a bug where the ambience track would restart after resetting settings to defaults
 (X) add lifesteal to the PlayerVamp slash dash
-( ) add a PlayerVamp ability that turns a BloodPool back into a BloodZombie minion
+( ) add a PlayerVamp ability that turns a BloodPool into a BloodZombie minion
 ( ) document the code with comments
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass
