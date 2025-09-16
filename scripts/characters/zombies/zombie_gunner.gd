@@ -64,7 +64,7 @@ var weapons: Array[Dictionary] = [
 
 var weapon: Dictionary[String, Variant] = weapons.pick_random()
 
-@export_range(0.0, 1.0, 0.01) var precision: float = 6.0
+@export_range(0.0, 1.0, 0.01) var precision: float = 10.0
 @export var melee_range: float = 76.0
 
 var can_shoot: bool = true

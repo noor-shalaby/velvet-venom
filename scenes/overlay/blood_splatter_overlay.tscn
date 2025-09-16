@@ -5,6 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r88bl"]
 shader = ExtResource("1_r88bl")
+shader_parameter/maximum_darkness = 0.1
 
 [node name="BloodSplatterOverlay" type="CanvasLayer"]
 

@@ -698,6 +698,10 @@ Day 87 - MON 15/9/2025
 
 Day 88 - TUE 16/9/2025
 
-- added a blood splatter screen overlay that appears behind the death menu on Player death and swapped the png icon for an svg
+- added a blood splatter screen overlay that appears behind the death menu on Player death
 - changed the way of accessing a dictionary element to the stringless way for more readability and convenience
-- renamed the black_bg_remover.shader to dark_pixels_remover and improved its code and made it more modular by creating a uniform for the maximum darkness of the pixels to be removed
+- renamed the black_bg_remover.gdshader to dark_pixels_remover and improved its code and made it more modular by creating a uniform for the maximum darkness of the pixels to be removed
+- improved the dark_pixels_remover shader by including the maximum darkness as a value to be removed
+- added a bloody screen overlay that appears when the Player is low on hp
+- coded the HUD to fade out and disappear on Player death
+- accessed HUD elements as unique names for better modularity, readability and convenience

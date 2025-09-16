@@ -79,7 +79,7 @@
 (X) use delta
 ( ) add gore to the game by ripping off Zombie arms and such
 ( ) add more alt fire modes for the PlayerVamp for the player to unlock and choose from
-( ) add a bloody screen overlay that appears when the Player is low on hp
+(X) add a bloody screen overlay that appears when the Player is low on hp
 (X) add a blood splatter screen overlay that appears on Player death
 (X) change the way of accessing a dictionary element to the stringless way
 ( ) create a damage system where hitting different body parts of a Zombie would result in different outcomes:

@@ -185,6 +185,7 @@ func die() -> void:
 	var death_screen: CanvasLayer = DEATH_SCREEN_SCENE.instantiate()
 	game.add_child(death_screen)
 	
+	EventBus.emit_signal("player_died")
 	queue_free()
 
 
