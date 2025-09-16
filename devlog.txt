@@ -707,3 +707,5 @@ Day 88 - TUE 16/9/2025
 - accessed HUD elements as unique names for better modularity, readability and convenience
 - increased the visibility and threshold of the HUD BloodOverlay
 - created a HUD blood overlay blink effect for when the Player is hit
+- renamed all "dmg" variables to "damage"
+- improved the HUD blood overlay blink effect code

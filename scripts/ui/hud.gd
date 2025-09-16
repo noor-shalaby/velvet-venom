@@ -58,12 +58,13 @@ func _update_player_blood(new_value: float, max_value: float) -> void:
 
 func blink_blood(damage: float) -> void:
 	blood_overlay_hit.show()
-	var tween1: Tween = create_tween()
-	tween1.tween_property(blood_overlay_hit, "modulate:a", (damage / EventBus.player.hp_max) * 3, 0.1)
-	await tween1.finished
-	var tween2: Tween = create_tween()
-	tween2.tween_property(blood_overlay_hit, "modulate:a", 0.0, 0.1)
-	await tween2.finished
+	var tween: Tween = create_tween()
+	tween.tween_property(blood_overlay_hit, "modulate:a", (damage / EventBus.player.hp_max) * 3, 0.1)
+	await tween.finished
+	tween.kill()
+	tween = create_tween()
+	tween.tween_property(blood_overlay_hit, "modulate:a", 0.0, 0.1)
+	await tween.finished
 	blood_overlay_hit.hide()
 
 func disappear() -> void:
