@@ -5,6 +5,7 @@ const BLOOD_OVERLAY_THRESHOLD: float = 0.5
 const BLOOD_OVERLAY_VISIBILITY_MULTIPLIER: float = 2.0
 
 @onready var control: Control = $Control
+@onready var blood_overlay_hit: TextureRect = $BloodOverlayHit
 @onready var blood_overlay: TextureRect = $Control/BloodOverlay
 @onready var hp_bar: ProgressBar = %HPBar
 @onready var blood_box: HBoxContainer = %BloodBox
@@ -22,6 +23,7 @@ const WEAPON_TEXTURES: Dictionary[String, CompressedTexture2D] = {
 func _ready() -> void:
 	EventBus.connect("player_class_changed", _update_player_class)
 	EventBus.connect("player_hp_changed", _update_player_hp)
+	EventBus.connect("player_hit", blink_blood)
 	EventBus.connect("player_died", disappear)
 	
 	show()
@@ -54,9 +56,18 @@ func _update_player_blood(new_value: float, max_value: float) -> void:
 	create_tween().tween_property(blood_bar, "value", (new_value / max_value) * 100, 0.1)
 
 
+func blink_blood(damage: float) -> void:
+	blood_overlay_hit.show()
+	var tween1: Tween = create_tween()
+	tween1.tween_property(blood_overlay_hit, "modulate:a", (damage / EventBus.player.hp_max) * 3, 0.1)
+	await tween1.finished
+	var tween2: Tween = create_tween()
+	tween2.tween_property(blood_overlay_hit, "modulate:a", 0.0, 0.1)
+	await tween2.finished
+	blood_overlay_hit.hide()
+
 func disappear() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(control, "modulate:a", 0.0, 0.1)
 	await tween.finished
 	hide()
-	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhkaqpdvim4t"]
+[gd_scene load_steps=12 format=3 uid="uid://dhkaqpdvim4t"]
 
 [ext_resource type="Script" uid="uid://bj6jeklgw6nlk" path="res://scripts/ui/hud.gd" id="1_0mwgc"]
+[ext_resource type="Texture2D" uid="uid://bwg2rabdxfye2" path="res://assets/overlay/BloodMush.png" id="2_gss2c"]
 [ext_resource type="Texture2D" uid="uid://bsal2n4fvacno" path="res://assets/overlay/BoodLight.png" id="2_oj5la"]
 [ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="4_136eg"]
 [ext_resource type="Texture2D" uid="uid://dht42lhuygo86" path="res://assets/ui/tex_black.png" id="4_oj5la"]
@@ -37,6 +38,17 @@ expand_margin_bottom = 8.0
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_0mwgc")
+
+[node name="BloodOverlayHit" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gss2c")
+expand_mode = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

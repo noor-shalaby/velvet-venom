@@ -5,7 +5,7 @@ extends Player
 var gun: Dictionary[String, Variant] = {
 	"name": "gun",
 	"index": 0,
-	"dmg": 20,
+	"damage": 20,
 	"fire_rate": 3.0,
 	"multishot": 1,
 	"spread": 20.0,
@@ -24,7 +24,7 @@ var gun: Dictionary[String, Variant] = {
 var machinegun: Dictionary[String, Variant] = {
 	"name": "machinegun",
 	"index": 1,
-	"dmg": 24,
+	"damage": 24,
 	"fire_rate": 16.0,
 	"multishot": 1,
 	"spread": 30.0,
@@ -43,7 +43,7 @@ var machinegun: Dictionary[String, Variant] = {
 var shotgun: Dictionary[String, Variant] = {
 	"name": "shotgun",
 	"index": 2,
-	"dmg": 40,
+	"damage": 40,
 	"fire_rate": 2.0,
 	"multishot": 8,
 	"spread": 40.0,
@@ -134,7 +134,7 @@ func _physics_process(delta: float) -> void:
 		game.add_child(bullet)
 		
 		bullet.dir = dir
-		bullet.dmg = held_weapon.dmg
+		bullet.damage = held_weapon.damage
 		bullet.speed = held_weapon.projectile_speed
 		bullet.knockback_force = held_weapon.knockback_force
 		bullet.puncture = held_weapon.puncture
@@ -155,7 +155,7 @@ func _physics_process(delta: float) -> void:
 			game.add_child(bullet)
 			
 			bullet.dir = Vector2.from_angle(dir.angle() + randf_range(deg_to_rad(-held_weapon.spread/2), deg_to_rad(held_weapon.spread/2))).normalized()
-			bullet.dmg = held_weapon.dmg
+			bullet.damage = held_weapon.damage
 			bullet.knockback_force = held_weapon.knockback_force
 			bullet.puncture = held_weapon.puncture
 			bullet.wall_puncture = held_weapon.wall_puncture

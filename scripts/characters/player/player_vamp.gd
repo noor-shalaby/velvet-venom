@@ -3,7 +3,7 @@ extends Player
 
 
 var fire_empty: Dictionary[String, Variant] = {
-	"dmg": 20,
+	"damage": 20,
 	"fire_rate": 3.0,
 	"multishot": 1,
 	"spread": 20.0,
@@ -15,7 +15,7 @@ var fire_empty: Dictionary[String, Variant] = {
 	"gunshot_sound_scene": preload(Constants.FILE_UIDS.gunshot_gun_sound_scene)
 }
 var fire: Dictionary[String, Variant] = {
-	"dmg": 24,
+	"damage": 24,
 	"fire_rate": 16.0,
 	"multishot": 1,
 	"spread": 30.0,
@@ -27,7 +27,7 @@ var fire: Dictionary[String, Variant] = {
 	"gunshot_sound_scene": preload(Constants.FILE_UIDS.gunshot_machinegun_sound_scene)
 }
 var fire_alt: Dictionary[String, Variant] = {
-	"dmg": 40,
+	"damage": 40,
 	"fire_rate": 2.0,
 	"multishot": 8,
 	"spread": 40.0,
@@ -119,7 +119,7 @@ func _physics_process(delta: float) -> void:
 		game.add_child(bloodshot)
 		
 		bloodshot.dir = dir
-		bloodshot.dmg = wep.dmg
+		bloodshot.damage = wep.damage
 		bloodshot.speed = wep.projectile_speed
 		bloodshot.knockback_force = wep.knockback_force
 		bloodshot.puncture = wep.puncture
@@ -140,7 +140,7 @@ func _physics_process(delta: float) -> void:
 			game.add_child(bloodshot)
 			
 			bloodshot.dir = Vector2.from_angle(dir.angle() + randf_range(deg_to_rad(-wep.spread/2), deg_to_rad(wep.spread/2))).normalized()
-			bloodshot.dmg = wep.dmg
+			bloodshot.damage = wep.damage
 			bloodshot.knockback_force = wep.knockback_force
 			bloodshot.puncture = wep.puncture
 			bloodshot.wall_puncture = wep.wall_puncture

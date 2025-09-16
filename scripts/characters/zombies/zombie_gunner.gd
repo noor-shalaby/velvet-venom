@@ -3,7 +3,7 @@ extends Zombie
 
 var gun: Dictionary[String, Variant] = {
 	"name": "gun",
-	"dmg": 10,
+	"damage": 10,
 	"fire_rate": 3.0,
 	"multishot": 1,
 	"spread": 20.0,
@@ -21,7 +21,7 @@ var gun: Dictionary[String, Variant] = {
 }
 var machinegun: Dictionary[String, Variant] = {
 	"name": "machinegun",
-	"dmg": 12,
+	"damage": 12,
 	"fire_rate": 16.0,
 	"multishot": 1,
 	"spread": 30.0,
@@ -39,7 +39,7 @@ var machinegun: Dictionary[String, Variant] = {
 }
 var shotgun: Dictionary[String, Variant] = {
 	"name": "shotgun",
-	"dmg": 15,
+	"damage": 15,
 	"fire_rate": 2.0,
 	"multishot": 8,
 	"spread": 40.0,
@@ -146,7 +146,7 @@ func shoot() -> void:
 		game.add_child(bullet)
 		
 		bullet.dir = Vector2.from_angle(global_rotation)
-		bullet.dmg = weapon.dmg
+		bullet.damage = weapon.damage
 		bullet.speed = weapon.projectile_speed
 		bullet.knockback_force = weapon.knockback_force
 		bullet.puncture = weapon.puncture
@@ -165,7 +165,7 @@ func shoot() -> void:
 			game.add_child(bullet)
 			
 			bullet.dir = Vector2.from_angle(global_rotation + randf_range(deg_to_rad(-weapon.spread/2), deg_to_rad(weapon.spread/2))).normalized()
-			bullet.dmg = weapon.dmg
+			bullet.damage = weapon.damage
 			bullet.knockback_force = weapon.knockback_force
 			bullet.puncture = weapon.puncture
 			bullet.wall_puncture = weapon.wall_puncture

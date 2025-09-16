@@ -237,6 +237,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	blood_splatter.color = area.owner.blood_color
 	game.add_child(blood_splatter)
 	
+	EventBus.emit_signal("player_hit", damage)
+	
 	if Settings.audio:
 		if attack_vocal:
 			return

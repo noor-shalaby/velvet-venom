@@ -706,3 +706,4 @@ Day 88 - TUE 16/9/2025
 - coded the HUD to fade out and disappear on Player death
 - accessed HUD elements as unique names for better modularity, readability and convenience
 - increased the visibility and threshold of the HUD BloodOverlay
+- created a HUD blood overlay blink effect for when the Player is hit

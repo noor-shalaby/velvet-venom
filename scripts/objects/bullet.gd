@@ -5,7 +5,7 @@ extends Area2D
 
 var dir: Vector2
 
-var dmg: int = 10
+var damage: int = 10
 var knockback_force: float = 1500.0
 var puncture: int = 0
 var wall_puncture: int = 0
@@ -60,7 +60,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	if area.owner not in entities_hit and entities_hit.size() <= puncture:
 		entities_hit.append(area.owner)
-		area.owner.hp -= dmg
+		area.owner.hp -= damage
 		area.owner.knockback(knockback_force * dir)
 		
 		if (area.owner.is_in_group("enemies") and area.owner.is_blood_stain_ready) or not area.owner.is_in_group("enemies"):
@@ -73,6 +73,8 @@ func _on_area_entered(area: Area2D) -> void:
 			
 			if area.owner.is_in_group("enemies"):
 				area.owner.set_is_blood_stain_ready(false)
+			elif area.owner is Player:
+				EventBus.emit_signal("player_hit", damage)
 		
 		if entities_hit.size() > puncture:
 			queue_free()
