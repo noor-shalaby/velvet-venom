@@ -58,7 +58,7 @@ var shotgun: Dictionary[String, Variant] = {
 
 var weapons: Array[Dictionary] = [
 	gun,
-	#machinegun,
+	machinegun,
 	#shotgun
 ]
 
