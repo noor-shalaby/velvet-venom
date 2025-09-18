@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg16074l4ym1u"]
+[gd_scene load_steps=5 format=3 uid="uid://bg16074l4ym1u"]
 
 [ext_resource type="PackedScene" uid="uid://cncwp0rjs6cve" path="res://scenes/pickups/pickup.tscn" id="1_hmlpx"]
+[ext_resource type="Shader" uid="uid://dtf2ua81se0t6" path="res://resources/shaders/darken.gdshader" id="2_6hytn"]
 [ext_resource type="Script" uid="uid://btj5ode7rxrly" path="res://scripts/pickups/pickup_weapon.gd" id="2_q10w8"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mv22d"]
+shader = ExtResource("2_6hytn")
+shader_parameter/darken_amount = 0.2
+shader_parameter/desaturate_amount = 0.3
+
 [node name="PickupWeapon" instance=ExtResource("1_hmlpx")]
+material = SubResource("ShaderMaterial_mv22d")
 script = ExtResource("2_q10w8")
 weapon = "machinegun"
 
