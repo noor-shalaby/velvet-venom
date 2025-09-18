@@ -721,3 +721,4 @@ Day 90 - THU 18/9/2025
 
 - animated the ZombieGunner's weapon dropping from their hands when stunned
 - added the darken shader to the PickupWeapon
+- fixed the PickupWeapon darken shader not working by moving it from the parent Area2D node to the its child Sprite2D node

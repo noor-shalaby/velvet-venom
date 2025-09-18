@@ -10,11 +10,11 @@ shader_parameter/darken_amount = 0.2
 shader_parameter/desaturate_amount = 0.3
 
 [node name="PickupWeapon" instance=ExtResource("1_hmlpx")]
-material = SubResource("ShaderMaterial_mv22d")
 script = ExtResource("2_q10w8")
 weapon = "machinegun"
 
 [node name="Sprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_mv22d")
 scale = Vector2(1.2, 1.2)
 
 [node name="CollisionShape" parent="." index="1"]
