@@ -724,3 +724,4 @@ Day 90 - THU 18/9/2025
 - fixed the PickupWeapon darken shader not working by moving it from the parent Area2D node to the its child Sprite2D node
 - fixed the rotation of the DroppedWeapon according to whether the ZombieGunner was reloading or not
 - fixed a the DroppedWeapon not working if the ZombieGunner was in melee mode or even reloading
+- improved the DroppedWeapon code and made it more modular
