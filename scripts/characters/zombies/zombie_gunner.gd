@@ -242,6 +242,8 @@ func stunned(duration: float) -> void:
 		dropped_weapon.texture = dropped_weapon.TEXTURES[weapon.name]
 		dropped_weapon.global_position = global_position
 		dropped_weapon.global_rotation = global_rotation
+		if sprite.animation == weapon.name + "_reload":
+			dropped_weapon.global_rotation_degrees += 70.0
 		game.add_child(dropped_weapon)
 	
 	reload_timer.stop()
