@@ -32,7 +32,7 @@
 ( ) add game resolution option to the settings
 (X) add fullscreen option to the settings
 (X) add mouse capture mode options to the settings
-( ) code the game to save and load your settings from a local save file
+(X) code the game to save and load your settings from a local save file
 (X) create a credits menu
 (X) add the settings screen to the PauseMenu
 ( ) rework the step sound system from local child nodes to separate scenes instanciated when needed and otherwise freed
@@ -77,7 +77,6 @@
 (X) code the Slider to be manipulated with the keyboard
 ( ) code the PlayerVamp to stop sucking blood when hit
 (X) use delta
-( ) add gore to the game by ripping off Zombie arms and such
 ( ) add more alt fire modes for the PlayerVamp for the player to unlock and choose from
 ( ) set up ZombieGunner sprite canvases and offsets
 (X) add a bloody screen overlay that appears when the Player is low on hp

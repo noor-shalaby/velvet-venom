@@ -179,6 +179,12 @@ func shoot() -> void:
 		velocity += randf_range(0, weapon.recoil) * -dir
 
 
+func die() -> void:
+	super()
+	
+	drop_weapon()
+
+
 func _on_screen_entered() -> void:
 	super()
 	
@@ -235,9 +241,7 @@ func _on_melee_range_body_exited(body: Node2D) -> void:
 			sprite.play(weapon.name)
 
 
-func stunned(duration: float) -> void:
-	super(duration)
-	
+func drop_weapon() -> void:
 	if not is_weapon_lost:
 		is_weapon_lost = true
 		var dropped_weapon: Sprite2D = DROPPED_WEAPON_SCENE.instantiate()
@@ -247,6 +251,10 @@ func stunned(duration: float) -> void:
 		if sprite.animation == weapon.name + "_reload":
 			dropped_weapon.global_rotation_degrees += 70.0
 		game.add_child(dropped_weapon)
+
+
+func stunned(duration: float) -> void:
+	super(duration)
 	
 	reload_timer.stop()
 	melee_mode = true

@@ -16,7 +16,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_uklmw")
-init_focus_node = NodePath("MarginContainer/HBox/Main/Development/NoorShalabyButton")
+init_focus_node = NodePath("MarginContainer/HBox/DevelopmentTeam/Main/Development/NoorShalabyButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,6 +44,7 @@ text = "Credits"
 
 [node name="BackButton" parent="MarginContainer/Header" instance=ExtResource("3_uklmw")]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="HBox" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -51,19 +52,31 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 128
 
-[node name="Main" type="VBoxContainer" parent="MarginContainer/HBox"]
+[node name="DevelopmentTeam" type="VBoxContainer" parent="MarginContainer/HBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="DevelopmentTeamLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 40
+text = "Development Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam"]
+layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Development" type="VBoxContainer" parent="MarginContainer/HBox/Main"]
+[node name="Development" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="DevLabel" type="Label" parent="MarginContainer/HBox/Main/Development"]
+[node name="DevelopmentLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/Development"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
@@ -71,18 +84,18 @@ text = "Development"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NoorShalabyButton" parent="MarginContainer/HBox/Main/Development" instance=ExtResource("5_uklmw")]
+[node name="NoorShalabyButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/Development" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Noor Shalaby"
 url = "https://www.linkedin.com/in/noor-shalaby-a8414a357/"
 
-[node name="UI_UX" type="VBoxContainer" parent="MarginContainer/HBox/Main"]
+[node name="UI_UX" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="UI_UXLabel" type="Label" parent="MarginContainer/HBox/Main/UI_UX"]
+[node name="UI_UXLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI_UX"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
@@ -90,18 +103,18 @@ text = "UI/UX Design"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SalmaMedhatButton" parent="MarginContainer/HBox/Main/UI_UX" instance=ExtResource("5_uklmw")]
+[node name="SalmaMedhatButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI_UX" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Salma Medhat"
 url = "https://www.linkedin.com/in/salma-medhat-409a3a350/"
 
-[node name="Assets" type="VBoxContainer" parent="MarginContainer/HBox"]
+[node name="Assets" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="AssetsLabel" type="Label" parent="MarginContainer/HBox/Assets"]
+[node name="AssetsLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
@@ -109,61 +122,85 @@ text = "Assets"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/Assets"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="OmarShalabyButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="OmarShalabyButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Omar Shalaby"
 
-[node name="SalmaShalabyButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("3_s67r0")]
+[node name="SalmaShalabyButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets" instance=ExtResource("3_s67r0")]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
 disabled = true
 text = "Salma Shalaby"
 
-[node name="Kenney_NLButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="AssetRetribution" type="VBoxContainer" parent="MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="AssetRetributionLabel" type="Label" parent="MarginContainer/HBox/AssetRetribution"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 40
+text = "Asset Retribution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/AssetRetribution"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Kenney_NLButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Kenney"
 url = "https://kenney.nl/"
 
-[node name="AtelierMagicaeButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
-layout_mode = 2
-text = "Atelier Magicae"
-url = "https://itch.io/profile/ateliermagicae"
-
-[node name="SnakeF8Button" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="SnakeF8Button" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "SnakeF8"
 url = "https://itch.io/profile/f8studios"
 
-[node name="TerrorByteGamesButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="TerrorByteGamesButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "TerrorByteGames"
 url = "https://itch.io/profile/terrorbytegames"
 
-[node name="alkakrabButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="BlueRoseSonataButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Blue Rose Sonata"
+url = "https://bluerosesonata.itch.io"
+
+[node name="ZimaJeKKTButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "ZimaJeKKT"
+url = "https://zimajekkt.itch.io"
+
+[node name="AtelierMagicaeButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+layout_mode = 2
+text = "Atelier Magicae"
+url = "https://itch.io/profile/ateliermagicae"
+
+[node name="alkakrabButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "alkakrab"
 url = "https://itch.io/profile/alkakrab"
 
-[node name="TomMusicButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="TomMusicButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "TomMusic"
 url = "https://itch.io/profile/tommusic"
 
-[node name="AurelienMonteroButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="AurelienMonteroButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Aurelien Montero"
 url = "https://punkzen.itch.io/"
 
-[node name="NvthicSoundsButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="NvthicSoundsButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Nvthic Sounds"
 url = "https://itch.io/profile/nvthicprod"
 
-[node name="Nox_Sound_DesignButton" parent="MarginContainer/HBox/Assets/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="Nox_Sound_DesignButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Nox_Sound_Design"
 url = "https://itch.io/profile/nox-sound-design"
