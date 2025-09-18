@@ -45,7 +45,7 @@ chase_speed = 250.0
 material = SubResource("ShaderMaterial_kjokk")
 position = Vector2(10, 0)
 sprite_frames = ExtResource("2_v7mxi")
-animation = &"machinegun"
+animation = &"shotgun"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1vlb3")

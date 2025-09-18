@@ -13,7 +13,7 @@
 (X) make the Zombie drop its arms when stunned
 (X) fix the ZombieGunner stun logic
 (X) make the ZombieGunner drop their weapon and turn into ZombieNorms when stunned
-( ) animate the ZombieGunner's weapon dropping from their hands when stunned
+(X) animate the ZombieGunner's weapon dropping from their hands when stunned
 (X) convert all preloaded scene in the game from variables to constants
 (X) add a slash dash sound
 (X) add a cooldown for spawning blood stains per zombie
@@ -79,6 +79,7 @@
 (X) use delta
 ( ) add gore to the game by ripping off Zombie arms and such
 ( ) add more alt fire modes for the PlayerVamp for the player to unlock and choose from
+( ) set up ZombieGunner sprite canvases and offsets
 (X) add a bloody screen overlay that appears when the Player is low on hp
 (X) add a blood splatter screen overlay that appears on Player death
 (X) create a HUD blood overlay blink effect for when the Player is hit

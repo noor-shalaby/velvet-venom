@@ -710,3 +710,13 @@ Day 88 - TUE 16/9/2025
 - renamed all "dmg" variables to "damage"
 - improved the HUD blood overlay blink effect code
 - increased MainMenu ambience track volume
+
+
+Day 89 - WED 17/9/2025
+
+- OFF
+
+
+Day 90 - THU 18/9/2025
+
+- animated the ZombieGunner's weapon dropping from their hands when stunned

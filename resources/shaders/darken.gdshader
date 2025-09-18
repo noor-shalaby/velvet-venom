@@ -4,11 +4,11 @@ shader_type canvas_item;
 // Uniforms are variables that can be changed from the Godot editor.
 // `darken_amount` controls how much the image is darkened.
 // A value of 0.0 means no darkening, 1.0 means completely black.
-uniform float darken_amount: hint_range(0.0, 1.0) = 0.5;
+uniform float darken_amount: hint_range(0.0, 1.0) = 0.2;
 
 // `desaturate_amount` controls how much the image is desaturated.
 // A value of 0.0 means no desaturation, 1.0 means completely grayscale.
-uniform float desaturate_amount: hint_range(0.0, 1.0) = 1.0;
+uniform float desaturate_amount: hint_range(0.0, 1.0) = 0.3;
 
 // The fragment function is executed for every pixel of the `CanvasItem`.
 void fragment() {

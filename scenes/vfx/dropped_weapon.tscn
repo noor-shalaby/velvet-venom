@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyohic5aihkwe"]
+
+[ext_resource type="Texture2D" uid="uid://ds5ibso7vge53" path="res://assets/weapons/weapon_machinegun.png" id="1_etdgp"]
+[ext_resource type="Shader" uid="uid://dtf2ua81se0t6" path="res://resources/shaders/darken.gdshader" id="1_fxh4d"]
+[ext_resource type="Script" uid="uid://cmh1vfbnlvu6g" path="res://scripts/vfx/dropped_weapon.gd" id="2_fxh4d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53maf"]
+shader = ExtResource("1_fxh4d")
+shader_parameter/darken_amount = 0.2
+shader_parameter/desaturate_amount = 0.3
+
+[node name="DroppedWeapon" type="Sprite2D"]
+z_index = -1
+material = SubResource("ShaderMaterial_53maf")
+texture = ExtResource("1_etdgp")
+script = ExtResource("2_fxh4d")

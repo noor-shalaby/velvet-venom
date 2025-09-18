@@ -18,6 +18,7 @@ const FILE_UIDS: Dictionary[String, Variant] = {
 		# objects
 	"bullet_scene": "uid://durccheqs6y0n",
 	"bloodshot_scene": "uid://b4l7nhavg53cx",
+	"dropped_weapon_scene": "uid://cyohic5aihkwe",
 		# vfx
 	"blood_splatter_scene": "uid://cwqe7churtxrv",
 	"blood_splatter_double_scene": "uid://b8w8gmjbvpced",

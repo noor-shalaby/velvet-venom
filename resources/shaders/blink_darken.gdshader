@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
-uniform float darken_amount: hint_range(0.0, 1.0) = 0.5;
-uniform float desaturate_amount: hint_range(0.0, 1.0) = 1.0;
+uniform float darken_amount: hint_range(0.0, 1.0) = 0.2;
+uniform float desaturate_amount: hint_range(0.0, 1.0) = 0.3;
 
 uniform vec4 blink_color: source_color = vec4(1, 1, 1, 1);
 uniform float blink_intensity = 0;
