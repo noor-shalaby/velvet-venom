@@ -71,6 +71,7 @@ var can_shoot: bool = true
 var open_fire_on_screen: bool = false
 @export var open_fire_on_screen_delay_time: float = 1.0
 var melee_mode: bool = false
+var is_weapon_lost: bool = false
 
 const BULLET_SCENE: PackedScene = preload(Constants.FILE_UIDS.bullet_scene)
 const MUZZLE_FLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS.muzzle_flash_scene)
@@ -237,7 +238,8 @@ func _on_melee_range_body_exited(body: Node2D) -> void:
 func stunned(duration: float) -> void:
 	super(duration)
 	
-	if not melee_mode:
+	if not is_weapon_lost:
+		is_weapon_lost = true
 		var dropped_weapon: Sprite2D = DROPPED_WEAPON_SCENE.instantiate()
 		dropped_weapon.texture = dropped_weapon.TEXTURES[weapon.name]
 		dropped_weapon.global_position = global_position
