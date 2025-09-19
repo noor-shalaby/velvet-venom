@@ -47,7 +47,7 @@ func set_hp(new_hp: float) -> void:
 		stop_sucking()
 		if blood < blood_max and not is_sucking and Input.is_action_pressed("suck"):
 			start_sucking(blood_pool, "blood")
-	elif new_hp < hp_max:
+	elif new_hp < prev_hp:
 		if is_sucking:
 			stop_sucking()
 		is_suction_ready = false

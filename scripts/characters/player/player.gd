@@ -17,6 +17,7 @@ extends CharacterBody2D
 
 @export_category("Stats")
 @export var hp_max: float = 100.0
+var prev_hp: float = hp_max
 var hp: float = hp_max:
 	set = set_hp
 func set_hp(new_hp: float) -> void:
@@ -25,6 +26,7 @@ func set_hp(new_hp: float) -> void:
 		if cam_ctrl and Settings.screenshake:
 			cam_ctrl.screenshake((float(hp - new_hp) / hp_max) * 40, 0.2)
 	
+	prev_hp = hp
 	hp = clamp(new_hp, 0, hp_max)
 	EventBus.emit_signal("player_hp_changed", hp, hp_max)
 	
