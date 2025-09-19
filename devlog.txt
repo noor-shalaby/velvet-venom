@@ -735,3 +735,4 @@ Day 91 - FRI - 19/9/2025
 
 - split the BloodPool sprite's into two: one for the main poom and another for the surrounding lil stains
 - scaled down the BloodStain
+- created a penalty of 1.0 secs for blood suction when the Player is hit

@@ -154,6 +154,9 @@ shape = SubResource("CapsuleShape2D_2l4js")
 [node name="SuckSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_l5ki3")
 
+[node name="SuctionCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_3j8mr")
 
@@ -165,4 +168,5 @@ stream = ExtResource("8_3j8mr")
 [connection signal="timeout" from="DashInvincibilityDuration" to="." method="_on_dash_invincibility_duration_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="area_exited" from="BloodSucker" to="." method="_on_blood_sucker_area_exited"]
+[connection signal="timeout" from="SuctionCooldownTimer" to="." method="_on_suction_cooldown_timer_timeout"]
 [connection signal="finished" from="WalkSound" to="." method="_on_walk_sound_finished"]

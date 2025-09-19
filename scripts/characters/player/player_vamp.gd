@@ -47,6 +47,11 @@ func set_hp(new_hp: float) -> void:
 		stop_sucking()
 		if blood < blood_max and not is_sucking and Input.is_action_pressed("suck"):
 			start_sucking(blood_pool, "blood")
+	elif new_hp < hp_max:
+		if is_sucking:
+			stop_sucking()
+		is_suction_ready = false
+		suction_cooldown_timer.start(suction_cooldown)
 
 
 @export var blood_max: float = 128.0
@@ -66,6 +71,8 @@ var active_blood_tweens: Array[Tween] = []
 var blood_pool: BloodPool
 var is_sucking: bool = false
 var suck_sound_last_playback_position: float = 0.0
+@export var suction_cooldown: float = 1.0
+var is_suction_ready: bool = true
 
 @export var dash_lifesteal: bool = true
 @export_range(0.0, 1.0, 0.01) var dash_lifesteal_factor: float = 0.1
@@ -79,6 +86,7 @@ const BLOOD_SPLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splash
 @onready var arm_right: Sprite2D = $ArmRight
 @onready var blood_sucker: Area2D = $BloodSucker
 @onready var suction_point: Marker2D = $SuctionPoint
+@onready var suction_cooldown_timer: Timer = $SuctionCooldownTimer
 @onready var suck_sound_player: AudioStreamPlayer2D = $SuckSound
 @onready var suck_sound_default_volume_db: float = suck_sound_player.volume_db
 @onready var suck_sound_default_pitch_scale: float = suck_sound_player.pitch_scale
@@ -153,6 +161,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("fire") or Input.is_action_just_released("fire_alt"):
 		arm_right.hide()
+	
+	if not is_suction_ready:
+		return
 	
 	if Input.is_action_pressed("reload") and (blood < blood_max or hp < hp_max) and not is_sucking:
 		blood_pool = blood_sucker.get_overlapping_areas().pop_front()
@@ -266,3 +277,7 @@ func _on_arm_left_hidden() -> void:
 	await scene_tree.create_timer(0.1).timeout
 	if not is_sucking:
 		outline_off()
+
+
+func _on_suction_cooldown_timer_timeout() -> void:
+	is_suction_ready = true
