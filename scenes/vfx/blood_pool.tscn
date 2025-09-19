@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://1twhq540r50"]
+[gd_scene load_steps=5 format=3 uid="uid://1twhq540r50"]
 
-[ext_resource type="Texture2D" uid="uid://cyd7kj8xbmexv" path="res://assets/vfx/blood.png" id="2_t3yku"]
+[ext_resource type="Texture2D" uid="uid://bm6wwb6mmqr07" path="res://assets/vfx/bloodpool.png" id="2_t3yku"]
 [ext_resource type="Script" uid="uid://bvra2ljupuvrb" path="res://scripts/vfx/blood_pool.gd" id="2_tagwb"]
+[ext_resource type="Texture2D" uid="uid://ybv6kkrhtupm" path="res://assets/vfx/bloodpool2.png" id="3_gnona"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3klkb"]
 radius = 34.0
@@ -14,6 +15,10 @@ script = ExtResource("2_tagwb")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_t3yku")
+offset = Vector2(-10, -8)
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+texture = ExtResource("3_gnona")
 offset = Vector2(-10, -8)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

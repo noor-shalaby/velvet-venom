@@ -729,3 +729,9 @@ Day 90 - THU 18/9/2025
 - improved game audio volumes
 - coded the ZombieGunner to also drop its weapon on death
 - updated credits and tweaked the design of the CreditsScreen
+
+
+Day 91 - FRI - 19/9/2025
+
+- split the BloodPool sprite's into two: one for the main poom and another for the surrounding lil stains
+- scaled down the BloodStain

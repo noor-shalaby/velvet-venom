@@ -211,7 +211,7 @@ func start_sucking(_blood_pool: BloodPool, resource: String = "hp") -> void:
 	blood_tween = create_tween().set_parallel(true)
 	active_blood_tweens.append(blood_tween)
 	blood_tween.tween_property(_blood_pool.sprite, "global_scale", Vector2.ZERO, _blood_pool.sprite.global_scale.x * 2.0)
-	blood_tween.tween_property(_blood_pool, "global_rotation_degrees", _blood_pool.global_rotation_degrees + (_blood_pool.sprite.global_scale.x * 16.0), _blood_pool.sprite.global_scale.x * 2.0)
+	blood_tween.tween_property(_blood_pool.sprite, "global_rotation_degrees", _blood_pool.sprite.global_rotation_degrees + (_blood_pool.sprite.global_scale.x * 16.0), _blood_pool.sprite.global_scale.x * 2.0)
 	
 	if resource == "hp" and hp >= hp_max:
 		resource = "blood"

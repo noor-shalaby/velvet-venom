@@ -79,6 +79,7 @@ text = "Settings"
 
 [node name="BackButton" parent="MarginContainer/Header" instance=ExtResource("3_8y8uj")]
 layout_mode = 2
+size_flags_vertical = 4
 focus_neighbor_left = NodePath("../../VBoxContainer/Row1/VideoSettings/VBoxContainer/FullscreenSetting/FullscreenCheck")
 focus_neighbor_right = NodePath("../../VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")
 focus_neighbor_bottom = NodePath("../../VBoxContainer/Row1/AudioSettings/VBoxContainer/AudioVBox/AudioSetting/AudioCheck")

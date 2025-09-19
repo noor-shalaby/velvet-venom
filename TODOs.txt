@@ -62,7 +62,7 @@
 (X) find a way to darken the zombies a bit
 ( ) add sfx for collecting weapons
 ( ) change all the Bloodshot sfx
-( ) split the BloodPool sprite's small blood spots each into its own separate sprite
+(X) split the BloodPool sprite's into two: one for the main poom and another for the surrounding lil stains
 ( ) fix the bug where the ZombieGunner would keep shooting into the wall
 ( ) create an endless survival mode
 (X) create a "defaults" button for settings

@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://mg1wvhjyn4p6"]
+[gd_scene load_steps=4 format=3 uid="uid://mg1wvhjyn4p6"]
 
-[ext_resource type="Texture2D" uid="uid://cyd7kj8xbmexv" path="res://assets/vfx/blood.png" id="1_d7te7"]
+[ext_resource type="Texture2D" uid="uid://bm6wwb6mmqr07" path="res://assets/vfx/bloodpool.png" id="1_d7te7"]
 [ext_resource type="Script" uid="uid://c5rgn7die1mg4" path="res://scripts/vfx/blood_stain.gd" id="2_auiv4"]
+[ext_resource type="Texture2D" uid="uid://ybv6kkrhtupm" path="res://assets/vfx/bloodpool2.png" id="3_exk8p"]
 
 [node name="BloodStain" type="Sprite2D"]
 z_index = -2
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_d7te7")
 offset = Vector2(-10, -8)
 script = ExtResource("2_auiv4")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+texture = ExtResource("3_exk8p")
