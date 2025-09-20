@@ -742,3 +742,4 @@ Day 91 - FRI 19/9/2025
 Day 92 - SAT 20/9/2025
 
 - switched renderer to Compatibility instead of Forward+
+- fixed a bug where the lil BloodPool spots would also queue free with the main big one

@@ -234,7 +234,7 @@ func start_sucking(_blood_pool: BloodPool, resource: String = "hp") -> void:
 			blood_tween.tween_property(self, "hp", hp + _blood_pool.sprite.global_scale.x * 50, _blood_pool.sprite.global_scale.x * 2.0)
 		"blood":
 			blood_tween.tween_property(self, "blood", blood + _blood_pool.sprite.global_scale.x * 64, _blood_pool.sprite.global_scale.x * 2.0)
-	blood_tween.finished.connect(_blood_pool.queue_free)
+	blood_tween.finished.connect(_blood_pool.free_main_pool)
 
 func stop_sucking() -> void:
 	arm_left.hide()
