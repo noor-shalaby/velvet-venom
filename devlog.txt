@@ -731,9 +731,14 @@ Day 90 - THU 18/9/2025
 - updated credits and tweaked the design of the CreditsScreen
 
 
-Day 91 - FRI - 19/9/2025
+Day 91 - FRI 19/9/2025
 
 - split the BloodPool sprite's into two: one for the main poom and another for the surrounding lil stains
 - scaled down the BloodStain
 - created a penalty of 1.0 secs for blood suction when the Player is hit
 - fixed sucking blood for hp not working
+
+
+Day 92 - SAT 20/9/2025
+
+- switched renderer to Compatibility instead of Forward+

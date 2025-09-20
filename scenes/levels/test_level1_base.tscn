@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6rg2mcrxwc8e"]
+[gd_scene load_steps=12 format=3 uid="uid://cwlstydxvlewn"]
 
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="1_gd7ii"]
 [ext_resource type="PackedScene" uid="uid://crghlnx0jovtx" path="res://scenes/characters/player_norm.tscn" id="2_s4v1q"]
@@ -61,9 +61,11 @@ position = Vector2(848, 823)
 
 [node name="ZombieRunner" parent="Zombies" instance=ExtResource("4_mwkxh")]
 position = Vector2(480, 403)
+collision_mask = 27
 
 [node name="ZombieRunner2" parent="Zombies" instance=ExtResource("4_mwkxh")]
 position = Vector2(577, 767)
+collision_mask = 27
 
 [node name="ZombieBrawler" parent="Zombies" instance=ExtResource("5_s4v1q")]
 position = Vector2(971, 162)

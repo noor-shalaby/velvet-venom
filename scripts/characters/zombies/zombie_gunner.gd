@@ -62,7 +62,8 @@ var weapons: Array[Dictionary] = [
 	#shotgun
 ]
 
-var weapon: Dictionary[String, Variant] = weapons.pick_random()
+@export var wep: String = "random"
+var weapon: Dictionary[String, Variant]
 
 @export_range(0.0, 1.0, 0.01) var precision: float = 10.0
 @export var melee_range: float = 76.0
@@ -96,6 +97,16 @@ const SPRITESHEETS: Array[SpriteFrames] = [
 
 func _ready() -> void:
 	super()
+	
+	match wep:
+		"gun":
+			weapon = gun
+		"machinegun":
+			weapon = machinegun
+		"shotgun":
+			weapon = shotgun
+		_:
+			weapon = weapons.pick_random()
 	
 	sprite.sprite_frames = SPRITESHEETS.pick_random()
 	sprite.play(weapon.name)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d21r0m46piopd"]
+
+[ext_resource type="Texture2D" uid="uid://qhehs4ukjhf1" path="res://assets/enviro/tilesheet.png" id="1_vefyr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4m4w"]
+texture = ExtResource("1_vefyr")
+texture_region_size = Vector2i(32, 32)
+26:0/0 = 0
+26:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_0g2m3"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 512
+physics_layer_0/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_d4m4w")
+
+[node name="ZombieBlocker" type="TileMap"]
+tile_set = SubResource("TileSet_0g2m3")
+format = 2
+
+[node name="Layer" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_set = SubResource("TileSet_0g2m3")

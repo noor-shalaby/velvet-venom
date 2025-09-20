@@ -35,7 +35,6 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=4
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
 mouse_cursor/custom_image="uid://c7la456mqg63p"
 mouse_cursor/custom_image_hotspot=Vector2(7, 5)
 
@@ -204,8 +203,11 @@ suck={
 2d_physics/layer_7="enemy_hitboxes"
 2d_physics/layer_8="pickups"
 2d_physics/layer_9="blood"
+2d_physics/layer_10="zombie_blockers"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=2
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/stretch/mode="viewport"

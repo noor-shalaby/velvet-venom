@@ -31,7 +31,7 @@ radius = 128.0
 
 [node name="ZombieNorm" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 16
-collision_mask = 27
+collision_mask = 539
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_httt1")
