@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=4 uid="uid://bhywd8ptw76nk"]
+[gd_scene load_steps=28 format=4 uid="uid://bhywd8ptw76nk"]
 
+[ext_resource type="Script" uid="uid://3tt0wluam2of" path="res://scripts/game.gd" id="1_beuj4"]
 [ext_resource type="PackedScene" uid="uid://d00p0lnr174q3" path="res://scenes/ui/canvas.tscn" id="1_h24w0"]
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="2_xokhg"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="3_beuj4"]
@@ -21,14 +22,6 @@ parsed_collision_mask = 1
 source_geometry_mode = 1
 source_geometry_group_name = &"nav"
 agent_radius = 16.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xokhg"]
-resource_local_to_scene = true
-shader = ExtResource("7_xokhg")
-shader_parameter/darken_amount = 0.2
-shader_parameter/desaturate_amount = 0.3
-shader_parameter/blink_color = Color(1, 1, 1, 1)
-shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_beuj4"]
 resource_local_to_scene = true
@@ -112,6 +105,14 @@ shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2pfhc"]
 resource_local_to_scene = true
+shader = ExtResource("7_xokhg")
+shader_parameter/darken_amount = 0.2
+shader_parameter/desaturate_amount = 0.3
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40vdk"]
+resource_local_to_scene = true
 shader = ExtResource("12_u7au1")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
@@ -120,6 +121,7 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_beuj4")
 metadata/_edit_vertical_guides_ = [0.0, 1600.0]
 metadata/_edit_horizontal_guides_ = [928.0, -2016.0]
 
@@ -144,6 +146,7 @@ tile_map_data = PackedByteArray()
 tile_map_data = PackedByteArray("AAAKABMAAAALAAoAAAAKAAsAAAALAAoAAAALABIAAAAOAAsAAAAxABIAAAALAAsAAAATAAsAAAALAAoAAAAxAAwAAAALAAsAAAAxAAgAAAALAAsAAAAxABMAAAAKAAsAAAAwABMAAAALAAoAAAAvABMAAAALAAoAAAAuABMAAAALAAoAAAAtABMAAAALAAoAAAAsABMAAAALAAoAAAArABMAAAALAAoAAAAqABMAAAALAAoAAAApABMAAAALAAoAAAAoABMAAAALAAoAAAAnABMAAAALAAoAAAAmABMAAAALAAoAAAAlABMAAAALAAoAAAAkABMAAAALAAoAAAAjABMAAAALAAoAAAAiABMAAAALAAoAAAAhABMAAAALAAoAAAAgABMAAAALAAoAAAAfABMAAAALAAoAAAAeABMAAAALAAoAAAAdABMAAAALAAoAAAAcABMAAAALAAoAAAAbABMAAAALAAoAAAAaABMAAAALAAoAAAAZABMAAAALAAoAAAAYABMAAAALAAoAAAAXABMAAAALAAoAAAAWABMAAAALAAoAAAAVABMAAAALAAoAAAAUABMAAAALAAoAAAATABMAAAALAAoAAAASABMAAAALAAoAAAARABMAAAALAAoAAAAQABMAAAAMAAsAAAAQABIAAAAOAAsAAAALABMAAAANAAsAAAAJABMAAAALAAoAAAAIABMAAAALAAoAAAADABMAAAALAAoAAAACABMAAAALAAoAAAABABMAAAALAAoAAAAAABMAAAAJAAsAAAAAABIAAAALAAsAAAAHABMAAAALAAoAAAAGABMAAAALAAoAAAAFABMAAAALAAoAAAAEABMAAAALAAoAAAAfAAsAAAALAAoAAAAeAAsAAAALAAoAAAAdAAsAAAALAAoAAAAcAAsAAAALAAoAAAAbAAsAAAALAAoAAAAaAAsAAAALAAoAAAAZAAsAAAALAAoAAAAYAAsAAAALAAoAAAAXAAsAAAALAAoAAAAWAAsAAAALAAoAAAAVAAsAAAALAAoAAAAUAAsAAAALAAoAAAASAAsAAAALAAoAAAARAAsAAAALAAoAAAAQAAsAAAALAAoAAAAPAAsAAAALAAoAAAAOAAsAAAALAAoAAAANAAsAAAALAAoAAAAMAAsAAAALAAoAAAALAAsAAAALAAoAAAAJAAsAAAALAAoAAAAIAAsAAAALAAoAAAAHAAsAAAALAAoAAAAGAAsAAAALAAoAAAAFAAsAAAALAAoAAAAEAAsAAAALAAoAAAADAAsAAAALAAoAAAACAAsAAAALAAoAAAAAAAwAAAALAAsAAAAAAAsAAAAMAAsAAAAxAAsAAAANAAsAAAAwAAsAAAALAAoAAAAvAAsAAAALAAoAAAApAAwAAAAPAAoAAAApAAsAAAAMAAsAAAAjAAsAAAALAAoAAAAiAAsAAAALAAoAAAAhAAsAAAALAAoAAAAgAAsAAAALAAoAAAAQABQAAAAPAAoAAAALABQAAAAPAAoAAAApAAoAAAAOAAsAAAAxAPP/AAANAAsAAAAwAPP/AAALAAoAAAAvAPP/AAALAAoAAAAuAPP/AAALAAoAAAAtAPP/AAALAAoAAAAsAPP/AAALAAoAAAArAPP/AAALAAoAAAAqAPP/AAALAAoAAAApAPP/AAALAAoAAAAoAPP/AAALAAoAAAAnAPP/AAALAAoAAAAmAPP/AAALAAoAAAAlAPP/AAALAAoAAAAkAPP/AAALAAoAAAAjAPP/AAALAAoAAAAiAPP/AAALAAoAAAAhAPP/AAALAAoAAAAgAPP/AAALAAoAAAAfAPP/AAALAAoAAAAeAPP/AAALAAoAAAAdAPP/AAALAAoAAAAcAPP/AAAJAAsAAAAcAPL/AAALAAsAAAAVAPP/AAAKAAsAAAAVAPL/AAALAAsAAAAUAPP/AAALAAoAAAATAPP/AAALAAoAAAASAPP/AAALAAoAAAARAPP/AAALAAoAAAAQAPP/AAALAAoAAAAPAPP/AAALAAoAAAAOAPP/AAALAAoAAAANAPP/AAALAAoAAAAMAPP/AAALAAoAAAALAPP/AAALAAoAAAAKAPP/AAALAAoAAAAJAPP/AAALAAoAAAAIAPP/AAALAAoAAAAHAPP/AAALAAoAAAAGAPP/AAALAAoAAAAFAPP/AAALAAoAAAAEAPP/AAALAAoAAAADAPP/AAALAAoAAAACAPP/AAALAAoAAAAAAPP/AAAMAAsAAAAAAPL/AAALAAsAAAAVAPH/AAALAAsAAAAVAPD/AAALAAsAAAAVAO//AAALAAsAAAAVAO7/AAALAAsAAAAVAO3/AAALAAsAAAAVAOz/AAALAAsAAAAVAOv/AAALAAsAAAAVAOr/AAALAAsAAAAVAOn/AAALAAsAAAAVAOj/AAALAAsAAAAVAOf/AAALAAsAAAAVAOb/AAAKAAoAAAAUAOb/AAAPAAsAAAAcAPH/AAALAAsAAAAcAPD/AAALAAsAAAAcAO//AAALAAsAAAAcAO7/AAALAAsAAAAcAO3/AAALAAsAAAAcAOz/AAALAAsAAAAcAOv/AAALAAsAAAAcAOr/AAALAAsAAAAcAOn/AAALAAsAAAAcAOj/AAALAAsAAAAcAOf/AAALAAsAAAAcAOb/AAALAAsAAAAdANn/AAAOAAoAAAAcAOD/AAALAAsAAAAcAN//AAALAAsAAAAcAN7/AAALAAsAAAAcAN3/AAALAAsAAAAcANz/AAALAAsAAAAcANv/AAALAAsAAAAcANr/AAALAAsAAAAcANn/AAAJAAoAAAAVAOD/AAAKAAsAAAAVAN//AAALAAsAAAAVAN7/AAALAAsAAAAVAN3/AAALAAsAAAAVANz/AAALAAsAAAAVANv/AAALAAsAAAAVANr/AAALAAsAAAAVANn/AAALAAsAAAAVANj/AAALAAsAAAAVANf/AAALAAsAAAAUAOD/AAAPAAsAAAAcAOX/AAALAAsAAAAcAOT/AAALAAsAAAAcAOP/AAALAAsAAAAcAOL/AAALAAsAAAAcAOH/AAALAAsAAAAVANb/AAALAAsAAAAVANX/AAALAAsAAAAVANT/AAALAAsAAAAVANP/AAALAAsAAAAVANL/AAALAAsAAAAVANH/AAALAAsAAAAVAND/AAALAAsAAAAVAM//AAANAAsAAAAUAM//AAALAAoAAAAdAM//AAALAAoAAAAcANL/AAALAAsAAAAcANH/AAALAAsAAAAcAND/AAALAAsAAAAcAM//AAAMAAsAAAAcANP/AAAJAAsAAAATAM//AAALAAoAAAASAM//AAALAAoAAAARAM//AAALAAoAAAAQAM//AAALAAoAAAAPAM//AAALAAoAAAAOAM//AAALAAoAAAANAM//AAALAAoAAAAMAM//AAALAAoAAAALAM//AAALAAoAAAAKAM//AAALAAoAAAAJAM//AAALAAoAAAAIAM//AAALAAoAAAAHAM//AAALAAoAAAAGAM//AAALAAoAAAAFAM//AAALAAoAAAAEAM//AAALAAoAAAADAM//AAALAAoAAAACAM//AAALAAoA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")
 
 [node name="NavRegion" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
 [node name="CamCtrl" parent="." node_paths=PackedStringArray("host") instance=ExtResource("5_uyovw")]
@@ -159,11 +162,11 @@ limit_bottom = 928
 [node name="Zombies" type="Node2D" parent="."]
 
 [node name="ZombieNorm" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_xokhg")
+material = SubResource("ShaderMaterial_beuj4")
 position = Vector2(1287, 550)
 
 [node name="ZombieNorm2" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_beuj4")
+material = SubResource("ShaderMaterial_nchkr")
 position = Vector2(1387, 479)
 
 [node name="ZombieBrawler" parent="Zombies" instance=ExtResource("7_ik4gx")]
@@ -179,27 +182,27 @@ position = Vector2(661, -259)
 position = Vector2(121, -774)
 
 [node name="ZombieNorm3" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_nchkr")
+material = SubResource("ShaderMaterial_uyovw")
 position = Vector2(1414, -88)
 
 [node name="ZombieNorm4" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_uyovw")
+material = SubResource("ShaderMaterial_vf3dv")
 position = Vector2(1215, 18)
 
 [node name="ZombieNorm5" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_vf3dv")
+material = SubResource("ShaderMaterial_ik4gx")
 position = Vector2(946, -37)
 
 [node name="ZombieNorm9" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_ik4gx")
+material = SubResource("ShaderMaterial_8s2a8")
 position = Vector2(568, -1276)
 
 [node name="ZombieNorm10" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_8s2a8")
+material = SubResource("ShaderMaterial_dj2fi")
 position = Vector2(369, -1170)
 
 [node name="ZombieNorm11" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_dj2fi")
+material = SubResource("ShaderMaterial_c7klx")
 position = Vector2(100, -1225)
 
 [node name="ZombieRunner" parent="Zombies" instance=ExtResource("8_8s2a8")]
@@ -215,15 +218,15 @@ position = Vector2(242, -1436)
 collision_mask = 27
 
 [node name="ZombieNorm6" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_c7klx")
+material = SubResource("ShaderMaterial_3tldk")
 position = Vector2(765, 124)
 
 [node name="ZombieNorm7" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_3tldk")
+material = SubResource("ShaderMaterial_u7au1")
 position = Vector2(751, -99)
 
 [node name="ZombieNorm8" parent="Zombies" instance=ExtResource("6_vf3dv")]
-material = SubResource("ShaderMaterial_u7au1")
+material = SubResource("ShaderMaterial_2pfhc")
 position = Vector2(1429, 167)
 
 [node name="ZombieGunner" parent="Zombies" instance=ExtResource("9_dj2fi")]
@@ -272,8 +275,10 @@ position = Vector2(188, 464)
 weapon = "shotgun"
 
 [node name="PlayerVamp" parent="." instance=ExtResource("11_3tldk")]
-material = SubResource("ShaderMaterial_2pfhc")
+material = SubResource("ShaderMaterial_40vdk")
 position = Vector2(124, 808)
+
+[connection signal="child_exiting_tree" from="Zombies" to="." method="_on_zombies_child_exiting_tree"]
 
 [editable path="TileMap"]
 [editable path="CamCtrl"]

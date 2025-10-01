@@ -38,6 +38,12 @@ func set_hp(new_hp: float) -> void:
 @export_category("Appearance")
 @export var blood_color: Color = Color(0.502, 0.141, 0.11)
 
+@export_category("Patrol Limits")
+@export var patrol_limit_left: float
+@export var patrol_limit_right: float
+@export var patrol_limit_top: float
+@export var patrol_limit_bottom: float
+
 var dir: Vector2
 var movement_speed: float = patrol_speed
 
@@ -82,6 +88,7 @@ const DEATH_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.zombie_death_
 @onready var attack_delay: Timer = $AttackDelay
 @onready var nav_agent: NavigationAgent2D = $NavAgent
 @onready var nav_region: NavigationRegion2D = game.get_node("NavRegion")
+@onready var map_rid: RID = nav_region.get_region_rid()
 @onready var comm_area: Area2D = $CommArea
 @onready var comm_eye: RayCast2D = $CommEye
 @onready var eye_group: Node2D = $EyeGroup

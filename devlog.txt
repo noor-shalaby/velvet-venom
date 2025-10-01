@@ -739,7 +739,69 @@ Day 91 - FRI 19/9/2025
 - fixed sucking blood for hp not working
 
 
+
+======= WEEK 13 =======
+
 Day 92 - SAT 20/9/2025
 
 - switched renderer to Compatibility instead of Forward+
 - fixed a bug where the lil BloodPool spots would also queue free with the main big one
+
+
+Day 93 - SUN 21/9/2025
+
+- OFF
+
+
+Day 94 - MON 22/9/2025
+
+- OFF
+
+
+Day 95 - TUE 23/9/2025
+
+- OFF
+
+
+Day 96 - WED 24/9/2025
+
+- OFF
+
+
+Day 97 - THU 25/9/2025
+
+- OFF
+
+
+Day 98 - FRI 26/9/2025
+
+- OFF
+
+
+
+======= WEEK 14 =======
+
+Day 99 - SAT 27/9/2025
+
+- OFF
+
+
+Day 100 - SUN 28/9/2025
+
+- OFF
+
+
+Day 101 - MON 29/9/2025
+
+- OFF
+
+
+Day 102 - TUE 30/9/2025
+
+- OFF
+
+
+Day 103 - WED 1/10/2025
+
+- made the game source-available under the CC BY-NC 4.0 license
+- added LICENSE.txt & README.md
