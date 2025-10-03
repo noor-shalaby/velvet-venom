@@ -141,6 +141,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if nav_region.get_rid():
+		get_random_valid_point()
 	look_for_target()
 	
 	if not is_stunned:
@@ -314,6 +316,34 @@ func _on_screen_entered() -> void:
 
 func _on_screen_exited() -> void:
 	pass
+
+
+func get_random_valid_point() -> Vector2:
+	if not map_rid:
+		return Vector2.ZERO
+	print("hey")
+	# Define a Rect2 from your limits
+	var rect: Rect2 = Rect2(Vector2(patrol_limit_left, patrol_limit_top), Vector2(patrol_limit_right - patrol_limit_left, patrol_limit_bottom - patrol_limit_top))
+	
+	# Loop to try and find a valid point
+	# We use a limited number of attempts to avoid an infinite loop
+	var max_attempts: int = 100
+	for i in range(max_attempts):
+		# Generate a random point within the defined rectangle
+		var random_point: Vector2 = Vector2(
+			randf_range(rect.position.x, rect.end.x),
+			randf_range(rect.position.y, rect.end.y)
+		)
+		
+		# Get the closest point on the navigation mesh
+		var closest_point: Vector2 = NavigationServer2D.map_get_closest_point(map_rid, random_point)
+		
+		# Check if the generated point is close enough to a valid nav mesh point
+		if random_point.distance_to(closest_point) < 1.0: # Tolerance of 1.0
+			return closest_point
+		
+	# Return null if no valid point is found after all attempts
+	return Vector2.ZERO
 
 
 func get_random_nav_point(_nav_region: NavigationRegion2D) -> Vector2:
