@@ -1,6 +1,6 @@
 # Velvet Venom
 
-a fast-paced 2D top-down zombie shooter game.
+A fast-paced 2D top-down zombie shooter game.
 
 
 ## License
