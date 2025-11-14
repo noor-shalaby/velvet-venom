@@ -132,75 +132,75 @@ theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
 disabled = true
 text = "Salma Shalaby"
 
-[node name="AssetRetribution" type="VBoxContainer" parent="MarginContainer/HBox"]
+[node name="AssetsRetribution" type="VBoxContainer" parent="MarginContainer/HBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 32
 
-[node name="AssetRetributionLabel" type="Label" parent="MarginContainer/HBox/AssetRetribution"]
+[node name="AssetsRetributionLabel" type="Label" parent="MarginContainer/HBox/AssetsRetribution"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 40
-text = "Asset Retribution"
+text = "Assets Retribution"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/AssetRetribution"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/AssetsRetribution"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Kenney_NLButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="Kenney_NLButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Kenney"
 url = "https://kenney.nl/"
 
-[node name="SnakeF8Button" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="SnakeF8Button" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "SnakeF8"
 url = "https://itch.io/profile/f8studios"
 
-[node name="TerrorByteGamesButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="TerrorByteGamesButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "TerrorByteGames"
 url = "https://itch.io/profile/terrorbytegames"
 
-[node name="BlueRoseSonataButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="BlueRoseSonataButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Blue Rose Sonata"
 url = "https://bluerosesonata.itch.io"
 
-[node name="ZimaJeKKTButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="ZimaJeKKTButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "ZimaJeKKT"
 url = "https://zimajekkt.itch.io"
 
-[node name="AtelierMagicaeButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="AtelierMagicaeButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Atelier Magicae"
 url = "https://itch.io/profile/ateliermagicae"
 
-[node name="alkakrabButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="alkakrabButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "alkakrab"
 url = "https://itch.io/profile/alkakrab"
 
-[node name="TomMusicButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="TomMusicButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "TomMusic"
 url = "https://itch.io/profile/tommusic"
 
-[node name="AurelienMonteroButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="AurelienMonteroButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Aurelien Montero"
 url = "https://punkzen.itch.io/"
 
-[node name="NvthicSoundsButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="NvthicSoundsButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Nvthic Sounds"
 url = "https://itch.io/profile/nvthicprod"
 
-[node name="Nox_Sound_DesignButton" parent="MarginContainer/HBox/AssetRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
+[node name="Nox_Sound_DesignButton" parent="MarginContainer/HBox/AssetsRetribution/VBoxContainer" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Nox_Sound_Design"
 url = "https://itch.io/profile/nox-sound-design"
