@@ -3,6 +3,7 @@
 (X) create a slash dash mechanic
 (X) create stun logic
 ( ) create a suck effect shader for the BloodPool
+( ) create a particle vfx on the left hand for blood suction
 ( ) create an autoload singleton called ObjectPools for Bullets and some sfx like gunshots, impacts and ui click sounds
 (X) create an autoload singleton called EventBus for global signals
 (X) convert Bullet from CharacterBody2D to Area2D
@@ -75,7 +76,7 @@
 ( ) change the horizontally aligned button focus animation from scaling to expanding
 ( ) create breakable glass
 (X) code the Slider to be manipulated with the keyboard
-( ) code the PlayerVamp to stop sucking blood when hit
+(X) code the PlayerVamp to stop sucking blood when hit
 (X) use delta
 ( ) add more alt fire modes for the PlayerVamp for the player to unlock and choose from
 ( ) set up ZombieGunner sprite canvases and offsets
