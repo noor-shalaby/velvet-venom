@@ -3,7 +3,7 @@
 (X) create a slash dash mechanic
 (X) create stun logic
 ( ) create a suck effect shader for the BloodPool
-( ) create a particle vfx on the left hand for blood suction
+(X) create a particle vfx on the left hand for blood suction
 ( ) create an autoload singleton called ObjectPools for Bullets and some sfx like gunshots, impacts and ui click sounds
 (X) create an autoload singleton called EventBus for global signals
 (X) convert Bullet from CharacterBody2D to Area2D

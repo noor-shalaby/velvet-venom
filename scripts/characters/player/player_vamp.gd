@@ -86,6 +86,7 @@ const BLOOD_SPLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splash
 @onready var arm_right: Sprite2D = $ArmRight
 @onready var blood_sucker: Area2D = $BloodSucker
 @onready var suction_point: Marker2D = $SuctionPoint
+@onready var suction_vfx: CPUParticles2D = $SuctionVFX
 @onready var suction_cooldown_timer: Timer = $SuctionCooldownTimer
 @onready var suck_sound_player: AudioStreamPlayer2D = $SuckSound
 @onready var suck_sound_default_volume_db: float = suck_sound_player.volume_db
@@ -208,6 +209,7 @@ func start_sucking(_blood_pool: BloodPool, resource: String = "hp") -> void:
 	stop_sucking()
 	
 	arm_left.show()
+	suction_vfx.emitting = true
 	is_sucking = true
 	
 	if Settings.audio:
@@ -238,6 +240,7 @@ func start_sucking(_blood_pool: BloodPool, resource: String = "hp") -> void:
 
 func stop_sucking() -> void:
 	arm_left.hide()
+	suction_vfx.emitting = false
 	is_sucking = false
 	
 	if suck_sound_player.is_playing():
