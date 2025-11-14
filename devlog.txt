@@ -815,3 +815,231 @@ Day 104 - THU 2/10/2025
 Day 105 - FRI 3/10/2025
 
 - removed unused Agent file
+
+
+
+======= WEEK 15 =======
+
+Day 106 - SAT 4/10/2025
+
+- OFF
+
+
+Day 107 - SUN 5/10/2025
+
+- OFF
+
+
+Day 108 - MON 6/10/2025
+
+- OFF
+
+
+Day 109 - TUE 7/10/2025
+
+- OFF
+
+
+Day 110 - WED 8/10/2025
+
+- OFF
+
+
+Day 111 - THU 9/10/2025
+
+- OFF
+
+
+Day 112 - FRI 10/10/2025
+
+- OFF
+
+
+
+======= WEEK 16 =======
+
+Day 113 - SAT 11/10/2025
+
+- OFF
+
+
+Day 114 - SUN 12/10/2025
+
+- OFF
+
+
+Day 115 - MON 13/10/2025
+
+- OFF
+
+
+Day 116 - TUE 14/10/2025
+
+- OFF
+
+
+Day 117 - WED 15/10/2025
+
+- OFF
+
+
+Day 118 - THU 16/10/2025
+
+- OFF
+
+
+Day 119 - FRI 17/10/2025
+
+- OFF
+
+
+
+======= WEEK 17 =======
+
+Day 120 - SAT 18/10/2025
+
+- OFF
+
+
+Day 121 - SUN 19/10/2025
+
+- OFF
+
+
+Day 122 - MON 20/10/2025
+
+- OFF
+
+
+Day 123 - TUE 21/10/2025
+
+- OFF
+
+
+Day 124 - WED 22/10/2025
+
+- OFF
+
+
+Day 125 - THU 23/10/2025
+
+- OFF
+
+
+Day 126 - FRI 24/10/2025
+
+- OFF
+
+
+
+======= WEEK 18 =======
+
+Day 127 - SAT 25/10/2025
+
+- OFF
+
+
+Day 128 - SUN 26/10/2025
+
+- OFF
+
+
+Day 129 - MON 27/10/2025
+
+- OFF
+
+
+Day 130 - TUE 28/10/2025
+
+- OFF
+
+
+Day 131 - WED 29/10/2025
+
+- OFF
+
+
+Day 132 - THU 30/10/2025
+
+- OFF
+
+
+Day 133 - FRI 31/10/2025
+
+- OFF
+
+
+
+======= WEEK 19 =======
+
+Day 134 - SAT 1/11/2025
+
+- OFF
+
+
+Day 135 - SUN 2/11/2025
+
+- OFF
+
+
+Day 136 - MON 3/11/2025
+
+- OFF
+
+
+Day 137 - TUE 4/11/2025
+
+- OFF
+
+
+Day 138 - WED 5/11/2025
+
+- OFF
+
+
+Day 139 - THU 6/11/2025
+
+- OFF
+
+
+Day 140 - FRI 7/11/2025
+
+- OFF
+
+
+
+======= WEEK 20 =======
+
+Day 141 - SAT 8/11/2025
+
+- OFF
+
+
+Day 142 - SUN 9/11/2025
+
+- OFF
+
+
+Day 143 - MON 10/11/2025
+
+- OFF
+
+
+Day 144 - TUE 11/11/2025
+
+- OFF
+
+
+Day 145 - WED 12/11/2025
+
+- OFF
+
+
+Day 146 - THU 13/11/2025
+
+- OFF
+
+
+Day 147 - FRI 14/11/2025
+
+- migrated to Godot 4.5.1.stable
