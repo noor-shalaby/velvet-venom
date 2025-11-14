@@ -176,6 +176,8 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="WallDetector" type="RayCast2D" parent="."]
+
 [connection signal="animation_changed" from="Sprite" to="." method="_on_sprite_animation_changed"]
 [connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

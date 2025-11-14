@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bkhu0y6j6hd4r"]
+
+[node name="Room" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false

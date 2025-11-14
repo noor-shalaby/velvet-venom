@@ -1,10 +1,9 @@
-[gd_scene load_steps=31 format=4 uid="uid://bd643agc3e14p"]
+[gd_scene load_steps=33 format=4 uid="uid://bd643agc3e14p"]
 
 [ext_resource type="PackedScene" uid="uid://d00p0lnr174q3" path="res://scenes/ui/canvas.tscn" id="1_ykkuh"]
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="2_kpv1g"]
 [ext_resource type="PackedScene" uid="uid://5ag4hs7q66nt" path="res://scenes/ui/pause_menu.tscn" id="3_q0j8x"]
 [ext_resource type="PackedScene" uid="uid://bg8c63oc0rr1j" path="res://scenes/levels/tilemap.tscn" id="4_2hc5h"]
-[ext_resource type="PackedScene" uid="uid://d21r0m46piopd" path="res://scenes/objects/zombie_blocker.tscn" id="4_jspx3"]
 [ext_resource type="PackedScene" uid="uid://b0hf5ugi8olt6" path="res://scenes/levels/cam_ctrl.tscn" id="5_e0fs5"]
 [ext_resource type="PackedScene" uid="uid://byvpqdc4io075" path="res://scenes/characters/player_vamp.tscn" id="6_5540e"]
 [ext_resource type="Shader" uid="uid://fgsywmuu030o" path="res://resources/shaders/blink_darken.gdshader" id="7_5540e"]
@@ -151,6 +150,21 @@ shader_parameter/outline_on = false
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jspx3"]
+vertices = PackedVector2Array(1558, 694, 810, 694, 810, 362, 1558, 362)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(800, 352, 800, 704, 1568, 704, 1568, 352)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3amv6"]
+vertices = PackedVector2Array(758, 694, 42, 694, 42, -22, 758, -22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -32, 32, 704, 768, 704, 768, -32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x4nwj"]
+vertices = PackedVector2Array(1558, 310, 810, 310, 810, -22, 1558, -22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(800, -32, 1568, -32, 1568, 320, 800, 320)])
+
 [node name="Game" type="Node2D"]
 metadata/_edit_vertical_guides_ = [0.0, 1600.0]
 metadata/_edit_horizontal_guides_ = [928.0, -1984.0]
@@ -175,11 +189,6 @@ tile_map_data = PackedByteArray()
 [node name="colliders" parent="TileMap" index="3"]
 tile_map_data = PackedByteArray("AAAxABIAAAALAAsAAAAxAAwAAAALAAsAAAAxAAgAAAALAAsAAAAlABYAAAAOAAoAAAAkABYAAAALAAoAAAAjABYAAAALAAoAAAAiABYAAAALAAoAAAAhABYAAAALAAoAAAAgABYAAAALAAoAAAAfABYAAAALAAoAAAAeABYAAAALAAoAAAAdABYAAAALAAoAAAAcABYAAAALAAoAAAAbABYAAAALAAoAAAAaABYAAAALAAoAAAAZABYAAAALAAoAAAAYABYAAAALAAoAAAAXABYAAAALAAoAAAAWABYAAAALAAoAAAAVABYAAAALAAoAAAAUABYAAAALAAoAAAATABYAAAALAAoAAAASABYAAAALAAoAAAARABYAAAALAAoAAAAQABYAAAALAAoAAAAPABYAAAALAAoAAAAOABYAAAALAAoAAAANABYAAAALAAoAAAAMABYAAAALAAoAAAALABYAAAALAAoAAAAKABYAAAALAAoAAAAJABYAAAALAAoAAAAIABYAAAALAAoAAAAHABYAAAALAAoAAAAGABYAAAALAAoAAAAFABYAAAALAAoAAAAEABYAAAALAAoAAAADABYAAAALAAoAAAACABYAAAALAAoAAAABABYAAAALAAoAAAAAABYAAAAJAAsAAAAAABUAAAALAAsAAAAAABQAAAALAAsAAAAAABMAAAALAAsAAAAAABIAAAALAAsAAAAAABEAAAALAAsAAAAAABAAAAALAAsAAAAAAA8AAAALAAsAAAAxABYAAAAPAAoAAAAxABUAAAALAAsAAAAxABQAAAALAAsAAAAxABMAAAALAAsAAAAxABEAAAALAAsAAAAxABAAAAALAAsAAAAxAA8AAAALAAsAAAD//xsAAAALAAsAAAD//xoAAAALAAsAAAD//xkAAAALAAsAAAD//xgAAAALAAsAAAD//xcAAAAOAAsAAAD//xwAAAALAAsAAAD//x0AAAAJAAsAAAARAB0AAAALAAoAAAAQAB0AAAALAAoAAAAPAB0AAAALAAoAAAAOAB0AAAALAAoAAAANAB0AAAALAAoAAAAMAB0AAAALAAoAAAALAB0AAAALAAoAAAAKAB0AAAALAAoAAAAJAB0AAAALAAoAAAAIAB0AAAALAAoAAAAHAB0AAAALAAoAAAAGAB0AAAALAAoAAAAFAB0AAAALAAoAAAAEAB0AAAALAAoAAAADAB0AAAALAAoAAAACAB0AAAALAAoAAAABAB0AAAALAAoAAAAAAB0AAAALAAoAAAAlAB0AAAALAAoAAAAkAB0AAAALAAoAAAAjAB0AAAALAAoAAAAiAB0AAAALAAoAAAAhAB0AAAALAAoAAAAgAB0AAAALAAoAAAAfAB0AAAALAAoAAAAeAB0AAAALAAoAAAAdAB0AAAALAAoAAAAcAB0AAAALAAoAAAAbAB0AAAALAAoAAAAaAB0AAAALAAoAAAAZAB0AAAALAAoAAAAYAB0AAAALAAoAAAAXAB0AAAALAAoAAAAWAB0AAAALAAoAAAAVAB0AAAALAAoAAAAUAB0AAAALAAoAAAATAB0AAAALAAoAAAASAB0AAAALAAoAAAAyAB0AAAAKAAsAAAAxAB0AAAALAAoAAAAwAB0AAAALAAoAAAAvAB0AAAALAAoAAAAuAB0AAAALAAoAAAAtAB0AAAALAAoAAAAsAB0AAAALAAoAAAArAB0AAAALAAoAAAAqAB0AAAALAAoAAAApAB0AAAALAAoAAAAoAB0AAAALAAoAAAAnAB0AAAALAAoAAAAmAB0AAAALAAoAAAAyABwAAAALAAsAAAAyABsAAAALAAsAAAAyABoAAAALAAsAAAAyABkAAAALAAsAAAAyABgAAAALAAsAAAAyABcAAAAOAAsAAAAxAA4AAAALAAsAAAAxAA0AAAALAAsAAAAxAAsAAAALAAsAAAAxAAoAAAANAAsAAAAwAAoAAAALAAoAAAAvAAoAAAALAAoAAAAuAAoAAAALAAoAAAAtAAoAAAALAAoAAAAsAAoAAAALAAoAAAArAAoAAAALAAoAAAAqAAoAAAALAAoAAAApAAoAAAALAAoAAAAoAAoAAAALAAoAAAAnAAoAAAALAAoAAAAmAAoAAAALAAoAAAAlAAoAAAALAAoAAAAkAAoAAAALAAoAAAAjAAoAAAALAAoAAAAiAAoAAAALAAoAAAAhAAoAAAALAAoAAAAgAAoAAAALAAoAAAAfAAoAAAALAAoAAAAeAAoAAAALAAoAAAAdAAoAAAALAAoAAAAcAAoAAAALAAoAAAAbAAoAAAALAAoAAAAaAAoAAAALAAoAAAAZAAoAAAALAAoAAAAYAAoAAAAJAAoAAAAYABAAAAAPAAoAAAAYAA8AAAALAAsA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AAATANr/AAALAAoAAAASANr/AAALAAoAAAARANr/AAALAAoAAAAQANr/AAALAAoAAAAPANr/AAALAAoAAAAOANr/AAALAAoAAAANANr/AAALAAoAAAAMANr/AAALAAoAAAALANr/AAALAAoAAAAKANr/AAALAAoAAAAJANr/AAALAAoAAAAIANr/AAALAAoAAAAHANr/AAALAAoAAAAGANr/AAALAAoAAAAFANr/AAALAAoAAAAEANr/AAALAAoAAAADANr/AAALAAoAAAACANr/AAALAAoAAAABANr/AAALAAoAAAAAANr/AAAMAAsAAAAAAPH/AAALAAsAAAAAAPD/AAALAAsAAAAAAO//AAALAAsAAAAAAO7/AAALAAsAAAAAAO3/AAALAAsAAAAAAOz/AAALAAsAAAAAAOv/AAALAAsAAAAAAOr/AAALAAsAAAAAAOn/AAALAAsAAAAAAOj/AAALAAsAAAAAAOf/AAALAAsAAAAAAOb/AAALAAsAAAAAAOX/AAALAAsAAAAAAOT/AAALAAsAAAAAAOP/AAALAAsAAAAAAOL/AAALAAsAAAAAAOH/AAALAAsAAAAAAOD/AAALAAsAAAAAAN//AAALAAsAAAAAAN7/AAALAAsAAAAAAN3/AAALAAsAAAAAANz/AAALAAsAAAAAANv/AAALAAsAAAAxANn/AAALAAsAAAAxANj/AAALAAsAAAAxANf/AAALAAsAAAAxANb/AAALAAsAAAAxANX/AAALAAsAAAAxANT/AAALAAsAAAAxANP/AAALAAsAAAAxANL/AAALAAsAAAAxANH/AAALAAsAAAAxAND/AAALAAsAAAAxAM//AAALAAsAAAAxAM7/AAANAAsAAAAwAM7/AAALAAoAAAAvAM7/AAALAAoAAAAuAM7/AAALAAoAAAAtAM7/AAALAAoAAAAsAM7/AAALAAoAAAArAM7/AAALAAoAAAAqAM7/AAALAAoAAAApAM7/AAALAAoAAAAoAM7/AAAPAAsAAAAiAM7/AAAOAAoAAAAhAM7/AAALAAoAAAAgAM7/AAALAAoAAAAfAM7/AAALAAoAAAAeAM7/AAALAAoAAAAdAM7/AAANAAoAAAAcAM7/AAALAAoAAAAbAM7/AAALAAoAAAAaAM7/AAALAAoAAAAZAM7/AAALAAoAAAAYAM7/AAALAAoAAAAXAM7/AAALAAoAAAAWAM7/AAALAAoAAAAVAM7/AAALAAoAAAAUAM7/AAALAAoAAAATAM7/AAALAAoAAAASAM7/AAALAAoAAAARAM7/AAALAAoAAAAQAM7/AAALAAoAAAAPAM7/AAALAAoAAAAOAM7/AAALAAoAAAANAM7/AAALAAoAAAAMAM7/AAALAAoAAAALAM7/AAALAAoAAAAKAM7/AAALAAoAAAAJAM7/AAALAAoAAAAIAM7/AAALAAoAAAAHAM7/AAALAAoAAAAGAM7/AAALAAoAAAAFAM7/AAALAAoAAAAEAM7/AAALAAoAAAADAM7/AAALAAoAAAACAM7/AAALAAoAAAABAM7/AAALAAoAAAAAAM7/AAAMAAsAAAAAANn/AAALAAsAAAAAANj/AAALAAsAAAAAANf/AAALAAsAAAAAANb/AAALAAsAAAAAANX/AAALAAsAAAAAANT/AAALAAsAAAAAANP/AAALAAsAAAAAANL/AAALAAsAAAAAANH/AAALAAsAAAAAAND/AAALAAsAAAAAAM//AAALAAsAAAAdAM3/AAALAAsAAAAdAMz/AAALAAsAAAAdAMv/AAALAAsAAAAdAMr/AAALAAsAAAAdAMn/AAALAAsAAAAxAM3/AAALAAsAAAAxAMz/AAALAAsAAAAxAMv/AAALAAsAAAAxAMr/AAALAAsAAAAxAMn/AAALAAsAAAAxAMj/AAALAAsAAAAxAMf/AAALAAsAAAAxAMb/AAALAAsAAAAxAMX/AAALAAsAAAAxAMT/AAALAAsAAAAxAMP/AAALAAsAAAAxAML/AAAKAAoAAAAwAML/AAALAAoAAAAvAML/AAALAAoAAAAuAML/AAALAAoAAAAtAML/AAALAAoAAAAsAML/AAALAAoAAAArAML/AAALAAoAAAAqAML/AAALAAoAAAApAML/AAALAAoAAAAoAML/AAALAAoAAAAnAML/AAALAAoAAAAmAML/AAALAAoAAAAlAML/AAALAAoAAAAkAML/AAALAAoAAAAjAML/AAALAAoAAAAiAML/AAALAAoAAAAhAML/AAALAAoAAAAgAML/AAALAAoAAAAfAML/AAALAAoAAAAeAML/AAALAAoAAAAdAML/AAALAAoAAAAcAML/AAALAAoAAAAbAML/AAALAAoAAAAaAML/AAALAAoAAAAZAML/AAALAAoAAAAYAML/AAALAAoAAAAXAML/AAALAAoAAAAWAML/AAALAAoAAAAVAML/AAALAAoAAAAUAML/AAALAAoAAAATAML/AAALAAoAAAASAML/AAALAAoAAAARAML/AAALAAoAAAAQAML/AAALAAoAAAAPAML/AAALAAoAAAAOAML/AAALAAoAAAANAML/AAALAAoAAAAMAML/AAALAAoAAAALAML/AAALAAoAAAAKAML/AAALAAoAAAAJAML/AAALAAoAAAAIAML/AAALAAoAAAAHAML/AAALAAoAAAAGAML/AAAPAAsAAAAAAM3/AAALAAsAAAAAAMz/AAALAAsAAAAAAMv/AAALAAsAAAAAAMr/AAALAAsAAAAAAMn/AAALAAsAAAAAAMj/AAALAAsAAAAAAMf/AAALAAsAAAAAAMb/AAALAAsAAAAAAMX/AAALAAsAAAAAAMT/AAALAAsAAAAAAMP/AAALAAsAAAAAAML/AAAOAAsAAAAdAMj/AAALAAsAAAAFAMH/AAAOAAoAAAAEAMH/AAALAAoAAAADAMH/AAALAAoAAAACAMH/AAALAAoAAAABAMH/AAAPAAsAAAAdAMf/AAAOAAsAAAA=")
 
-[node name="ZombieBlocker" parent="." instance=ExtResource("4_jspx3")]
-
-[node name="Layer" parent="ZombieBlocker" index="1"]
-tile_map_data = PackedByteArray("AAAYABEAAAAaAAAAAAAYABIAAAAaAAAAAAAYABMAAAAaAAAAAAAYABQAAAAaAAAAAAAYABUAAAAaAAAAAAAmABYAAAAaAAAAAAAnABYAAAAaAAAAAAAoABYAAAAaAAAAAAApABYAAAAaAAAAAAAqABYAAAAaAAAAAAArABYAAAAaAAAAAAAsABYAAAAaAAAAAAAtABYAAAAaAAAAAAAuABYAAAAaAAAAAAAvABYAAAAaAAAAAAAwABYAAAAaAAAAAAAYAAQAAAAaAAAAAAAYAAUAAAAaAAAAAAAYAAYAAAAaAAAAAAAYAAcAAAAaAAAAAAAYAAgAAAAaAAAAAAAYAAkAAAAaAAAAAAAsAP7/AAAaAAAAAAAtAP7/AAAaAAAAAAAuAP7/AAAaAAAAAAAvAP7/AAAaAAAAAAAwAP7/AAAaAAAAAAAmAPL/AAAaAAAAAAAnAPL/AAAaAAAAAAAoAPL/AAAaAAAAAAApAPL/AAAaAAAAAAAqAPL/AAAaAAAAAAAgAOf/AAAaAAAAAAAgAOj/AAAaAAAAAAAgAOn/AAAaAAAAAAAgAOr/AAAaAAAAAAAgAOv/AAAaAAAAAAAgANv/AAAaAAAAAAAgANz/AAAaAAAAAAAgAN3/AAAaAAAAAAAgAN7/AAAaAAAAAAAsANr/AAAaAAAAAAAtANr/AAAaAAAAAAAuANr/AAAaAAAAAAAvANr/AAAaAAAAAAAwANr/AAAaAAAAAAAjAM7/AAAaAAAAAAAkAM7/AAAaAAAAAAAlAM7/AAAaAAAAAAAmAM7/AAAaAAAAAAAnAM7/AAAaAAAAAAAdAMP/AAAaAAAAAAAdAMT/AAAaAAAAAAAdAMX/AAAaAAAAAAAdAMb/AAAaAAAAAAA=")
-
 [node name="NavRegion" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_lnu2h")
@@ -200,104 +209,147 @@ limit_bottom = 928
 material = SubResource("ShaderMaterial_jspx3")
 position = Vector2(1177, 834)
 
-[node name="ZombieNorm2" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_3amv6")
 position = Vector2(962, 410)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm3" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm3" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_x4nwj")
 position = Vector2(1055, 520)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm4" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm4" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_ugfk5")
 position = Vector2(1216, 402)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm5" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm5" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_w7ibn")
 position = Vector2(849, 463)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm9" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm9" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_01dia")
 position = Vector2(1067, 418)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm10" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm10" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_m8uxc")
 position = Vector2(1160, 528)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm11" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm11" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_86o21")
 position = Vector2(1321, 410)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieNorm12" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm12" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_cwdhr")
 position = Vector2(954, 471)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
-[node name="ZombieGunner" parent="Zombies" instance=ExtResource("9_q0j8x")]
+[node name="ZombieGunner" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(160, 127)
 wep = "gun"
+patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
-[node name="ZombieGunner2" parent="Zombies" instance=ExtResource("9_q0j8x")]
+[node name="ZombieGunner2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(423, 169)
 wep = "gun"
+patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
-[node name="ZombieGunner3" parent="Zombies" instance=ExtResource("9_q0j8x")]
+[node name="ZombieGunner3" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(156, 247)
 wep = "gun"
+patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
-[node name="ZombieGunner4" parent="Zombies" instance=ExtResource("9_q0j8x")]
+[node name="ZombieGunner4" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(285, 266)
 wep = "gun"
+patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
-[node name="ZombieGunner5" parent="Zombies" instance=ExtResource("9_q0j8x")]
+[node name="ZombieGunner5" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(548, 308)
 wep = "gun"
+patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
-[node name="ZombieGunner6" parent="Zombies" instance=ExtResource("9_q0j8x")]
+[node name="ZombieGunner6" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(281, 386)
 wep = "gun"
+patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
-[node name="ZombieRunner" parent="Zombies" instance=ExtResource("10_e0fs5")]
+[node name="ZombieRunner" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("10_e0fs5")]
 position = Vector2(1396, 71)
 collision_mask = 27
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieBrawler" parent="Zombies" instance=ExtResource("11_5540e")]
+[node name="ZombieBrawler" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("11_5540e")]
 position = Vector2(1487, 172)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieNorm6" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm6" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_ym72c")
 position = Vector2(1193, 63)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieNorm7" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm7" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_funmq")
 position = Vector2(1312, 271)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieNorm8" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm8" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_r4tew")
 position = Vector2(1334, 158)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieRunner2" parent="Zombies" instance=ExtResource("10_e0fs5")]
+[node name="ZombieRunner2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("10_e0fs5")]
 position = Vector2(1028, 93)
 collision_mask = 27
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieBrawler2" parent="Zombies" instance=ExtResource("11_5540e")]
+[node name="ZombieBrawler2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("11_5540e")]
 position = Vector2(1119, 194)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieNorm13" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm13" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_newuu")
 position = Vector2(825, 85)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieNorm14" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm14" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_6xp0r")
 position = Vector2(944, 293)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
-[node name="ZombieNorm15" parent="Zombies" instance=ExtResource("8_kpv1g")]
+[node name="ZombieNorm15" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_gjbfd")
 position = Vector2(966, 180)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="PlayerVamp" parent="." instance=ExtResource("6_5540e")]
 material = SubResource("ShaderMaterial_evypk")
 position = Vector2(124, 808)
 
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Rooms"]
+navigation_polygon = SubResource("NavigationPolygon_jspx3")
+enabled = false
+use_edge_connections = false
+navigation_layers = 0
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Rooms"]
+navigation_polygon = SubResource("NavigationPolygon_3amv6")
+enabled = false
+use_edge_connections = false
+navigation_layers = 0
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Rooms"]
+navigation_polygon = SubResource("NavigationPolygon_x4nwj")
+enabled = false
+use_edge_connections = false
+navigation_layers = 0
+
 [editable path="TileMap"]
-[editable path="ZombieBlocker"]
 [editable path="CamCtrl"]

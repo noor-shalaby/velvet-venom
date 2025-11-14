@@ -39,10 +39,7 @@ func set_hp(new_hp: float) -> void:
 @export var blood_color: Color = Color(0.502, 0.141, 0.11)
 
 @export_category("Patrol Limits")
-@export var patrol_limit_left: float
-@export var patrol_limit_right: float
-@export var patrol_limit_top: float
-@export var patrol_limit_bottom: float
+@export var patrol_room: NavigationRegion2D
 
 var dir: Vector2
 var movement_speed: float = patrol_speed
@@ -93,6 +90,7 @@ const DEATH_SOUND_SCENE: PackedScene = preload(Constants.FILE_UIDS.zombie_death_
 @onready var comm_eye: RayCast2D = $CommEye
 @onready var eye_group: Node2D = $EyeGroup
 @onready var eyes: Array[Node] = eye_group.get_children()
+@onready var wall_detector: RayCast2D = $WallDetector
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var vis_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier
 @onready var vis_enabler: VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler
@@ -178,7 +176,7 @@ func make_path() -> void:
 	if target:
 		nav_agent.target_position = target.global_position
 	elif get_real_velocity().length() < movement_speed * 0.8 or nav_agent.is_target_reached() or global_position.distance_to(nav_agent.get_next_path_position()) < movement_speed / 100:
-		nav_agent.target_position = get_random_nav_point(nav_region)
+		nav_agent.target_position = get_random_nav_point(patrol_room)
 
 
 func handle_knockback() -> void:
@@ -317,6 +315,9 @@ func _on_screen_exited() -> void:
 
 
 func get_random_nav_point(_nav_region: NavigationRegion2D) -> Vector2:
+	if not _nav_region:
+		_nav_region = nav_region
+	
 	var nav_poly: NavigationPolygon = _nav_region.navigation_polygon
 	if not nav_poly:
 		push_error("No NavigationPolygon found")

@@ -1047,3 +1047,4 @@ Day 147 - FRI 14/11/2025
 - renamed the "Asset Retribution" label in the CreditsScreen to "Assets Retribution"
 - changed the separation between the "Omar Shalaby" and "Salma Shalaby" labels by reparenting them to a new VBoxContainer to be consistent with the VBoxContainer sparation of the "Assets Retribution" labels
 - created a particle vfx on the left hand for blood suction
+- developed the Zombie to only patrol inside the room it spawns in
