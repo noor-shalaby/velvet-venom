@@ -140,7 +140,7 @@ size_flags_vertical = 8
 texture = ExtResource("7_wb0q5")
 stretch_mode = 2
 
-[node name="Playtest1Label" type="Label" parent="TitleScreen"]
+[node name="PlaytestILabel" type="Label" parent="TitleScreen"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

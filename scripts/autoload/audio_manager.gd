@@ -18,7 +18,7 @@ var ambient_fade_out: float = 0.3
 
 
 func play_ambient() -> void:
-	if not Settings.audio or not Settings.music:
+	if not Settings.audio or not Settings.music or ambient_player.playing:
 		return
 	
 	ambient_player.volume_linear = ambient_default_volume_linear * Settings.audio_val * Settings.music_val

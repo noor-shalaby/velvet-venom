@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=3 uid="uid://bw0aewvlwamvs"]
+
+[ext_resource type="Script" uid="uid://d4jj7fjkpmev2" path="res://scripts/ui/end_screen.gd" id="1_eok5x"]
+[ext_resource type="PackedScene" uid="uid://hqypk32yg24e" path="res://scenes/ui/gradient_rect.tscn" id="2_sxpuv"]
+[ext_resource type="Texture2D" uid="uid://8p1o643tq1ja" path="res://assets/vfx/particle_circle.png" id="3_5rl3i"]
+[ext_resource type="Script" uid="uid://cv3rty3dv6aqp" path="res://scripts/ui/screen.gd" id="4_x17t8"]
+[ext_resource type="FontFile" uid="uid://dx42bbpiek4kl" path="res://assets/fonts/CinzelDecorative-Bold.ttf" id="5_5x71l"]
+[ext_resource type="FontFile" uid="uid://bd575pu2co42h" path="res://assets/fonts/Cinzel-SemiBold.ttf" id="6_eok5x"]
+[ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="6_l7xpg"]
+[ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="8_8nti4"]
+[ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="9_ee7ch"]
+[ext_resource type="PackedScene" uid="uid://b5wjqm0rc6n38" path="res://scenes/ui/button_url.tscn" id="10_iapms"]
+[ext_resource type="FontFile" uid="uid://ecc2ug37qech" path="res://assets/fonts/Cinzel-Bold.ttf" id="11_41aik"]
+[ext_resource type="PackedScene" uid="uid://i0ug2plhmy3s" path="res://scenes/ui/credits_screen.tscn" id="13_e4sm0"]
+
+[sub_resource type="Curve" id="Curve_q85j6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.01, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_q85j6"]
+offsets = PackedFloat32Array(0, 0.01, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eok5x")
+tween_trans = 2
+tween_ease = 1
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gradient" parent="." instance=ExtResource("2_sxpuv")]
+layout_mode = 1
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+position = Vector2(960, 1088)
+amount = 32
+texture = ExtResource("3_5rl3i")
+lifetime = 7.0
+lifetime_randomness = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(960, 0)
+direction = Vector2(0, -1)
+spread = 32.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 90.0
+initial_velocity_max = 180.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+scale_amount_curve = SubResource("Curve_q85j6")
+color = Color(0.823529, 0.0980392, 0, 0.454902)
+color_ramp = SubResource("Gradient_q85j6")
+
+[node name="VictoryScreen" type="Control" parent="." node_paths=PackedStringArray("init_focus_node")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_x17t8")
+init_focus_node = NodePath("MarginContainer/VBoxContainer/ButtonsMenu/SurveyButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -736.5
+offset_top = -351.5
+offset_right = 736.5
+offset_bottom = 351.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VictoryScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="VBox" type="VBoxContainer" parent="VictoryScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VictoryHeadline" type="Label" parent="VictoryScreen/MarginContainer/VBoxContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("5_5x71l")
+theme_override_font_sizes/font_size = 76
+text = "VAPORIZED. VOIDED. VICTORY."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VictoryText" type="Label" parent="VictoryScreen/MarginContainer/VBoxContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("6_eok5x")
+theme_override_font_sizes/font_size = 32
+text = "The verdict was vivid: vermin vanquished. They violated the velvet veil of the night,
+validating your violence. Behold the vast volume of vile vitals violently vented."
+horizontal_alignment = 1
+
+[node name="ButtonsMenu" type="VBoxContainer" parent="VictoryScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="SurveyButton" parent="VictoryScreen/MarginContainer/VBoxContainer/ButtonsMenu" instance=ExtResource("10_iapms")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "Survey"
+url = "https://forms.gle/DCiVo2VR5kQ4RJ946"
+
+[node name="CreditsButton" parent="VictoryScreen/MarginContainer/VBoxContainer/ButtonsMenu" instance=ExtResource("8_8nti4")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+
+[node name="MainMenuButton" parent="VictoryScreen/MarginContainer/VBoxContainer/ButtonsMenu" instance=ExtResource("6_l7xpg")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_font_sizes/font_size = 48
+text = "Main Menu"
+target_scene_path = "uid://c5pn4nalkxme2"
+
+[node name="QuitButton" parent="VictoryScreen/MarginContainer/VBoxContainer/ButtonsMenu" instance=ExtResource("9_ee7ch")]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_font_sizes/font_size = 48
+
+[node name="PlaytestILabel" type="Label" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("11_41aik")
+theme_override_font_sizes/font_size = 24
+text = "Playtest I"
+horizontal_alignment = 2
+
+[node name="CreditsScreen" parent="." instance=ExtResource("13_e4sm0")]
+visible = false
+layout_mode = 1
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="pressed" from="VictoryScreen/MarginContainer/VBoxContainer/ButtonsMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CreditsScreen/MarginContainer/Header/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="CreditsScreen"]
