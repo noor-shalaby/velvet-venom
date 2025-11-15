@@ -1048,3 +1048,12 @@ Day 147 - FRI 14/11/2025
 - changed the separation between the "Omar Shalaby" and "Salma Shalaby" labels by reparenting them to a new VBoxContainer to be consistent with the VBoxContainer sparation of the "Assets Retribution" labels
 - created a particle vfx on the left hand for blood suction
 - developed the Zombie to only patrol inside the room it spawns in
+
+
+
+======= WEEK 21 =======
+
+Day 148 - SAT 15/11/2025
+
+- coded the ZombieGunner to drop its weapon when stunned
+- fixed a bug where the ZombieGunner would drop its weapon on death even after having dropped it earlier due to getting stunned

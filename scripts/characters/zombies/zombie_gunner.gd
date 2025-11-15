@@ -253,21 +253,24 @@ func _on_melee_range_body_exited(body: Node2D) -> void:
 
 
 func drop_weapon() -> void:
-	if not is_weapon_lost:
-		is_weapon_lost = true
-		var dropped_weapon: Sprite2D = DROPPED_WEAPON_SCENE.instantiate()
-		dropped_weapon.texture = dropped_weapon.TEXTURES[weapon.name]
-		dropped_weapon.global_position = global_position
-		dropped_weapon.global_rotation = global_rotation
-		if sprite.animation == weapon.name + "_reload":
-			dropped_weapon.global_rotation_degrees += 70.0
-		game.add_child(dropped_weapon)
+	if is_weapon_lost:
+		return
+	
+	is_weapon_lost = true
+	var dropped_weapon: Sprite2D = DROPPED_WEAPON_SCENE.instantiate()
+	dropped_weapon.texture = dropped_weapon.TEXTURES[weapon.name]
+	dropped_weapon.global_position = global_position
+	dropped_weapon.global_rotation = global_rotation
+	if sprite.animation == weapon.name + "_reload":
+		dropped_weapon.global_rotation_degrees += 70.0
+	game.add_child(dropped_weapon)
 
 
 func stunned(duration: float) -> void:
 	super(duration)
 	
 	reload_timer.stop()
+	drop_weapon()
 	melee_mode = true
 	sprite.play("stand")
 	melee_range_area.set_deferred("monitoring", false)

@@ -21,6 +21,14 @@ source_geometry_mode = 1
 source_geometry_group_name = &"nav"
 agent_radius = 16.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5540e"]
+resource_local_to_scene = true
+shader = ExtResource("7_5540e")
+shader_parameter/darken_amount = 0.2
+shader_parameter/desaturate_amount = 0.3
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jspx3"]
 resource_local_to_scene = true
 shader = ExtResource("7_5540e")
@@ -135,14 +143,6 @@ shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjbfd"]
 resource_local_to_scene = true
-shader = ExtResource("7_5540e")
-shader_parameter/darken_amount = 0.2
-shader_parameter/desaturate_amount = 0.3
-shader_parameter/blink_color = Color(1, 1, 1, 1)
-shader_parameter/blink_intensity = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_evypk"]
-resource_local_to_scene = true
 shader = ExtResource("7_jspx3")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
@@ -206,46 +206,46 @@ limit_bottom = 928
 [node name="Zombies" type="Node2D" parent="."]
 
 [node name="ZombieNorm" parent="Zombies" instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_jspx3")
+material = SubResource("ShaderMaterial_5540e")
 position = Vector2(1177, 834)
 
 [node name="ZombieNorm2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_3amv6")
+material = SubResource("ShaderMaterial_jspx3")
 position = Vector2(962, 410)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm3" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_x4nwj")
+material = SubResource("ShaderMaterial_3amv6")
 position = Vector2(1055, 520)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm4" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_ugfk5")
+material = SubResource("ShaderMaterial_x4nwj")
 position = Vector2(1216, 402)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm5" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_w7ibn")
+material = SubResource("ShaderMaterial_ugfk5")
 position = Vector2(849, 463)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm9" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_01dia")
+material = SubResource("ShaderMaterial_w7ibn")
 position = Vector2(1067, 418)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm10" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_m8uxc")
+material = SubResource("ShaderMaterial_01dia")
 position = Vector2(1160, 528)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm11" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_86o21")
+material = SubResource("ShaderMaterial_m8uxc")
 position = Vector2(1321, 410)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieNorm12" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_cwdhr")
+material = SubResource("ShaderMaterial_86o21")
 position = Vector2(954, 471)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
@@ -289,17 +289,17 @@ position = Vector2(1487, 172)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="ZombieNorm6" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_ym72c")
+material = SubResource("ShaderMaterial_cwdhr")
 position = Vector2(1193, 63)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="ZombieNorm7" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_funmq")
+material = SubResource("ShaderMaterial_ym72c")
 position = Vector2(1312, 271)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="ZombieNorm8" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_r4tew")
+material = SubResource("ShaderMaterial_funmq")
 position = Vector2(1334, 158)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
@@ -313,22 +313,22 @@ position = Vector2(1119, 194)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="ZombieNorm13" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_newuu")
+material = SubResource("ShaderMaterial_r4tew")
 position = Vector2(825, 85)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="ZombieNorm14" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_6xp0r")
+material = SubResource("ShaderMaterial_newuu")
 position = Vector2(944, 293)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="ZombieNorm15" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
-material = SubResource("ShaderMaterial_gjbfd")
+material = SubResource("ShaderMaterial_6xp0r")
 position = Vector2(966, 180)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
 [node name="PlayerVamp" parent="." instance=ExtResource("6_5540e")]
-material = SubResource("ShaderMaterial_evypk")
+material = SubResource("ShaderMaterial_gjbfd")
 position = Vector2(124, 808)
 
 [node name="Rooms" type="Node2D" parent="."]
