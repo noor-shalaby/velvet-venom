@@ -201,7 +201,10 @@ func _on_dash_hitbox_body_entered(body: Zombie) -> void:
 	super(body)
 	
 	if dash_slash and dash_lifesteal:
-		hp += min(body.hp * dash_lifesteal_factor, dash_slash_damage)
+		if hp < hp_max:
+			hp += min(body.hp * dash_lifesteal_factor, dash_slash_damage)
+		else:
+			blood += min(body.hp * dash_lifesteal_factor, dash_slash_damage)
 
 
 

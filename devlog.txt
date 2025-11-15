@@ -1057,3 +1057,4 @@ Day 148 - SAT 15/11/2025
 
 - coded the ZombieGunner to drop its weapon when stunned
 - fixed a bug where the ZombieGunner would drop its weapon on death even after having dropped it earlier due to getting stunned
+- coded the PlayerVamp lifesteal slash dash to steal blood instead of hp when hp is full
