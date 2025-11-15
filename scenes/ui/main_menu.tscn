@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5pn4nalkxme2"]
+[gd_scene load_steps=17 format=3 uid="uid://c5pn4nalkxme2"]
 
 [ext_resource type="Script" uid="uid://b8wrctuypeaxn" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="PackedScene" uid="uid://bw5pevb5eulst" path="res://scenes/ui/button_play.tscn" id="1_fe2o3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dpgrb42mjcrhi" path="res://assets/ui/player_portrait.png" id="7_wb0q5"]
 [ext_resource type="PackedScene" uid="uid://c0p5h8tci88bo" path="res://scenes/ui/settings_screen.tscn" id="9_q85j6"]
 [ext_resource type="PackedScene" uid="uid://i0ug2plhmy3s" path="res://scenes/ui/credits_screen.tscn" id="11_7suek"]
+[ext_resource type="FontFile" uid="uid://ecc2ug37qech" path="res://assets/fonts/Cinzel-Bold.ttf" id="11_8ekit"]
 
 [sub_resource type="Curve" id="Curve_q85j6"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.01, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -138,6 +139,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("7_wb0q5")
 stretch_mode = 2
+
+[node name="Playtest1Label" type="Label" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("11_8ekit")
+theme_override_font_sizes/font_size = 24
+text = "Playtest I"
+horizontal_alignment = 2
 
 [node name="SettingsScreen" parent="." instance=ExtResource("9_q85j6")]
 visible = false
