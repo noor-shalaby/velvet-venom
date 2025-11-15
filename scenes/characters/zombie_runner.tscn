@@ -35,7 +35,6 @@ knockback_force = 5500.0
 hp_max = 50.0
 
 [node name="DashParticles" type="GPUParticles2D" parent="." index="0"]
-visible = false
 position = Vector2(3, 0)
 emitting = false
 amount = 4
