@@ -37,7 +37,7 @@
 (X) create a credits menu
 (X) add the settings screen to the PauseMenu
 ( ) rework the step sound system from local child nodes to separate scenes instanciated when needed and otherwise freed
-( ) design one full proper level for playtesting
+(X) design one full proper level for playtesting
 ( ) design a bunch of levels, each one being larger and harder than its predecessor and utilizing more enemies and enemy types
 ( ) create a levels menu with a thumbnail, a description and hopefully a name for each level
 (X) animate Button to scale up and down on hover

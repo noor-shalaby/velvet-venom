@@ -1061,3 +1061,4 @@ Day 148 - SAT 15/11/2025
 - fixed a bug where music wouldn't stop after unchecking the audio box
 - fixed a bug where the ZombieRunner wouldn't emit the ghost effect particles
 - changed the ZombieGunner exported weapon variable from a string to a dropdown menu using an enum
+- designed a proper level for playtesting

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bd643agc3e14p"]
+[gd_scene load_steps=36 format=4 uid="uid://bd643agc3e14p"]
 
 [ext_resource type="PackedScene" uid="uid://d00p0lnr174q3" path="res://scenes/ui/canvas.tscn" id="1_ykkuh"]
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="2_kpv1g"]
@@ -174,6 +174,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(32, -416, 32, -64, 1568
 vertices = PackedVector2Array(1014, -458, 42, -458, 42, -1174, 1014, -1174)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(32, -1184, 32, -448, 1024, -448, 1024, -1184)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ugfk5"]
+vertices = PackedVector2Array(1558, -1226, 42, -1226, 42, -1558, 1558, -1558)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -1568, 32, -1216, 1568, -1216, 1568, -1568)])
 
 [node name="Game" type="Node2D"]
 metadata/_edit_vertical_guides_ = [8.0, 1600.0]
@@ -403,6 +408,16 @@ position = Vector2(352, -600)
 wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
 
+[node name="ZombieGunner13" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(872, -1480)
+wep = 2
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
+[node name="ZombieGunner14" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(680, -1344)
+wep = 2
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
 [node name="PlayerVamp" parent="." instance=ExtResource("6_5540e")]
 material = SubResource("ShaderMaterial_gjbfd")
 position = Vector2(124, 808)
@@ -435,6 +450,12 @@ navigation_layers = 0
 
 [node name="NavigationRegion2D5" type="NavigationRegion2D" parent="Rooms"]
 navigation_polygon = SubResource("NavigationPolygon_5540e")
+enabled = false
+use_edge_connections = false
+navigation_layers = 0
+
+[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="Rooms"]
+navigation_polygon = SubResource("NavigationPolygon_ugfk5")
 enabled = false
 use_edge_connections = false
 navigation_layers = 0
