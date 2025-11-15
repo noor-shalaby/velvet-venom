@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bd643agc3e14p"]
+[gd_scene load_steps=35 format=4 uid="uid://bd643agc3e14p"]
 
 [ext_resource type="PackedScene" uid="uid://d00p0lnr174q3" path="res://scenes/ui/canvas.tscn" id="1_ykkuh"]
 [ext_resource type="PackedScene" uid="uid://dhkaqpdvim4t" path="res://scenes/ui/hud.tscn" id="2_kpv1g"]
@@ -165,8 +165,18 @@ vertices = PackedVector2Array(1558, 310, 810, 310, 810, -22, 1558, -22)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(800, -32, 1568, -32, 1568, 320, 800, 320)])
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_evypk"]
+vertices = PackedVector2Array(1558, -74, 42, -74, 42, -406, 1558, -406)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -416, 32, -64, 1568, -64, 1568, -416)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5540e"]
+vertices = PackedVector2Array(1014, -458, 42, -458, 42, -1174, 1014, -1174)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -1184, 32, -448, 1024, -448, 1024, -1184)])
+
 [node name="Game" type="Node2D"]
-metadata/_edit_vertical_guides_ = [0.0, 1600.0]
+metadata/_edit_vertical_guides_ = [8.0, 1600.0]
 metadata/_edit_horizontal_guides_ = [928.0, -1984.0]
 
 [node name="Canvas" parent="." instance=ExtResource("1_ykkuh")]
@@ -208,6 +218,10 @@ limit_bottom = 928
 [node name="ZombieNorm" parent="Zombies" instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_5540e")
 position = Vector2(1177, 834)
+
+[node name="ZombieNorm21" parent="Zombies" instance=ExtResource("8_kpv1g")]
+material = SubResource("ShaderMaterial_5540e")
+position = Vector2(1288, -640)
 
 [node name="ZombieNorm2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
 material = SubResource("ShaderMaterial_jspx3")
@@ -251,32 +265,32 @@ patrol_room = NodePath("../../Rooms/NavigationRegion2D")
 
 [node name="ZombieGunner" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(160, 127)
-wep = "gun"
+wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
 [node name="ZombieGunner2" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(423, 169)
-wep = "gun"
+wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
 [node name="ZombieGunner3" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(156, 247)
-wep = "gun"
+wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
 [node name="ZombieGunner4" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(285, 266)
-wep = "gun"
+wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
 [node name="ZombieGunner5" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(548, 308)
-wep = "gun"
+wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
 [node name="ZombieGunner6" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
 position = Vector2(281, 386)
-wep = "gun"
+wep = 0
 patrol_room = NodePath("../../Rooms/NavigationRegion2D2")
 
 [node name="ZombieRunner" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("10_e0fs5")]
@@ -327,6 +341,68 @@ material = SubResource("ShaderMaterial_6xp0r")
 position = Vector2(966, 180)
 patrol_room = NodePath("../../Rooms/NavigationRegion2D3")
 
+[node name="ZombieBrawler3" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("11_5540e")]
+position = Vector2(626, -240)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieBrawler4" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("11_5540e")]
+position = Vector2(864, -323)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieBrawler5" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("11_5540e")]
+position = Vector2(560, -366)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieNorm16" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
+position = Vector2(525, -263)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieNorm17" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
+position = Vector2(721, -313)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieNorm18" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
+position = Vector2(806, -158)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieNorm19" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
+position = Vector2(608, -123)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieNorm20" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("8_kpv1g")]
+position = Vector2(379, -204)
+patrol_room = NodePath("../../Rooms/NavigationRegion2D4")
+
+[node name="ZombieGunner7" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(256, -840)
+wep = 1
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
+[node name="ZombieGunner8" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(472, -968)
+wep = 1
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
+[node name="ZombieGunner9" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(512, -648)
+wep = 1
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
+[node name="ZombieGunner10" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(192, -688)
+wep = 0
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
+[node name="ZombieGunner11" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(392, -832)
+wep = 0
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
+[node name="ZombieGunner12" parent="Zombies" node_paths=PackedStringArray("patrol_room") instance=ExtResource("9_q0j8x")]
+position = Vector2(352, -600)
+wep = 0
+patrol_room = NodePath("../../Rooms/NavigationRegion2D5")
+
 [node name="PlayerVamp" parent="." instance=ExtResource("6_5540e")]
 material = SubResource("ShaderMaterial_gjbfd")
 position = Vector2(124, 808)
@@ -347,6 +423,18 @@ navigation_layers = 0
 
 [node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Rooms"]
 navigation_polygon = SubResource("NavigationPolygon_x4nwj")
+enabled = false
+use_edge_connections = false
+navigation_layers = 0
+
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="Rooms"]
+navigation_polygon = SubResource("NavigationPolygon_evypk")
+enabled = false
+use_edge_connections = false
+navigation_layers = 0
+
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="Rooms"]
+navigation_polygon = SubResource("NavigationPolygon_5540e")
 enabled = false
 use_edge_connections = false
 navigation_layers = 0

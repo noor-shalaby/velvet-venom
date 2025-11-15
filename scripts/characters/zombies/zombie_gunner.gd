@@ -62,7 +62,13 @@ var weapons: Array[Dictionary] = [
 	#shotgun
 ]
 
-@export var wep: String = "random"
+enum WEAPONS {
+	GUN,
+	MACHINEGUN,
+	SHOTGUN,
+	RANDOM
+}
+@export var wep: WEAPONS = WEAPONS.RANDOM
 var weapon: Dictionary[String, Variant]
 
 @export_range(0.0, 1.0, 0.01) var precision: float = 10.0
@@ -99,11 +105,11 @@ func _ready() -> void:
 	super()
 	
 	match wep:
-		"gun":
+		WEAPONS.GUN:
 			weapon = gun
-		"machinegun":
+		WEAPONS.MACHINEGUN:
 			weapon = machinegun
-		"shotgun":
+		WEAPONS.SHOTGUN:
 			weapon = shotgun
 		_:
 			weapon = weapons.pick_random()
