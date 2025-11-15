@@ -21,7 +21,14 @@ var screenshake: bool = true
 var screenshake_val: float = 1.0
 
 
-var audio: bool = true
+var audio: bool = true:
+	set = set_audio
+func set_audio(_audio: bool) -> void:
+	audio = _audio
+	if audio and music and scene_tree.current_scene is Control:
+		AudioManager.play_ambient()
+	else:
+		AudioManager.stop_ambient()
 var audio_val: float = 1.0:
 	set = set_audio_val
 func set_audio_val(new_val: float) -> void:
@@ -32,7 +39,7 @@ var music: bool = true:
 	set = set_music
 func set_music(_music: bool) -> void:
 	music = _music
-	if music and scene_tree.current_scene is Control:
+	if audio and music and scene_tree.current_scene is Control:
 		AudioManager.play_ambient()
 	else:
 		AudioManager.stop_ambient()
