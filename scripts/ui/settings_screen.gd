@@ -24,6 +24,8 @@ func _ready() -> void:
 	music_slider.value = Settings.music_val
 	
 	gameplay_mouse_capture_check.button_pressed = Settings.gameplay_mouse_capture
+	
+	EventBus.connect("fullscreen_toggled", _update_fullscreen_check)
 
 
 func _on_fullscreen_check_pressed() -> void:
@@ -100,3 +102,7 @@ func _on_reset_button_pressed() -> void:
 	if screenshake_slider.value != Settings.DEFAULTS.screenshake_val:
 		var tween: Tween = create_tween()
 		tween.tween_property(screenshake_slider, "value", Settings.DEFAULTS.screenshake_val, Settings.TWEEN_DURATION)
+
+
+func _update_fullscreen_check() -> void:
+	fullscreen_check.button_presseds = Settings.fullscreen

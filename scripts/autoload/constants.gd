@@ -30,6 +30,7 @@ const FILE_UIDS: Dictionary[String, Variant] = {
 	"blood_pool_scene": "uid://1twhq540r50",
 		# ui
 	"death_screen_scene": "uid://bomjpnrcspvgr",
+	"end_screen_scene": "uid://bw0aewvlwamvs",
 		# ui
 	"bloodslash1": "uid://lubkpi5hn26h",
 	"bloodsplash2": "uid://bvsm1u4002f13",

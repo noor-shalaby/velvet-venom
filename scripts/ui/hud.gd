@@ -13,6 +13,7 @@ const BLOOD_OVERLAY_VISIBILITY_MULTIPLIER: float = 2.0
 @onready var weapon_panel: PanelContainer = %WeaponPanel
 @onready var weapon_rect: TextureRect = %WeaponRect
 @onready var mag_label: Label = %MagLabel
+@onready var objective_label: Label = %ObjectiveLabel
 
 const WEAPON_TEXTURES: Dictionary[String, CompressedTexture2D] = {
 	"gun": preload(Constants.FILE_UIDS.weapon_tex_gun),
@@ -25,6 +26,7 @@ func _ready() -> void:
 	EventBus.connect("player_hp_changed", _update_player_hp)
 	EventBus.connect("player_hit", blink_blood)
 	EventBus.connect("player_died", disappear)
+	EventBus.connect("objective_progress_changed", _update_objective)
 	
 	show()
 
@@ -54,6 +56,9 @@ func _update_player_mag(new_value: int) -> void:
 
 func _update_player_blood(new_value: float, max_value: float) -> void:
 	create_tween().tween_property(blood_bar, "value", (new_value / max_value) * 100, 0.1)
+
+func _update_objective(objective: String, new_value: int, max_value: int) -> void:
+	objective_label.text = objective + ": (" + str(new_value) + "/" + str(max_value) + ")"
 
 
 func blink_blood(damage: float) -> void:

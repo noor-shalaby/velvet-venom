@@ -35,6 +35,7 @@ func set_hp(new_hp: float) -> void:
 	if hp <= 0:
 		die()
 
+
 @export_category("Appearance")
 @export var blood_color: Color = Color(0.502, 0.141, 0.11)
 

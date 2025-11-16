@@ -109,7 +109,7 @@ custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_btxxm")
-target_scene_path = "uid://bhywd8ptw76nk"
+target_scene_path = "uid://bd643agc3e14p"
 
 [node name="SettingsButton" parent="TitleScreen/HBox/MenuContainer/VBox" instance=ExtResource("3_m1kxf")]
 custom_minimum_size = Vector2(600, 100)

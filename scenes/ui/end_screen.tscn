@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cv0b8mfiyro15" path="res://scenes/ui/button.tscn" id="8_8nti4"]
 [ext_resource type="PackedScene" uid="uid://dpuiuhj744ino" path="res://scenes/ui/button_quit.tscn" id="9_ee7ch"]
 [ext_resource type="PackedScene" uid="uid://b5wjqm0rc6n38" path="res://scenes/ui/button_url.tscn" id="10_iapms"]
-[ext_resource type="FontFile" uid="uid://ecc2ug37qech" path="res://assets/fonts/Cinzel-Bold.ttf" id="11_41aik"]
+[ext_resource type="FontFile" uid="uid://ecc2ug37qech" path="res://assets/fonts/Cinzel-Bold.ttf" id="11_i51tm"]
 [ext_resource type="PackedScene" uid="uid://i0ug2plhmy3s" path="res://scenes/ui/credits_screen.tscn" id="13_e4sm0"]
 
 [sub_resource type="Curve" id="Curve_q85j6"]
@@ -92,7 +92,7 @@ theme_override_constants/margin_top = 64
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 32
+theme_override_constants/separation = 64
 
 [node name="VBox" type="VBoxContainer" parent="VictoryScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -160,7 +160,7 @@ offset_top = 24.0
 offset_right = -24.0
 offset_bottom = 57.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("11_41aik")
+theme_override_fonts/font = ExtResource("11_i51tm")
 theme_override_font_sizes/font_size = 24
 text = "Playtest I"
 horizontal_alignment = 2
