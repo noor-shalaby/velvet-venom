@@ -82,6 +82,7 @@ position = Vector2(10, 0)
 texture = ExtResource("2_ti7kl")
 
 [node name="ArmLeft" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_2l4js")
 position = Vector2(10, 0)
 texture = ExtResource("4_65k6d")
@@ -184,6 +185,13 @@ one_shot = true
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_3j8mr")
 
+[node name="HealthRegenCountdown" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="HealthRegenCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="draw" from="ArmLeft" to="." method="_on_arm_left_draw"]
 [connection signal="hidden" from="ArmLeft" to="." method="_on_arm_left_hidden"]
 [connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]
@@ -194,3 +202,5 @@ stream = ExtResource("8_3j8mr")
 [connection signal="area_exited" from="BloodSucker" to="." method="_on_blood_sucker_area_exited"]
 [connection signal="timeout" from="SuctionCooldownTimer" to="." method="_on_suction_cooldown_timer_timeout"]
 [connection signal="finished" from="WalkSound" to="." method="_on_walk_sound_finished"]
+[connection signal="timeout" from="HealthRegenCountdown" to="." method="_on_health_regen_countdown_timeout"]
+[connection signal="timeout" from="HealthRegenCooldown" to="." method="_on_health_regen_cooldown_timeout"]

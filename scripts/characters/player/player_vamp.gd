@@ -52,6 +52,9 @@ func set_hp(new_hp: float) -> void:
 			stop_sucking()
 		is_suction_ready = false
 		suction_cooldown_timer.start(suction_cooldown)
+		is_health_regen_ready = false
+		health_regen_countdown_timer.stop()
+		health_regen_cooldown_timer.start(health_regen_cooldown)
 
 
 @export var blood_max: float = 128.0
@@ -74,6 +77,11 @@ var suck_sound_last_playback_position: float = 0.0
 @export var suction_cooldown: float = 1.0
 var is_suction_ready: bool = true
 
+@export var health_regen_tick: float = 0.5
+@export var health_regen_countdown: float = 0.5
+@export var health_regen_cooldown: float = 3.0
+var is_health_regen_ready: bool = true
+
 @export var dash_lifesteal: bool = true
 @export_range(0.0, 1.0, 0.01) var dash_lifesteal_factor: float = 0.1
 
@@ -91,6 +99,8 @@ const BLOOD_SPLASH_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_splash
 @onready var suck_sound_player: AudioStreamPlayer2D = $SuckSound
 @onready var suck_sound_default_volume_db: float = suck_sound_player.volume_db
 @onready var suck_sound_default_pitch_scale: float = suck_sound_player.pitch_scale
+@onready var health_regen_countdown_timer: Timer = $HealthRegenCountdown
+@onready var health_regen_cooldown_timer: Timer = $HealthRegenCooldown
 
 func _ready() -> void:
 	super()
@@ -287,3 +297,12 @@ func _on_arm_left_hidden() -> void:
 
 func _on_suction_cooldown_timer_timeout() -> void:
 	is_suction_ready = true
+
+
+func _on_health_regen_countdown_timeout() -> void:
+	hp += health_regen_tick
+
+func _on_health_regen_cooldown_timeout() -> void:
+	is_health_regen_ready = true
+	if hp < hp_max:
+		health_regen_countdown_timer.start(health_regen_countdown)
