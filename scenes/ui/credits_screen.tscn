@@ -89,21 +89,21 @@ layout_mode = 2
 text = "Noor Shalaby"
 url = "https://www.linkedin.com/in/noor-shalaby-a8414a357/"
 
-[node name="UI_UX" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
+[node name="UI" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="UI_UXLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI_UX"]
+[node name="UILabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
-text = "UI/UX Design"
+text = "UI Design"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SalmaMedhatButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI_UX" instance=ExtResource("5_uklmw")]
+[node name="SalmaMedhatButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Salma Medhat"
 url = "https://www.linkedin.com/in/salma-medhat-409a3a350/"
