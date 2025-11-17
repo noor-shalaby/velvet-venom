@@ -71,7 +71,7 @@ vertical_alignment = 1
 
 [node name="Main" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam"]
 layout_mode = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 24
 
 [node name="Development" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main"]
 layout_mode = 2
