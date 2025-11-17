@@ -16,7 +16,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_uklmw")
-init_focus_node = NodePath("MarginContainer/HBox/DevelopmentTeam/Main/Development/NoorShalabyButton")
+init_focus_node = NodePath("MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main/Development/NoorShalabyButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -52,13 +52,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 128
 
-[node name="DevelopmentTeam" type="VBoxContainer" parent="MarginContainer/HBox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox"]
+layout_mode = 2
+
+[node name="DevelopmentTeam" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_constants/separation = 32
 
-[node name="DevelopmentTeamLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam"]
+[node name="DevelopmentTeamLabel" type="Label" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 40
@@ -66,17 +69,17 @@ text = "Development Team"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Main" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam"]
+[node name="Main" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Development" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
+[node name="Development" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="DevelopmentLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/Development"]
+[node name="DevelopmentLabel" type="Label" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main/Development"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
@@ -84,18 +87,18 @@ text = "Development"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NoorShalabyButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/Development" instance=ExtResource("5_uklmw")]
+[node name="NoorShalabyButton" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main/Development" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Noor Shalaby"
 url = "https://www.linkedin.com/in/noor-shalaby-a8414a357/"
 
-[node name="UI" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
+[node name="UI" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="UILabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI"]
+[node name="UILabel" type="Label" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main/UI"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
@@ -103,18 +106,31 @@ text = "UI Design"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SalmaMedhatButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/UI" instance=ExtResource("5_uklmw")]
+[node name="SalmaMedhatButton" parent="MarginContainer/HBox/VBoxContainer/DevelopmentTeam/Main/UI" instance=ExtResource("5_uklmw")]
 layout_mode = 2
 text = "Salma Medhat"
 url = "https://www.linkedin.com/in/salma-medhat-409a3a350/"
 
-[node name="Assets" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main"]
+[node name="Additional Help" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 32
+
+[node name="DevelopmentTeamLabel" type="Label" parent="MarginContainer/HBox/VBoxContainer/Additional Help"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_helb1")
+theme_override_font_sizes/font_size = 40
+text = "Additional Help"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Assets" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/Additional Help"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="AssetsLabel" type="Label" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets"]
+[node name="AssetsLabel" type="Label" parent="MarginContainer/HBox/VBoxContainer/Additional Help/Assets"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_helb1")
 theme_override_font_sizes/font_size = 24
@@ -122,17 +138,17 @@ text = "Assets"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/VBoxContainer/Additional Help/Assets"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="OmarShalabyButton" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets/VBoxContainer" instance=ExtResource("3_s67r0")]
+[node name="OmarShalabyButton" parent="MarginContainer/HBox/VBoxContainer/Additional Help/Assets/VBoxContainer" instance=ExtResource("3_s67r0")]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
 disabled = true
 text = "Omar Shalaby"
 
-[node name="SalmaShalabyButton2" parent="MarginContainer/HBox/DevelopmentTeam/Main/Assets/VBoxContainer" instance=ExtResource("3_s67r0")]
+[node name="SalmaShalabyButton2" parent="MarginContainer/HBox/VBoxContainer/Additional Help/Assets/VBoxContainer" instance=ExtResource("3_s67r0")]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
 disabled = true
