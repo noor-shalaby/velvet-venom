@@ -7,6 +7,7 @@ extends Area2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var tween: Tween = create_tween().set_parallel(true)
 
+
 func _ready() -> void:
 	global_rotation_degrees = randf_range(-180.0, 180.0)
 	sprite2.global_rotation_degrees = randf_range(-180.0, 180.0)

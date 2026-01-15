@@ -19,7 +19,7 @@ extends CanvasLayer
 
 var tween: Tween
 var previous_screen: Screen = null
-@onready var current_screen: Screen = null
+var current_screen: Screen = null
 
 
 func _ready() -> void:

@@ -3,9 +3,9 @@ extends Node2D
 
 const BLOOD_STAIN_SCENE: PackedScene = preload(Constants.FILE_UIDS.blood_stain_scene)
 
-
 @onready var game: Node2D = $/root/Game
 @onready var blood_splatters: Array[Node] = get_children()
+
 
 func _ready() -> void:
 	for blood_splatter in blood_splatters:

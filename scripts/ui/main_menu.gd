@@ -4,7 +4,6 @@ extends ScreenManager
 @onready var title_screen: Screen = $TitleScreen
 @onready var settings_screen: Screen = $SettingsScreen
 @onready var credits_screen: Screen = $CreditsScreen
-@onready var play_button: Buttona = %PlayButton
 
 
 func _ready() -> void:

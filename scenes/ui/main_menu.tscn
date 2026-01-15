@@ -104,7 +104,6 @@ text = "Velvet Venom"
 horizontal_alignment = 1
 
 [node name="PlayButton" parent="TitleScreen/HBox/MenuContainer/VBox" instance=ExtResource("1_fe2o3")]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48

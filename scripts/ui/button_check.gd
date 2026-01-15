@@ -15,5 +15,6 @@ func _on_pressed() -> void:
 
 func pop_animation(dur: float = 0.1) -> void:
 	var _tween: Tween = create_tween()
+	var pre_anim_scale: Vector2 = scale
 	_tween.tween_property(self, "scale", Vector2.ONE * pop_scale, dur / 2)
-	_tween.tween_property(self, "scale", Vector2.ONE, dur)
+	_tween.tween_property(self, "scale", pre_anim_scale, dur)
